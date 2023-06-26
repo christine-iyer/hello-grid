@@ -1,14 +1,7 @@
 require('dotenv').config();
 require('./database');
-
 const Category = require('../models/item.js/category');
 const Item = require('../models/item.js/item');
-
-
-
-
-
-
 
 (async function () {
      await Category.deleteMany({});
@@ -195,7 +188,7 @@ const Item = require('../models/item.js/item');
           { name: 'A2Z', sortOrder: 10 },
           { name: 'AC moore', sortOrder: 20 },
           { name: 'Allen Sterling', sortOrder: 30 },
-          { name: 'Allstar Health.', sortOrder: 40 },
+          { name: 'Allstar Health', sortOrder: 40 },
           { name: 'Broadway Gardens', sortOrder: 50 },
           { name: 'Bulk Apothecary', sortOrder: 60 },
           { name: 'Chemistrystore', sortOrder: 70 },
@@ -268,12 +261,9 @@ const Item = require('../models/item.js/item');
 
      await Item.deleteMany({});
      const items = await Item.create([
-
-          { name: "R4", emoji: "https://images.leafly.com/flower-images/acapulco.jpg", category: categories[0], price: 16.99 },
-
           {
                "dateOfExpense": "01/02/20",
-               "payee": "cmp",
+               "payee": payees[7],
                "description": "Electric",
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
@@ -315,7 +305,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/07/20",
-               "payee": "Sams Club",
+               "payee": payees[36],
                "description": "cocnut oil",
                "usedFor": "cooking",
                "numUnits": 2,
@@ -357,7 +347,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/07/20",
-               "payee": "Sams Club",
+               "payee": payees[36],
                "description": "Baking Soda",
                "usedFor": "cooking",
                "numUnits": "",
@@ -399,7 +389,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/07/20",
-               "payee": "Sams Club",
+               "payee": payees[36],
                "description": "Callagen",
                "usedFor": "cooking",
                "numUnits": "",
@@ -441,7 +431,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "1/9/2020",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -483,7 +473,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/09/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": "",
@@ -525,7 +515,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/10/20",
-               "payee": "dollar store",
+               "payee": payees[11],
                "description": "agava",
                "usedFor": "cooking",
                "numUnits": 9,
@@ -567,7 +557,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/11/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "plant",
                "usedFor": "growing",
                "numUnits": "",
@@ -609,7 +599,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/13/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "sales tax",
                "usedFor": "",
                "numUnits": "",
@@ -651,7 +641,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "1/13/2020",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -693,7 +683,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/17/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "LLC license-annual",
                "usedFor": "Licensing",
                "numUnits": "",
@@ -735,7 +725,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/23/20",
-               "payee": "true value",
+               "payee": payees[42],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": "",
@@ -777,7 +767,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/30/20",
-               "payee": "Allen Sterling",
+               "payee": payees[2],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 5,
@@ -819,7 +809,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/30/20",
-               "payee": "Broadway Gardens",
+               "payee": payees[4],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 1,
@@ -861,7 +851,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "01/30/20",
-               "payee": "Broadway Gardens",
+               "payee": payees[4],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 1,
@@ -903,7 +893,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "02/04/20",
-               "payee": "cmp",
+               "payee": payees[7],
                "description": "Electric",
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
@@ -945,7 +935,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "02/08/20",
-               "payee": "true value",
+               "payee": payees[42],
                "description": "package",
                "usedFor": "packaging",
                "numUnits": "",
@@ -987,7 +977,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "2/13/2020",
-               "payee": "AC moore",
+               "payee": payees[1],
                "description": "gluclose",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -1029,7 +1019,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "2/13/2020",
-               "payee": "AC moore",
+               "payee": payees[1],
                "description": "package",
                "usedFor": "packaging",
                "numUnits": 3,
@@ -1071,7 +1061,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "02/19/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -1113,7 +1103,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "02/19/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -1155,7 +1145,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/02/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -1197,7 +1187,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/02/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -1239,7 +1229,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/02/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "Employee licenseto work with another care giver",
                "usedFor": "Licensing",
                "numUnits": "",
@@ -1281,7 +1271,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "3/3/2020",
-               "payee": "cmp",
+               "payee": payees[7],
                "description": "Electric",
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
@@ -1323,7 +1313,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/04/20",
-               "payee": "Mardens",
+               "payee": payees[25],
                "description": "gelitne",
                "usedFor": "cooking",
                "numUnits": "",
@@ -1365,7 +1355,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/09/20",
-               "payee": "Natural Happiness",
+               "payee": payees[29],
                "description": "CBG RSO",
                "usedFor": "cooking",
                "numUnits": 3,
@@ -1407,7 +1397,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/09/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "IIC audult use license-annual-dispensery",
                "usedFor": "licensing",
                "numUnits": "",
@@ -1449,7 +1439,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/11/20",
-               "payee": "A2Z",
+               "payee": payees[0],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": "",
@@ -1491,7 +1481,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/11/20",
-               "payee": "CVS",
+               "payee": payees[8],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": "",
@@ -1533,7 +1523,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/11/20",
-               "payee": "CVS",
+               "payee": payees[8],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": "",
@@ -1575,7 +1565,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/11/20",
-               "payee": "Lois",
+               "payee": payees[23],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": "",
@@ -1617,7 +1607,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/16/20",
-               "payee": "Dipietros",
+               "payee": payees[9],
                "description": "everclear",
                "usedFor": "extraction",
                "numUnits": "",
@@ -1659,7 +1649,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/19/20",
-               "payee": "walmrt",
+               "payee": payees[47],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": "",
@@ -1701,7 +1691,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "03/31/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "wash",
                "usedFor": "growing",
                "numUnits": 1,
@@ -1743,7 +1733,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "4/1/2020",
-               "payee": "Allstar Health.",
+               "payee": payees[3],,
                "description": "sleepcomplete",
                "usedFor": "cooking",
                "numUnits": 6,
@@ -1785,7 +1775,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/02/20",
-               "payee": "lorann oils",
+               "payee": payees[24],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": "",
@@ -1827,7 +1817,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/02/20",
-               "payee": "cmp",
+               "payee": payees[7],
                "description": "Electric",
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
@@ -1869,7 +1859,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/03/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -1911,7 +1901,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/07/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": "",
@@ -1953,7 +1943,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/15/20",
-               "payee": "Jordan Farm",
+               "payee": payees[19],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 2,
@@ -1995,7 +1985,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/23/20",
-               "payee": "mountain Rose",
+               "payee": payees[26],
                "description": "herbs/wax",
                "usedFor": "cooking",
                "numUnits": "",
@@ -2037,7 +2027,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/24/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -2079,7 +2069,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "04/28/20",
-               "payee": "Nolts Greenhouse",
+               "payee": payees[30],
                "description": "greenhouse-plastic",
                "usedFor": "leasehold improvments",
                "numUnits": "",
@@ -2121,7 +2111,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/07/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -2163,7 +2153,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/10/20",
-               "payee": "Jordan Farm",
+               "payee": payees[19],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 2,
@@ -2205,7 +2195,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/10/20",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "grow rooms",
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
@@ -2247,7 +2237,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/11/20",
-               "payee": "Dipietros",
+               "payee": payees[9],
                "description": "everclear",
                "usedFor": "extraction",
                "numUnits": "",
@@ -2289,7 +2279,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/16/20",
-               "payee": "Jordan Farm",
+               "payee": payees[19],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 1,
@@ -2331,7 +2321,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/21/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "clonex gel",
                "usedFor": "growing",
                "numUnits": "",
@@ -2373,7 +2363,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "05/27/20",
-               "payee": "Jordan Farm",
+               "payee": payees[19],
                "description": "soil",
                "usedFor": "growing",
                "numUnits": 1,
@@ -2415,7 +2405,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/10/20",
-               "payee": "Truffle made",
+               "payee": payees[43],
                "description": "molds",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -2457,7 +2447,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "6/11/2020",
-               "payee": "Multiple vendors",
+               "payee": payees[27],
                "description": "fix new greenhouse",
                "usedFor": "leasehold improvements",
                "numUnits": "",
@@ -2499,7 +2489,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/14/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "plant",
                "usedFor": "growing",
                "numUnits": "",
@@ -2541,7 +2531,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/15/20",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "grow rooms",
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
@@ -2583,7 +2573,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/15/20",
-               "payee": "oakhill",
+               "payee": payees[31],
                "description": "grow rooms",
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
@@ -2625,7 +2615,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/16/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -2667,7 +2657,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/20/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "Grow license-annual",
                "usedFor": "Licensing",
                "numUnits": "",
@@ -2709,7 +2699,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "06/20/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "Back ground check-license-annual",
                "usedFor": "Licensing",
                "numUnits": "",
@@ -2751,7 +2741,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "6/25/2020",
-               "payee": "Allen Sterling",
+               "payee": payees[2],,
                "description": "Soil",
                "usedFor": "growing",
                "numUnits": "",
@@ -2793,7 +2783,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "6/30/2020",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "cooking",
                "numUnits": "",
@@ -2835,7 +2825,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "7/1/2020",
-               "payee": "Dishwaser-Uncle Andy",
+               "payee": payees[10],
                "description": "equipment",
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
@@ -2877,7 +2867,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "7/1/2020",
-               "payee": "Freeze Dryer",
+               "payee": payees[12],
                "description": "",
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
@@ -2919,7 +2909,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "7/1/2020",
-               "payee": "labor cost-Rob Fogg",
+               "payee": payees[20],
                "description": "heating system/water line grow room",
                "usedFor": "leasehold improvments",
                "numUnits": "",
@@ -2961,7 +2951,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/01/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -3003,7 +2993,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "7/1/2020",
-               "payee": "Handsink-rest equiment store",
+               "payee": payees[14],
                "description": "equipment",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -3045,7 +3035,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/10/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "cloning machine",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -3087,7 +3077,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "7/10/2020",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "Cloner",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -3129,7 +3119,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/13/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -3171,7 +3161,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/14/20",
-               "payee": "Allstar Health.",
+               "payee": payees[3],
                "description": "sleepcomplete",
                "usedFor": "cooking",
                "numUnits": 7,
@@ -3213,7 +3203,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/15/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "sales tax",
                "usedFor": "",
                "numUnits": "",
@@ -3255,7 +3245,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/19/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -3297,7 +3287,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/23/20",
-               "payee": "Dipietros",
+               "payee": payees[9],
                "description": "everclear",
                "usedFor": "extraction",
                "numUnits": 2,
@@ -3339,7 +3329,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/27/20",
-               "payee": "Staples",
+               "payee": payees[39],
                "description": "office",
                "usedFor": "packaging",
                "numUnits": "",
@@ -3381,7 +3371,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "cashw milk",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -3423,7 +3413,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Coconut sugar",
                "usedFor": "cooking",
                "numUnits": 5,
@@ -3465,7 +3455,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Erythritol",
                "usedFor": "cooking",
                "numUnits": 5,
@@ -3507,7 +3497,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Papaya Powder",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -3549,7 +3539,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Pineapple powder",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -3591,7 +3581,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Tart Cherry",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -3633,7 +3623,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/01/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Coconut sugar",
                "usedFor": "cooking",
                "numUnits": 2,
@@ -3675,7 +3665,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/01/20",
-               "payee": "Chemistrystore",
+               "payee": payees[6],
                "description": "tubes",
                "usedFor": "packaging",
                "numUnits": 5,
@@ -3717,7 +3707,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "8/5/2020",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "Misc grow room-paints/lights",
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
@@ -3759,7 +3749,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "8/5/2020",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "5 buckets w/lids",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -3801,7 +3791,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "8/5/2020",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "5 buckets w/lids",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -3843,7 +3833,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/11/20",
-               "payee": "Leroux Kitchen",
+               "payee": payees[22],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": "",
@@ -3885,7 +3875,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/13/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -3927,7 +3917,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/13/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -3969,7 +3959,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/13/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -4011,7 +4001,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/14/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -4053,7 +4043,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/15/20",
-               "payee": "Renhui metal",
+               "payee": payees[35],
                "description": "plant lamps",
                "usedFor": "equipment",
                "numUnits": 1,
@@ -4095,7 +4085,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/19/20",
-               "payee": "lorann oils",
+               "payee": payees[24],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": "",
@@ -4137,7 +4127,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/25/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "office shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -4179,7 +4169,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/26/20",
-               "payee": "State of Mind",
+               "payee": payees[41],
                "description": "tshirts",
                "usedFor": "purchases for resale",
                "numUnits": "",
@@ -4221,7 +4211,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/27/20",
-               "payee": "Dipietros",
+               "payee": payees[9],
                "description": "everclear",
                "usedFor": "extraction",
                "numUnits": 1,
@@ -4263,7 +4253,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/29/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": "",
@@ -4305,7 +4295,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/29/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -4347,7 +4337,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "08/29/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -4389,7 +4379,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/01/20",
-               "payee": "Indendent power",
+               "payee": payees[18],
                "description": "grow rooms-thermo pex",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": 2,
@@ -4431,7 +4421,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -4473,7 +4463,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -4515,7 +4505,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -4557,7 +4547,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -4599,7 +4589,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/14/20",
-               "payee": "Pharmaca",
+               "payee": payees[32],
                "description": "calm",
                "usedFor": "cooking",
                "numUnits": "",
@@ -4641,7 +4631,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "9/15/2020",
-               "payee": "Heat system for grow room",
+               "payee": payees[15],
                "description": "",
                "usedFor": "leasehold improvements",
                "numUnits": "",
@@ -4683,7 +4673,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "9/15/2020",
-               "payee": "SJR Labs",
+               "payee": payees[38],
                "description": "SJR labs-RSO",
                "usedFor": "extraction",
                "numUnits": "",
@@ -4725,7 +4715,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "9/15/2020",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "trimming sissors",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -4767,7 +4757,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "9/15/2020",
-               "payee": "Home Depot",
+               "payee": payees[17],
                "description": "",
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
@@ -4809,7 +4799,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "09/30/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "humidity packs",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
@@ -4851,7 +4841,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/10/2020",
-               "payee": "SJR Labs",
+               "payee": payees[38],
                "description": "SJR labs-RSO",
                "usedFor": "extraction",
                "numUnits": "",
@@ -4893,7 +4883,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/10/20",
-               "payee": "Napa",
+               "payee": payees[28],
                "description": "pump oil",
                "usedFor": "indirect equipment repair&maint",
                "numUnits": 5,
@@ -4935,7 +4925,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/13/2020",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "freight-out",
                "usedFor": "freight out",
                "numUnits": "",
@@ -4977,7 +4967,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/16/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -5019,7 +5009,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/16/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Coconut sugar",
                "usedFor": "cooking",
                "numUnits": 3,
@@ -5061,7 +5051,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/16/20",
-               "payee": "zNatural",
+               "payee": payees[48],
                "description": "Erythritol",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -5103,7 +5093,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "10/20/2020",
-               "payee": "Proverda lab",
+               "payee": payees[34],
                "description": "Testing",
                "usedFor": "QC/Lab",
                "numUnits": "",
@@ -5145,7 +5135,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/02/20",
-               "payee": "Uline",
+               "payee": payees[44],
                "description": "shrink tube",
                "usedFor": "packaging",
                "numUnits": "",
@@ -5187,7 +5177,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               "payee": payees[13],
                "description": "nutrients-Part A",
                "usedFor": "growing",
                "numUnits": "",
@@ -5229,7 +5219,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               "payee": payees[13],
                "description": "nutrients-Boost",
                "usedFor": "growing",
                "numUnits": "",
@@ -5271,7 +5261,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               "payee": payees[13],
                "description": "nutrients-Bloom",
                "usedFor": "growing",
                "numUnits": "",
@@ -5313,7 +5303,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               "payee": payees[13],
                "description": "nutrients-magnesium",
                "usedFor": "growing",
                "numUnits": "",
@@ -5355,7 +5345,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               "payee": payees[13],
                "description": "5 gallon plant pots",
                "usedFor": "indirect equip-non cap equip",
                "numUnits": 44,
@@ -5397,7 +5387,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/07/20",
-               "payee": "Vessel Services",
+               "payee": payees[46],
                "description": "dry ice",
                "usedFor": "extraction",
                "numUnits": "",
@@ -5439,7 +5429,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/08/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -5481,7 +5471,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -5523,7 +5513,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 2,
@@ -5565,7 +5555,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -5607,7 +5597,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "Green Leds-light bulbs",
                "usedFor": "indirect equipment repair&maint",
                "numUnits": 1,
@@ -5649,7 +5639,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/11/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": 1,
@@ -5691,7 +5681,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/12/20",
-               "payee": "Leapin Lizards",
+               "payee": payees[21],
                "description": "herbs",
                "usedFor": "cooking",
                "numUnits": "",
@@ -5733,7 +5723,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/15/20",
-               "payee": "shaws",
+               "payee": payees[37],
                "description": "cooking",
                "usedFor": "cooking",
                "numUnits": "",
@@ -5775,7 +5765,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/15/20",
-               "payee": "CVS",
+               "payee": payees[8],
                "description": "batt/cable-office exp",
                "usedFor": "office supplies",
                "numUnits": "",
@@ -5817,7 +5807,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/15/20",
-               "payee": "CVS",
+               "payee": payees[8],
                "description": "cable-office exp",
                "usedFor": "office supplies",
                "numUnits": "",
@@ -5859,7 +5849,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/17/2020",
-               "payee": "Lois",
+               "payee": payees[23],
                "description": "Topicals-goats milk",
                "usedFor": "cooking",
                "numUnits": "",
@@ -5901,7 +5891,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/17/2020",
-               "payee": "Lois",
+               "payee": payees[23],
                "description": "Topicals-orange water",
                "usedFor": "cooking",
                "numUnits": "",
@@ -5943,7 +5933,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/17/2020",
-               "payee": "Lois",
+               "payee": payees[23],
                "description": "MCT",
                "usedFor": "cooking",
                "numUnits": "",
@@ -5985,7 +5975,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/20/20",
-               "payee": "State of Maine",
+               "payee": payees[40],
                "description": "Annual report",
                "usedFor": "Licensing",
                "numUnits": "",
@@ -6027,7 +6017,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/25/20",
-               "payee": "Urban Garden",
+               "payee": payees[45],
                "description": "wash",
                "usedFor": "growing",
                "numUnits": 5,
@@ -6069,7 +6059,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/27/20",
-               "payee": "High Tech",
+               "payee": payees[16],
                "description": "nutrients",
                "usedFor": "growing",
                "numUnits": "",
@@ -6111,7 +6101,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -6153,7 +6143,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -6195,7 +6185,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "oil",
                "usedFor": "cooking",
                "numUnits": 7.5,
@@ -6237,7 +6227,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "flavor",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -6279,7 +6269,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "Emu oil",
                "usedFor": "cooking",
                "numUnits": 1,
@@ -6321,7 +6311,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "8oz bottles",
                "usedFor": "packaging",
                "numUnits": 1,
@@ -6363,7 +6353,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               "payee": payees[5],
                "description": "bottle pumps",
                "usedFor": "packaging",
                "numUnits": 1,
@@ -6405,7 +6395,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/30/2020",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "freight-out",
                "usedFor": "freight out",
                "numUnits": "",
@@ -6447,7 +6437,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "11/30/20",
-               "payee": "dollar store",
+               "payee": payees[11],
                "description": "shrinkwrap",
                "usedFor": "packaging",
                "numUnits": 20,
@@ -6489,7 +6479,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "12/05/20",
-               "payee": "Staples",
+               "payee": payees[39],
                "description": "office supplies",
                "usedFor": "office supplies",
                "numUnits": "",
@@ -6531,7 +6521,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "12/8/2020",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "freight-out",
                "usedFor": "freight out",
                "numUnits": "",
@@ -6573,7 +6563,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "12/21/2020",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "Shipping",
                "usedFor": "freight out",
                "numUnits": "",
@@ -6615,7 +6605,7 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "12/21/20",
-               "payee": "Post office",
+               "payee": payees[33],
                "description": "Shipping",
                "usedFor": "freight out",
                "numUnits": "",
