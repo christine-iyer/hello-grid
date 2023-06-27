@@ -180,6 +180,7 @@ const Item = require('../models/item.js/item');
           { name: 'tshirts', sortOrder: 740 },
           { name: 'tubes', sortOrder: 750 },
           { name: 'wash', sortOrder: 760 },
+          { name: 'Misc', sortOrder: 770 },
      ]);
 
 
@@ -264,7 +265,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/02/20",
                "payee": payees[7],
-               "description": "Electric",
+               "description": descriptions[21],
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -306,7 +307,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/07/20",
                "payee": payees[36],
-               "description": "cocnut oil",
+               "description": descriptions[17],
                "usedFor": "cooking",
                "numUnits": 2,
                "unitMeas": "",
@@ -348,7 +349,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/07/20",
                "payee": payees[36],
-               "description": "Baking Soda",
+               "description": descriptions[6],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -390,7 +391,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/07/20",
                "payee": payees[36],
-               "description": "Callagen",
+               "description": descriptions[10],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -432,7 +433,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "1/9/2020",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -474,7 +475,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/09/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -516,7 +517,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/10/20",
                "payee": payees[11],
-               "description": "agava",
+               "description": descriptions[3],
                "usedFor": "cooking",
                "numUnits": 9,
                "unitMeas": "",
@@ -558,7 +559,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/11/20",
                "payee": payees[45],
-               "description": "plant",
+               "description": descriptions[58],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -600,7 +601,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/13/20",
                "payee": payees[40],
-               "description": "sales tax",
+               "description": descriptions[61],
                "usedFor": "",
                "numUnits": "",
                "unitMeas": "",
@@ -642,7 +643,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "1/13/2020",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -684,7 +685,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/17/20",
                "payee": payees[40],
-               "description": "LLC license-annual",
+               "description": descriptions[42],
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -726,7 +727,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/23/20",
                "payee": payees[42],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -768,7 +769,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/30/20",
                "payee": payees[2],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 5,
                "unitMeas": "",
@@ -810,7 +811,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/30/20",
                "payee": payees[4],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -852,7 +853,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "01/30/20",
                "payee": payees[4],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -894,7 +895,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "02/04/20",
                "payee": payees[7],
-               "description": "Electric",
+               "description": descriptions[21],
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -936,7 +937,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "02/08/20",
                "payee": payees[42],
-               "description": "package",
+               "description": descriptions[55],
                "usedFor": "packaging",
                "numUnits": "",
                "unitMeas": "",
@@ -978,7 +979,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "2/13/2020",
                "payee": payees[1],
-               "description": "gluclose",
+               "description": descriptions[31],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -1020,7 +1021,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "2/13/2020",
                "payee": payees[1],
-               "description": "package",
+               "description": descriptions[55],
                "usedFor": "packaging",
                "numUnits": 3,
                "unitMeas": "each",
@@ -1062,7 +1063,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "02/19/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -1104,7 +1105,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "02/19/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -1146,7 +1147,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/02/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -1188,7 +1189,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/02/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -1230,7 +1231,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/02/20",
                "payee": payees[40],
-               "description": "Employee licenseto work with another care giver",
+               "description":  descriptions[22],
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -1272,7 +1273,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "3/3/2020",
                "payee": payees[7],
-               "description": "Electric",
+               "description": descriptions[21],
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -1314,7 +1315,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/04/20",
                "payee": payees[25],
-               "description": "gelitne",
+               "description": descriptions[30],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1356,7 +1357,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/09/20",
                "payee": payees[29],
-               "description": "CBG RSO",
+               "description": descriptions[13],
                "usedFor": "cooking",
                "numUnits": 3,
                "unitMeas": "",
@@ -1398,7 +1399,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/09/20",
                "payee": payees[40],
-               "description": "IIC audult use license-annual-dispensery",
+               "description": descriptions[41],
                "usedFor": "licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -1440,7 +1441,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/11/20",
                "payee": payees[0],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -1482,7 +1483,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/11/20",
                "payee": payees[8],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1524,7 +1525,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/11/20",
                "payee": payees[8],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1566,7 +1567,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/11/20",
                "payee": payees[23],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1608,7 +1609,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/16/20",
                "payee": payees[9],
-               "description": "everclear",
+               "description": descriptions[26],
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -1650,7 +1651,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/19/20",
                "payee": payees[47],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1692,7 +1693,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "03/31/20",
                "payee": payees[45],
-               "description": "wash",
+               "description": descriptions[75],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -1733,8 +1734,8 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "4/1/2020",
-               "payee": payees[3],,
-               "description": "sleepcomplete",
+               "payee": payees[3],
+               "description": descriptions[66],
                "usedFor": "cooking",
                "numUnits": 6,
                "unitMeas": "16 oz",
@@ -1776,7 +1777,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/02/20",
                "payee": payees[24],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1818,7 +1819,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/02/20",
                "payee": payees[7],
-               "description": "Electric",
+               "description": descriptions[21],
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -1860,7 +1861,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/03/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -1902,7 +1903,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/07/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -1944,7 +1945,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/15/20",
                "payee": payees[19],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -1986,7 +1987,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/23/20",
                "payee": payees[26],
-               "description": "herbs/wax",
+               "description": descriptions[39],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -2028,7 +2029,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/24/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2070,7 +2071,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "04/28/20",
                "payee": payees[30],
-               "description": "greenhouse-plastic",
+               "description": descriptions[33],
                "usedFor": "leasehold improvments",
                "numUnits": "",
                "unitMeas": "",
@@ -2112,7 +2113,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/07/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2154,7 +2155,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/10/20",
                "payee": payees[19],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -2196,7 +2197,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/10/20",
                "payee": payees[17],
-               "description": "grow rooms",
+               "description": descriptions[35],
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -2238,7 +2239,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/11/20",
                "payee": payees[9],
-               "description": "everclear",
+               "description": descriptions[26],
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -2280,7 +2281,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/16/20",
                "payee": payees[19],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -2322,7 +2323,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/21/20",
                "payee": payees[45],
-               "description": "clonex gel",
+               "description": descriptions[15],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -2364,7 +2365,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "05/27/20",
                "payee": payees[19],
-               "description": "soil",
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -2406,7 +2407,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/10/20",
                "payee": payees[43],
-               "description": "molds",
+               "description": descriptions[45],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -2448,7 +2449,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "6/11/2020",
                "payee": payees[27],
-               "description": "fix new greenhouse",
+               "description": descriptions[27],
                "usedFor": "leasehold improvements",
                "numUnits": "",
                "unitMeas": "",
@@ -2490,7 +2491,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/14/20",
                "payee": payees[45],
-               "description": "plant",
+               "description": descriptions[58],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -2532,7 +2533,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/15/20",
                "payee": payees[17],
-               "description": "grow rooms",
+               "description": descriptions[35],
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -2574,7 +2575,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/15/20",
                "payee": payees[31],
-               "description": "grow rooms",
+               "description":  descriptions[35],
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -2616,7 +2617,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/16/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2658,7 +2659,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/20/20",
                "payee": payees[40],
-               "description": "Grow license-annual",
+               "description": descriptions[34],
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -2700,7 +2701,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "06/20/20",
                "payee": payees[40],
-               "description": "Back ground check-license-annual",
+               "description": descriptions[5],
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -2741,8 +2742,8 @@ const Item = require('../models/item.js/item');
           },
           {
                "dateOfExpense": "6/25/2020",
-               "payee": payees[2],,
-               "description": "Soil",
+               "payee": payees[2],
+               "description": descriptions[67],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -2784,7 +2785,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "6/30/2020",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -2826,7 +2827,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[10],
-               "description": "equipment",
+               "description": descriptions[24],
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
                "unitMeas": "",
@@ -2868,7 +2869,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[12],
-               "description": "",
+               "description": descriptions[24],
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
                "unitMeas": "",
@@ -2910,7 +2911,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[20],
-               "description": "heating system/water line grow room",
+               "description": descriptions[37],
                "usedFor": "leasehold improvments",
                "numUnits": "",
                "unitMeas": "",
@@ -2952,7 +2953,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/01/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2994,7 +2995,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[14],
-               "description": "equipment",
+               "description": descriptions[24],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3036,7 +3037,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/10/20",
                "payee": payees[45],
-               "description": "cloning machine",
+               "description": descriptions[16],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3078,7 +3079,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "7/10/2020",
                "payee": payees[45],
-               "description": "Cloner",
+               "description": descriptions[14],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3120,7 +3121,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/13/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -3162,7 +3163,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/14/20",
                "payee": payees[3],
-               "description": "sleepcomplete",
+               "description": descriptions[66],
                "usedFor": "cooking",
                "numUnits": 7,
                "unitMeas": "",
@@ -3204,7 +3205,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/15/20",
                "payee": payees[40],
-               "description": "sales tax",
+               "description": descriptions[61],
                "usedFor": "",
                "numUnits": "",
                "unitMeas": "",
@@ -3246,7 +3247,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/19/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -3288,7 +3289,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/23/20",
                "payee": payees[9],
-               "description": "everclear",
+               "description": descriptions[26],
                "usedFor": "extraction",
                "numUnits": 2,
                "unitMeas": "",
@@ -3330,7 +3331,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/27/20",
                "payee": payees[39],
-               "description": "office",
+               "description": descriptions[51],
                "usedFor": "packaging",
                "numUnits": "",
                "unitMeas": "",
@@ -3372,7 +3373,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/28/20",
                "payee": payees[48],
-               "description": "cashw milk",
+               "description": descriptions[12],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3414,7 +3415,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/28/20",
                "payee": payees[48],
-               "description": "Coconut sugar",
+               "description": descriptions[18],
                "usedFor": "cooking",
                "numUnits": 5,
                "unitMeas": "3#",
@@ -3456,7 +3457,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/28/20",
                "payee": payees[48],
-               "description": "Erythritol",
+               "description": descriptions[25],
                "usedFor": "cooking",
                "numUnits": 5,
                "unitMeas": "3#",
@@ -3498,7 +3499,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/28/20",
                "payee": payees[48],
-               "description": "Papaya Powder",
+               "description": descriptions[56],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3540,7 +3541,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/28/20",
                "payee": payees[48],
-               "description": "Pineapple powder",
+               "description": descriptions[57],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3582,7 +3583,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "07/28/20",
                "payee": payees[48],
-               "description": "Tart Cherry",
+               "description": descriptions[68],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3624,7 +3625,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/01/20",
                "payee": payees[48],
-               "description": "Coconut sugar",
+               "description": descriptions[18],
                "usedFor": "cooking",
                "numUnits": 2,
                "unitMeas": "10#",
@@ -3666,7 +3667,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/01/20",
                "payee": payees[6],
-               "description": "tubes",
+               "description": descriptions[74],
                "usedFor": "packaging",
                "numUnits": 5,
                "unitMeas": "",
@@ -3708,7 +3709,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "8/5/2020",
                "payee": payees[17],
-               "description": "Misc grow room-paints/lights",
+               "description": descriptions[44],
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
                "unitMeas": "",
@@ -3750,7 +3751,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "8/5/2020",
                "payee": payees[17],
-               "description": "5 buckets w/lids",
+               "description": descriptions[0],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3792,7 +3793,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "8/5/2020",
                "payee": payees[17],
-               "description": "5 buckets w/lids",
+               "description": descriptions[0],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3834,7 +3835,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/11/20",
                "payee": payees[22],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -3876,7 +3877,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/13/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -3918,7 +3919,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/13/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -3960,7 +3961,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/13/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "qt",
@@ -4002,7 +4003,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/14/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -4044,7 +4045,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/15/20",
                "payee": payees[35],
-               "description": "plant lamps",
+               "description": descriptions[59],
                "usedFor": "equipment",
                "numUnits": 1,
                "unitMeas": "",
@@ -4086,7 +4087,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/19/20",
                "payee": payees[24],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -4128,7 +4129,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/25/20",
                "payee": payees[33],
-               "description": "office shipping",
+               "description": descriptions[52],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -4170,7 +4171,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/26/20",
                "payee": payees[41],
-               "description": "tshirts",
+               "description": descriptions[73],
                "usedFor": "purchases for resale",
                "numUnits": "",
                "unitMeas": "",
@@ -4212,7 +4213,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/27/20",
                "payee": payees[9],
-               "description": "everclear",
+               "description": descriptions[26],
                "usedFor": "extraction",
                "numUnits": 1,
                "unitMeas": "",
@@ -4254,7 +4255,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/29/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -4296,7 +4297,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/29/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "qt",
@@ -4338,7 +4339,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "08/29/20",
                "payee": payees[45],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "qt",
@@ -4380,7 +4381,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/01/20",
                "payee": payees[18],
-               "description": "grow rooms-thermo pex",
+               "description": descriptions[36],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": 2,
                "unitMeas": "",
@@ -4422,7 +4423,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/04/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -4464,7 +4465,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/04/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -4506,7 +4507,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/04/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -4548,7 +4549,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/04/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": 50,
@@ -4590,7 +4591,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/14/20",
                "payee": payees[32],
-               "description": "calm",
+               "description": descriptions[11],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -4632,7 +4633,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "9/15/2020",
                "payee": payees[15],
-               "description": "",
+               "description": descriptions[27],
                "usedFor": "leasehold improvements",
                "numUnits": "",
                "unitMeas": "",
@@ -4674,7 +4675,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "9/15/2020",
                "payee": payees[38],
-               "description": "SJR labs-RSO",
+               "description": descriptions[65],
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -4716,7 +4717,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "9/15/2020",
                "payee": payees[17],
-               "description": "trimming sissors",
+               "description": descriptions[72],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -4758,7 +4759,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "9/15/2020",
                "payee": payees[17],
-               "description": "",
+               "description": descriptions[76],
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -4800,7 +4801,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "09/30/20",
                "payee": payees[16],
-               "description": "humidity packs",
+               "description": descriptions[40],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -4842,7 +4843,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/10/2020",
                "payee": payees[38],
-               "description": "SJR labs-RSO",
+               "description": descriptions[65],
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -4884,7 +4885,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/10/20",
                "payee": payees[28],
-               "description": "pump oil",
+               "description": descriptions[60],
                "usedFor": "indirect equipment repair&maint",
                "numUnits": 5,
                "unitMeas": "",
@@ -4926,7 +4927,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/13/2020",
                "payee": payees[33],
-               "description": "freight-out",
+               "description": descriptions[29],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -4968,7 +4969,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/16/20",
                "payee": payees[48],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "5#",
@@ -5010,7 +5011,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/16/20",
                "payee": payees[48],
-               "description": "Coconut sugar",
+               "description": descriptions[18],
                "usedFor": "cooking",
                "numUnits": 3,
                "unitMeas": "10#",
@@ -5052,7 +5053,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/16/20",
                "payee": payees[48],
-               "description": "Erythritol",
+               "description": descriptions[25],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "10#",
@@ -5094,7 +5095,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "10/20/2020",
                "payee": payees[34],
-               "description": "Testing",
+               "description": descriptions[69],
                "usedFor": "QC/Lab",
                "numUnits": "",
                "unitMeas": "",
@@ -5136,7 +5137,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/02/20",
                "payee": payees[44],
-               "description": "shrink tube",
+               "description": descriptions[63],
                "usedFor": "packaging",
                "numUnits": "",
                "unitMeas": "",
@@ -5178,7 +5179,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/3/2020",
                "payee": payees[13],
-               "description": "nutrients-Part A",
+               "description": descriptions[50],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "25#",
@@ -5220,7 +5221,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/3/2020",
                "payee": payees[13],
-               "description": "nutrients-Boost",
+               "description": descriptions[48],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "25#",
@@ -5262,7 +5263,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/3/2020",
                "payee": payees[13],
-               "description": "nutrients-Bloom",
+               "description": descriptions[47],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "25#",
@@ -5304,7 +5305,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/3/2020",
                "payee": payees[13],
-               "description": "nutrients-magnesium",
+               "description": descriptions[49],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "50#",
@@ -5346,7 +5347,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/3/2020",
                "payee": payees[13],
-               "description": "5 gallon plant pots",
+               "description":descriptions[2],
                "usedFor": "indirect equip-non cap equip",
                "numUnits": 44,
                "unitMeas": "",
@@ -5388,7 +5389,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/07/20",
                "payee": payees[46],
-               "description": "dry ice",
+               "description":  descriptions[20],
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -5430,7 +5431,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/08/20",
                "payee": payees[5],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -5472,7 +5473,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/10/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -5514,7 +5515,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/10/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -5556,7 +5557,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/10/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -5598,7 +5599,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/10/20",
                "payee": payees[16],
-               "description": "Green Leds-light bulbs",
+               "description": descriptions[32],
                "usedFor": "indirect equipment repair&maint",
                "numUnits": 1,
                "unitMeas": "",
@@ -5640,7 +5641,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/11/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -5682,7 +5683,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/12/20",
                "payee": payees[21],
-               "description": "herbs",
+               "description": descriptions[38],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -5724,7 +5725,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/15/20",
                "payee": payees[37],
-               "description": "cooking",
+               "description":  descriptions[19],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -5766,7 +5767,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/15/20",
                "payee": payees[8],
-               "description": "batt/cable-office exp",
+               "description": descriptions[7],
                "usedFor": "office supplies",
                "numUnits": "",
                "unitMeas": "",
@@ -5808,7 +5809,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/15/20",
                "payee": payees[8],
-               "description": "cable-office exp",
+               "description": descriptions[9],
                "usedFor": "office supplies",
                "numUnits": "",
                "unitMeas": "",
@@ -5850,7 +5851,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/17/2020",
                "payee": payees[23],
-               "description": "Topicals-goats milk",
+               "description": descriptions[70],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -5892,7 +5893,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/17/2020",
                "payee": payees[23],
-               "description": "Topicals-orange water",
+               "description": descriptions[71],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -5934,7 +5935,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/17/2020",
                "payee": payees[23],
-               "description": "MCT",
+               "description": descriptions[43],
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "16 oz",
@@ -5976,7 +5977,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/20/20",
                "payee": payees[40],
-               "description": "Annual report",
+               "description": descriptions[4],
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -6018,7 +6019,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/25/20",
                "payee": payees[45],
-               "description": "wash",
+               "description": descriptions[75],
                "usedFor": "growing",
                "numUnits": 5,
                "unitMeas": "",
@@ -6060,7 +6061,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/27/20",
                "payee": payees[16],
-               "description": "nutrients",
+               "description": descriptions[46],
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -6102,7 +6103,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6144,7 +6145,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6186,7 +6187,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "oil",
+               "description": descriptions[54],
                "usedFor": "cooking",
                "numUnits": 7.5,
                "unitMeas": "",
@@ -6228,7 +6229,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "flavor",
+               "description": descriptions[28],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6270,7 +6271,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "Emu oil",
+               "description": descriptions[23],
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6312,7 +6313,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "8oz bottles",
+               "description": descriptions[2],
                "usedFor": "packaging",
                "numUnits": 1,
                "unitMeas": 50,
@@ -6354,7 +6355,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
-               "description": "bottle pumps",
+               "description": descriptions[8],
                "usedFor": "packaging",
                "numUnits": 1,
                "unitMeas": 50,
@@ -6396,7 +6397,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/30/2020",
                "payee": payees[33],
-               "description": "freight-out",
+               "description": descriptions[29],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -6438,7 +6439,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "11/30/20",
                "payee": payees[11],
-               "description": "shrinkwrap",
+               "description": descriptions[64],
                "usedFor": "packaging",
                "numUnits": 20,
                "unitMeas": "",
@@ -6480,7 +6481,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "12/05/20",
                "payee": payees[39],
-               "description": "office supplies",
+               "description": descriptions[53],
                "usedFor": "office supplies",
                "numUnits": "",
                "unitMeas": "",
@@ -6522,7 +6523,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "12/8/2020",
                "payee": payees[33],
-               "description": "freight-out",
+               "description": descriptions[29],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -6564,7 +6565,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "12/21/2020",
                "payee": payees[33],
-               "description": "Shipping",
+               "description": descriptions[62],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -6606,7 +6607,7 @@ const Item = require('../models/item.js/item');
           {
                "dateOfExpense": "12/21/20",
                "payee": payees[33],
-               "description": "Shipping",
+               "description": descriptions[62],
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
