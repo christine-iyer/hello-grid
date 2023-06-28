@@ -1,85 +1,12 @@
 require('dotenv').config();
 require('./database');
-const Category = require('../models/item.js/category');
+const Description = require('../models/description');
+const AcctNum = require('../models/acctNum');
+const Payee = require('../models/payee');
+const Use = require('../models/use')
 const Item = require('../models/item.js/item');
 
 (async function () {
-     await Category.deleteMany({});
-     const categories = await Category.create([
-          { name: 'Accessories', sortOrder: 10 },
-          { name: 'Accounting Fees', sortOrder: 20 },
-          { name: 'Accounts Payable-Trade', sortOrder: 30 },
-          { name: 'Accounts Receivable', sortOrder: 40 },
-          { name: 'Accrued Expenses', sortOrder: 50 },
-          { name: 'Accumulated Amortization', sortOrder: 60 },
-          { name: 'Accumulated Depreciation', sortOrder: 70 },
-          { name: 'Amortization Expense', sortOrder: 80 },
-          { name: 'Ask CPA', sortOrder: 90 },
-          { name: 'Building and Improvements', sortOrder: 100 },
-          { name: 'Candies', sortOrder: 110 },
-          { name: 'Cash-on hand', sortOrder: 120 },
-          { name: 'CGS-Direct Labor', sortOrder: 130 },
-          { name: 'CGS-Direct Materials', sortOrder: 140 },
-          { name: 'CGS-Indirect 1.471-11  c (2) (I)', sortOrder: 150 },
-          { name: 'CGS-Indirect 1.471-11  c (2) (III)', sortOrder: 160 },
-          { name: 'Commission Income', sortOrder: 170 },
-          { name: 'Consulting Expense', sortOrder: 180 },
-          { name: 'Contract Labor', sortOrder: 190 },
-          { name: 'Credit Cards Payable', sortOrder: 200 },
-          { name: 'Current Portion of LTD', sortOrder: 210 },
-          { name: 'Customer Deposits and Advances', sortOrder: 220 },
-          { name: 'Depreciation Expense', sortOrder: 230 },
-          { name: 'Due from Member', sortOrder: 240 },
-          { name: 'Due to Member', sortOrder: 250 },
-          { name: 'Dues and Subscriptions', sortOrder: 260 },
-          { name: 'Freight-out', sortOrder: 270 },
-          { name: 'Furniture and Fixtures', sortOrder: 280 },
-          { name: 'Gummies', sortOrder: 290 },
-          { name: 'Insurance Expense', sortOrder: 300 },
-          { name: 'Intangible Assets', sortOrder: 310 },
-          { name: 'Inventory', sortOrder: 320 },
-          { name: 'Leasehold Improvements', sortOrder: 330 },
-          { name: 'Legal Fees', sortOrder: 340 },
-          { name: 'Licensing', sortOrder: 350 },
-          { name: 'Machinery and Equipment', sortOrder: 360 },
-          { name: 'Marshmallows', sortOrder: 370 },
-          { name: 'Meals and Entertainment', sortOrder: 380 },
-          { name: 'Member Distribution', sortOrder: 390 },
-          { name: 'Miscellaneous Expense', sortOrder: 400 },
-          { name: 'Mix Edibles', sortOrder: 410 },
-          { name: 'Moving Expenses', sortOrder: 420 },
-          { name: 'Office Supplies', sortOrder: 430 },
-          { name: 'Other Current Assets', sortOrder: 440 },
-          { name: 'Other Current Liabilites', sortOrder: 450 },
-          { name: 'Other Income', sortOrder: 460 },
-          { name: 'Other Income Expense', sortOrder: 470 },
-          { name: 'Other Receivables', sortOrder: 480 },
-          { name: 'Payroll Expenses Taxes', sortOrder: 490 },
-          { name: 'Payroll Processing', sortOrder: 500 },
-          { name: 'Postage and Shipping', sortOrder: 510 },
-          { name: 'Prepaid Expense', sortOrder: 520 },
-          { name: 'Property Tax', sortOrder: 530 },
-          { name: 'Raw Flowers', sortOrder: 540 },
-          { name: 'Raw Oil', sortOrder: 550 },
-          { name: 'Rent', sortOrder: 560 },
-          { name: 'Repairs and Maintenance', sortOrder: 570 },
-          { name: 'Retained Earnings', sortOrder: 580 },
-          { name: 'Salaries and Wages', sortOrder: 590 },
-          { name: 'Sales Tax Payable-5.5%', sortOrder: 600 },
-          { name: 'Sales Tax Payable-8%', sortOrder: 610 },
-          { name: 'Selling & Marketing', sortOrder: 620 },
-          { name: 'Tinctures', sortOrder: 630 },
-          { name: 'Topicals', sortOrder: 640 },
-          { name: 'Training and Education', sortOrder: 650 },
-          { name: 'Travel', sortOrder: 660 },
-          { name: 'Utilites - Computer & Internet Exp', sortOrder: 670 },
-          { name: 'Utilities - Electric', sortOrder: 680 },
-          { name: 'Utilities - Heat', sortOrder: 690 },
-          { name: 'Utilities - Telephone Expense', sortOrder: 700 },
-          { name: 'Utilities - Water', sortOrder: 710 },
-          { name: 'Workers Comp', sortOrder: 720 },
-
-     ]);
 
      await AcctNum.deleteMany({});
      const acctnums = await AcctNum.create([
@@ -183,7 +110,6 @@ const Item = require('../models/item.js/item');
           { name: 'Misc', sortOrder: 770 },
      ]);
 
-
      await Payee.deleteMany({});
      const payees = await Payee.create([
           { name: 'A2Z', sortOrder: 10 },
@@ -236,10 +162,7 @@ const Item = require('../models/item.js/item');
           { name: 'walmrt', sortOrder: 480 },
           { name: 'zNatural', sortOrder: 490 },
      ]);
-
-
-
-
+     
      await Use.deleteMany({});
      const uses = await Use.create([
           { name: 'cooking', sortOrder: 10 },
@@ -300,8 +223,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/07/20",
@@ -342,8 +264,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/07/20",
@@ -384,8 +305,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/07/20",
@@ -426,8 +346,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "1/9/2020",
@@ -468,8 +387,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$8.07",
-               "": ""
+               "code_40195": "$8.07"
           },
           {
                "dateOfExpense": "01/09/20",
@@ -510,8 +428,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/10/20",
@@ -552,8 +469,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/11/20",
@@ -594,8 +510,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/13/20",
@@ -636,8 +551,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "$473.00",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "1/13/2020",
@@ -678,14 +592,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$11.00",
-               "": ""
+               "code_40195": "$11.00"
           },
           {
                "dateOfExpense": "01/17/20",
                "payee": payees[40],
                "description": descriptions[42],
-               "usedFor": "Licensing",
+               "usedFor": uses[10],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$275.00",
@@ -720,8 +633,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "$275.00",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/23/20",
@@ -762,8 +674,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/30/20",
@@ -804,8 +715,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/30/20",
@@ -846,8 +756,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "01/30/20",
@@ -888,8 +797,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "02/04/20",
@@ -930,14 +838,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "02/08/20",
                "payee": payees[42],
                "description": descriptions[55],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$12.65",
@@ -972,8 +879,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "2/13/2020",
@@ -1014,14 +920,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "2/13/2020",
                "payee": payees[1],
                "description": descriptions[55],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": 3,
                "unitMeas": "each",
                "beforeTnSAmount": "$2.99",
@@ -1056,8 +961,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "02/19/20",
@@ -1098,8 +1002,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$13.79",
-               "": ""
+               "code_40195": "$13.79"
           },
           {
                "dateOfExpense": "02/19/20",
@@ -1140,8 +1043,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$11.19",
-               "": ""
+               "code_40195": "$11.19"
           },
           {
                "dateOfExpense": "03/02/20",
@@ -1182,8 +1084,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/02/20",
@@ -1224,14 +1125,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/02/20",
                "payee": payees[40],
                "description":  descriptions[22],
-               "usedFor": "Licensing",
+               "usedFor": uses[10],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$51.00",
@@ -1266,8 +1166,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "$51.00",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "3/3/2020",
@@ -1308,8 +1207,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/04/20",
@@ -1350,8 +1248,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/09/20",
@@ -1392,14 +1289,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/09/20",
                "payee": payees[40],
                "description": descriptions[41],
-               "usedFor": "licensing",
+               "usedFor": uses[10],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$50.00",
@@ -1434,8 +1330,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "$50.00",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/11/20",
@@ -1476,8 +1371,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/11/20",
@@ -1518,8 +1412,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/11/20",
@@ -1560,8 +1453,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/11/20",
@@ -1602,8 +1494,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/16/20",
@@ -1644,8 +1535,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/19/20",
@@ -1686,8 +1576,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "03/31/20",
@@ -1728,8 +1617,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "4/1/2020",
@@ -1770,8 +1658,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "04/02/20",
@@ -1812,8 +1699,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "04/02/20",
@@ -1854,8 +1740,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "04/03/20",
@@ -1896,8 +1781,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$14.50",
-               "": ""
+               "code_40195": "$14.50"
           },
           {
                "dateOfExpense": "04/07/20",
@@ -1938,8 +1822,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "04/15/20",
@@ -1980,8 +1863,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "04/23/20",
@@ -2022,8 +1904,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "04/24/20",
@@ -2064,14 +1945,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$6.09",
-               "": ""
+               "code_40195": "$6.09"
           },
           {
                "dateOfExpense": "04/28/20",
                "payee": payees[30],
                "description": descriptions[33],
-               "usedFor": "leasehold improvements",
+               "usedFor": uses[9],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$1,073.58",
@@ -2106,8 +1986,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "05/07/20",
@@ -2148,8 +2027,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$11.91",
-               "": ""
+               "code_40195": "$11.91"
           },
           {
                "dateOfExpense": "05/10/20",
@@ -2190,14 +2068,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "05/10/20",
                "payee": payees[17],
                "description": descriptions[35],
-               "usedFor": "indirect equipment repair&maint",
+               "usedFor": uses[8],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$182.81",
@@ -2232,8 +2109,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "05/11/20",
@@ -2274,8 +2150,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "05/16/20",
@@ -2316,8 +2191,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "05/21/20",
@@ -2358,8 +2232,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "05/27/20",
@@ -2400,8 +2273,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "06/10/20",
@@ -2442,14 +2314,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "6/11/2020",
                "payee": payees[27],
                "description": descriptions[27],
-               "usedFor": "leasehold improvements",
+               "usedFor": uses[9],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$1,720.70",
@@ -2484,8 +2355,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "06/14/20",
@@ -2526,14 +2396,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "06/15/20",
                "payee": payees[17],
                "description": descriptions[35],
-               "usedFor": "indirect equipment repair&maint",
+               "usedFor": uses[8],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$291.53",
@@ -2568,14 +2437,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "06/15/20",
                "payee": payees[31],
                "description":  descriptions[35],
-               "usedFor": "indirect equipment repair&maint",
+               "usedFor": uses[8],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$61.91",
@@ -2610,8 +2478,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "06/16/20",
@@ -2652,14 +2519,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$12.32",
-               "": ""
+               "code_40195": "$12.32"
           },
           {
                "dateOfExpense": "06/20/20",
                "payee": payees[40],
                "description": descriptions[34],
-               "usedFor": "Licensing",
+               "usedFor": uses[10],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$1,200.00",
@@ -2694,14 +2560,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "06/20/20",
                "payee": payees[40],
                "description": descriptions[5],
-               "usedFor": "Licensing",
+               "usedFor": uses[10],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$31.00",
@@ -2736,8 +2601,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "$31.00",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "6/25/2020",
@@ -2778,8 +2642,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "6/30/2020",
@@ -2820,14 +2683,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[10],
                "description": descriptions[24],
-               "usedFor": "uses[3],",
+               "usedFor": uses[3],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$600.00",
@@ -2862,14 +2724,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[12],
                "description": descriptions[24],
-               "usedFor": "uses[3],",
+               "usedFor": uses[3],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$3,200.00",
@@ -2904,14 +2765,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "7/1/2020",
                "payee": payees[20],
                "description": descriptions[37],
-               "usedFor": "leasehold improvements",
+               "usedFor": uses[9],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$600.00",
@@ -2946,8 +2806,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/01/20",
@@ -2988,8 +2847,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$15.28",
-               "": ""
+               "code_40195": "$15.28"
           },
           {
                "dateOfExpense": "7/1/2020",
@@ -3030,8 +2888,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/10/20",
@@ -3072,8 +2929,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "7/10/2020",
@@ -3114,8 +2970,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/13/20",
@@ -3156,8 +3011,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$10.73",
-               "": ""
+               "code_40195": "$10.73"
           },
           {
                "dateOfExpense": "07/14/20",
@@ -3198,8 +3052,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/15/20",
@@ -3240,8 +3093,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "$769.95",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/19/20",
@@ -3282,8 +3134,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/23/20",
@@ -3324,14 +3175,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/27/20",
                "payee": payees[39],
                "description": descriptions[51],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$82.81",
@@ -3366,8 +3216,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/28/20",
@@ -3408,8 +3257,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/28/20",
@@ -3450,8 +3298,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/28/20",
@@ -3492,8 +3339,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/28/20",
@@ -3534,8 +3380,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/28/20",
@@ -3576,8 +3421,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "07/28/20",
@@ -3618,8 +3462,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/01/20",
@@ -3660,14 +3503,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/01/20",
                "payee": payees[6],
                "description": descriptions[74],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": 5,
                "unitMeas": "",
                "beforeTnSAmount": "$11.40",
@@ -3702,14 +3544,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "8/5/2020",
                "payee": payees[17],
                "description": descriptions[44],
-               "usedFor": "uses[3],",
+               "usedFor": uses[3],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$667.05",
@@ -3744,8 +3585,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "8/5/2020",
@@ -3786,8 +3626,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "8/5/2020",
@@ -3828,8 +3667,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/11/20",
@@ -3870,8 +3708,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/13/20",
@@ -3912,8 +3749,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/13/20",
@@ -3954,8 +3790,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/13/20",
@@ -3996,8 +3831,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/14/20",
@@ -4038,8 +3872,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$8.62",
-               "": ""
+               "code_40195": "$8.62"
           },
           {
                "dateOfExpense": "08/15/20",
@@ -4080,8 +3913,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/19/20",
@@ -4122,8 +3954,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/25/20",
@@ -4164,14 +3995,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$4.65",
-               "": ""
+               "code_40195": "$4.65"
           },
           {
                "dateOfExpense": "08/26/20",
                "payee": payees[41],
                "description": descriptions[73],
-               "usedFor": "purchases for resale",
+               "usedFor": uses[13],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$160.00",
@@ -4206,8 +4036,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/27/20",
@@ -4248,8 +4077,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/29/20",
@@ -4290,8 +4118,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/29/20",
@@ -4332,8 +4159,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "08/29/20",
@@ -4374,8 +4200,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/01/20",
@@ -4416,8 +4241,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/04/20",
@@ -4458,8 +4282,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/04/20",
@@ -4500,8 +4323,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/04/20",
@@ -4542,8 +4364,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/04/20",
@@ -4584,8 +4405,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/14/20",
@@ -4626,14 +4446,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "9/15/2020",
                "payee": payees[15],
                "description": descriptions[27],
-               "usedFor": "leasehold improvements",
+               "usedFor": uses[9],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$584.43",
@@ -4668,8 +4487,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "9/15/2020",
@@ -4710,8 +4528,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "9/15/2020",
@@ -4752,14 +4569,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "9/15/2020",
                "payee": payees[17],
                "description": descriptions[76],
-               "usedFor": "indirect equipment repair&maint",
+               "usedFor": uses[8],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$376.27",
@@ -4794,8 +4610,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "09/30/20",
@@ -4836,8 +4651,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "10/10/2020",
@@ -4878,14 +4692,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "10/10/20",
                "payee": payees[28],
                "description": descriptions[60],
-               "usedFor": "indirect equipment repair&maint",
+               "usedFor": uses[8],
                "numUnits": 5,
                "unitMeas": "",
                "beforeTnSAmount": "$9.22",
@@ -4920,8 +4733,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "10/13/2020",
@@ -4962,8 +4774,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$10.94",
-               "": ""
+               "code_40195": "$10.94"
           },
           {
                "dateOfExpense": "10/16/20",
@@ -5004,8 +4815,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "10/16/20",
@@ -5046,8 +4856,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "10/16/20",
@@ -5088,14 +4897,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "10/20/2020",
                "payee": payees[34],
                "description": descriptions[69],
-               "usedFor": "QC/Lab",
+               "usedFor": uses[14],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$270.00",
@@ -5130,14 +4938,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/02/20",
                "payee": payees[44],
                "description": descriptions[63],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$38.00",
@@ -5172,8 +4979,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/3/2020",
@@ -5214,8 +5020,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/3/2020",
@@ -5256,8 +5061,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/3/2020",
@@ -5298,8 +5102,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/3/2020",
@@ -5340,8 +5143,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/3/2020",
@@ -5382,8 +5184,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/07/20",
@@ -5424,8 +5225,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/08/20",
@@ -5466,8 +5266,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/10/20",
@@ -5508,8 +5307,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/10/20",
@@ -5550,8 +5348,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/10/20",
@@ -5592,14 +5389,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/10/20",
                "payee": payees[16],
                "description": descriptions[32],
-               "usedFor": "indirect equipment repair&maint",
+               "usedFor": uses[8],
                "numUnits": 1,
                "unitMeas": "",
                "beforeTnSAmount": "$22.90",
@@ -5634,8 +5430,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/11/20",
@@ -5676,8 +5471,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/12/20",
@@ -5718,8 +5512,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/15/20",
@@ -5760,14 +5553,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/15/20",
                "payee": payees[8],
                "description": descriptions[7],
-               "usedFor": "office supplies",
+               "usedFor": uses[11],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$30.56",
@@ -5802,14 +5594,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "$32.25",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/15/20",
                "payee": payees[8],
                "description": descriptions[9],
-               "usedFor": "office supplies",
+               "usedFor": uses[11],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$12.99",
@@ -5844,8 +5635,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "$12.99",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/17/2020",
@@ -5886,8 +5676,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/17/2020",
@@ -5928,8 +5717,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/17/2020",
@@ -5970,14 +5758,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/20/20",
                "payee": payees[40],
                "description": descriptions[4],
-               "usedFor": "Licensing",
+               "usedFor": uses[10],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$185.00",
@@ -6012,8 +5799,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "$185.00",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/25/20",
@@ -6054,8 +5840,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/27/20",
@@ -6096,8 +5881,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
@@ -6138,8 +5922,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
@@ -6180,8 +5963,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
@@ -6222,8 +6004,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
@@ -6264,8 +6045,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
@@ -6306,14 +6086,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
                "description": descriptions[2],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": 1,
                "unitMeas": 50,
                "beforeTnSAmount": "$19.00",
@@ -6348,14 +6127,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/29/20",
                "payee": payees[5],
                "description": descriptions[8],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": 1,
                "unitMeas": 50,
                "beforeTnSAmount": "$14.00",
@@ -6390,8 +6168,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "11/30/2020",
@@ -6432,14 +6209,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$25.02",
-               "": ""
+               "code_40195": "$25.02"
           },
           {
                "dateOfExpense": "11/30/20",
                "payee": payees[11],
                "description": descriptions[64],
-               "usedFor": "packaging",
+               "usedFor": uses[12],
                "numUnits": 20,
                "unitMeas": "",
                "beforeTnSAmount": "$1.00",
@@ -6474,14 +6250,13 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "12/05/20",
                "payee": payees[39],
                "description": descriptions[53],
-               "usedFor": "office supplies",
+               "usedFor": uses[11],
                "numUnits": "",
                "unitMeas": "",
                "beforeTnSAmount": "$113.11",
@@ -6516,8 +6291,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "$113.11",
                "code_60185": "",
-               "code_40195": "",
-               "": ""
+               "code_40195": ""
           },
           {
                "dateOfExpense": "12/8/2020",
@@ -6558,8 +6332,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$55.00",
-               "": ""
+               "code_40195": "$55.00"
           },
           {
                "dateOfExpense": "12/21/2020",
@@ -6600,8 +6373,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$28.83",
-               "": ""
+               "code_40195": "$28.83"
           },
           {
                "dateOfExpense": "12/21/20",
@@ -6642,8 +6414,7 @@ const Item = require('../models/item.js/item');
                "code_20012": "",
                "code_60140": "",
                "code_60185": "",
-               "code_40195": "$28.83",
-               "": ""
+               "code_40195": "$28.83"
           }
      ]
      );
