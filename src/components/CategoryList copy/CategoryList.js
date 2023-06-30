@@ -1,5 +1,5 @@
-import styles from './PayeeList.module.scss'
-export default function PayeeList({ categories, activeCat, setActiveCat }) {
+import styles from './CategoryList.module.scss'
+export default function CategoryList({ categories, activeCat, setActiveCat }) {
   const cats = categories.map(cat =>
     <li
       key={cat}

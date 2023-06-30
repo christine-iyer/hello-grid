@@ -7,7 +7,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
         <img src={lineItem.item.emoji}></img>
         </div>
       <div className="flex-ctr-ctr flex-col">
-        <span className="align-ctr">{lineItem.item.name}</span>
+        <span className="align-ctr">{lineItem.item.description}</span>
         <span>{lineItem.item.price.toFixed(2)}</span>
       </div>
       <div className="qty" style={{ justifyContent: isPaid && 'center' }}>

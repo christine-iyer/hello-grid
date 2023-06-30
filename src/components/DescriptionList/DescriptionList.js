@@ -1,12 +1,12 @@
-import styles from './CategoryList.module.scss'
-export default function CategoryList({ categories, activeCat, setActiveCat }) {
-  const cats = categories.map(cat =>
+import styles from './DescriptionList.module.scss'
+export default function DescriptionList({ descriptions, activeDescription, setActiveDescription }) {
+  const cats = descriptions.map(cat =>
     <li
       key={cat}
-      className={cat === activeCat ? 'active' : ''}
+      className={cat === activeDescription ? 'active' : ''}
       // FYI, the below will also work, but will give a warning
-      // className={cat === activeCat && 'active'}
-      onClick={() => setActiveCat(cat)}
+      // className={cat === activeDescription && 'active'}
+      onClick={() => setActiveDescription(cat)}
     >
       {cat}
     </li>

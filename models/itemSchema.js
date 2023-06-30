@@ -9,7 +9,7 @@ const itemSchema = new Schema({
   usedFor: { type: Schema.Types.ObjectId, ref: 'Use' },
   numUnits: { type: Number, required: true, default: 1 },
   unitMeas: { type: String, required: true },
-  beforeTnSAmount: { type: Number, required: true },
+  price: { type: Number, required: true }, //beforeTnSAmount
   tax: { type: Number, required: true },
   shipping: { type: Number, required: true },
   total: { type: Number, required: true },
