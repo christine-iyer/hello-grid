@@ -34,35 +34,38 @@ export default function NewOrderPage({ user, setUser }) {
 
 
 
-      accountNumsRefRef.current = items.reduce((cats, item) => {
-        const cat = item.category.name;
+      accountNumsRef.current = items.reduce((cats, item) => {
+        const cat = item.accountNum.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
 
 
 
-      categoriesRef.current = items.reduce((cats, item) => {
-        const cat = item.category.name;
+      descriptionsRef.current = items.reduce((cats, item) => {
+        const cat = item.description.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
 
 
 
-      categoriesRef.current = items.reduce((cats, item) => {
-        const cat = item.category.name;
+payeesRef.current = items.reduce((cats, item) => {
+        const cat = item.payee.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
 
 
 
-      categoriesRef.current = items.reduce((cats, item) => {
-        const cat = item.category.name;
+      usesRef.current = items.reduce((cats, item) => {
+        const cat = item.usedFor.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
 
 
       setMenuItems(items);
-      setActiveCat(categoriesRef.current[0]);
+      setActiveAcctNum(accountNumsRef.current[0]);
+      setActiveDescription(descriptionsRef.current[0]);
+      setActivePayee(payeesRef.current[0]);
+      setActiveUse(usesRef.current[0]);
     }
     getItems();
     async function getCart() {
@@ -94,11 +97,37 @@ export default function NewOrderPage({ user, setUser }) {
   return (
     <main className={styles.NewOrderPage}>
       <aside>
-        <CategoryList
-          categories={categoriesRef.current}
+
+        <PayeeList
+          payees={payeesRef.current}
           cart={setCart}
           setActiveCat={setActiveCat}
         />
+
+
+<DescriptionList
+          descriptions={descriptionsRef.current}
+          cart={setCart}
+          setActiveCat={setActiveCat}
+        />
+
+
+<UseList
+          uses={usesRef.current}
+          cart={setCart}
+          setActiveCat={setActiveCat}
+        />
+
+
+<AccountNumList
+          accountNums={accountNumsRef.current}
+          cart={setCart}
+          setActiveCat={setActiveCat}
+        />
+
+
+
+
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
