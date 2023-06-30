@@ -7,7 +7,7 @@ import MenuList from '../../components/MenuList/MenuList';
 import AccountNumList from '../../components/AccountNumList/AccountNumList';
 import DescriptionList from '../../components/DescriptionList/DescriptionList';
 import PayeeList from '../../components/PayeeList/PayeeList';
-import UsesList from '../../components/UsesList/UsesList';
+import UseList from '../../components/UseList/UseList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
@@ -16,7 +16,7 @@ export default function NewOrderPage({ user, setUser }) {
   const [activeAcctNum, setActiveAcctNum] = useState('');
   const [activeDescription, setActiveDescription] = useState('');
   const [activePayee, setActivePayee] = useState('');
-  const [activeUses, setActiveUses] = useState('');
+  const [activeUse, setActiveUse] = useState('');
 
   const [cart, setCart] = useState(null);
   
