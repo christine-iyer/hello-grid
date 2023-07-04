@@ -7,7 +7,7 @@ import MenuList from '../../components/MenuList/MenuList';
 import AccountNumList from '../../components/AccountNumList/AccountNumList';
 import DescriptionList from '../../components/DescriptionList/DescriptionList';
 import PayeeList from '../../components/PayeeList/PayeeList';
-import UseList from '../../components/UseList/UseList';
+import UseList from '../../components/UseList/UsesList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
@@ -38,6 +38,7 @@ export default function NewOrderPage({ user, setUser }) {
         const cat = item.accountNum.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
+
 
 
 

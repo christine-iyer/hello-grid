@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import * from '../../utilities/users-service'
-import styles from './LoginForm.module.scss'
+import * as userService from '../../utilities/users-service'
+
 
 export default function LoginForm ({ setUser}) {
      const [credentials, setCredentials] = useState({
@@ -11,8 +11,10 @@ const [error, setError] =  useState('')
 
 const handleChange = (event) => {
      setCredentials({ ...credentials, [event.target.name]: event.target.value})
+     setError('')
+
 }
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
      event.preventDefault()
      try {
           const user = await userService.login(credentials)

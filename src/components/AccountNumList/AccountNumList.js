@@ -1,5 +1,5 @@
-import styles from './AcctNumList.module.scss'
-export default function AccountNumList({ acctNum, activeAcct, setActiveAcct }) {
+import styles from './AccountNumList.module.scss'
+export default function AccountNumList({ acctNums, activeAcct, setActiveAcct }) {
   const cats = acctNums.map(cat =>
     <li
       key={cat}
