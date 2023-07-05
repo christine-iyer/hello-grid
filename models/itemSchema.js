@@ -3,7 +3,7 @@ const item = require('./item');
 const Schema = require('mongoose').Schema;
 
 const itemSchema = new Schema({
-  dateOfExpense: { type: date, required: true },
+  dateOfExpense: { type: Date, required: true },
   payee: { type: Schema.Types.ObjectId, ref: 'Payee' },
   description: { type: Schema.Types.ObjectId, ref: 'Description' },
   usedFor: { type: Schema.Types.ObjectId, ref: 'Use' },
