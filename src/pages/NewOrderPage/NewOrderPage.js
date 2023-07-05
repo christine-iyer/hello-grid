@@ -102,28 +102,28 @@ payeesRef.current = items.reduce((cats, item) => {
         <PayeeList
           payees={payeesRef.current}
           cart={setCart}
-          setActiveCat={setActiveCat}
+          setActivePayee={setActivePayee}
         />
 
 
 <DescriptionList
           descriptions={descriptionsRef.current}
           cart={setCart}
-          setActiveCat={setActiveCat}
+          setActiveDescription={setActiveDescription}
         />
 
 
 <UseList
           uses={usesRef.current}
           cart={setCart}
-          setActiveCat={setActiveCat}
+          setActiveUse={setActiveUse}
         />
 
 
 <AccountNumList
           accountNums={accountNumsRef.current}
           cart={setCart}
-          setActiveCat={setActiveCat}
+          setActiveAcctNum={setActiveAcctNum}
         />
 
 
@@ -133,7 +133,7 @@ payeesRef.current = items.reduce((cats, item) => {
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <MenuList
-        menuItems={menuItems.filter(item => item.category.name === activeCat)}
+        menuItems={menuItems.filter(item => item.payee.name === activePayee)}
         handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail
