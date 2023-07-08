@@ -8,6 +8,7 @@
   --white: #FCF1CF;
   --text-dark:#706B5C;
   --pink-2: rgba(235,210,188,0.85);
+  background-color: #A4C2BF;
   /* --pink-1: rgba(235,210,188,1);
   
   --pink-3: rgba(235,210,188, 0.75);
@@ -48,6 +49,7 @@
     background-color: var(--tan-4);
     padding: 2vmin;
     height: 100vh;
+    background-color: #A4C2BF;
   }
   
   code {

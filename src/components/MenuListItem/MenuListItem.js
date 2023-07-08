@@ -6,11 +6,11 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
   return (
     <Card className="MenuListItem">
       
-        <Card.Title>{menuItem.payee}</Card.Title>
+        <Card.Title>{menuItem.name}</Card.Title>
         
       <div className={styles.EmojiFlexCtrCtr}>
         
-        <p src={menuItem.description}></p>
+        <Card.Img src={menuItem.emoji}></Card.Img>
         </div>
         <Card.Body>
       {/* <div className={styles.Name}>{menuItem.name}</div> */}
