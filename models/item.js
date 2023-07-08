@@ -1,8 +1,4 @@
 const mongoose = require('mongoose')
-// require('./acctNum')
-// require('./description')
-// require('./payee')
-// require('./use')
 require('./category')
 const itemSchema = require('./itemSchema')
 module.exports = mongoose.model('Item', itemSchema)

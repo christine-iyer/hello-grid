@@ -4,7 +4,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
   return (
     <div className={styles.LineItem}>
       <div className="flex-ctr-ctr">
-        <img src={lineItem.item.emoji}></img>
+        <p src={lineItem.item.emoji}></p>
         </div>
       <div className="flex-ctr-ctr flex-col">
         <span className="align-ctr">{lineItem.item.name}</span>

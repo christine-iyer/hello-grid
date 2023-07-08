@@ -10,7 +10,7 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
         
       <div className={styles.EmojiFlexCtrCtr}>
         
-        <Card.Img src={menuItem.emoji}></Card.Img>
+        <p src={menuItem.emoji}></p>
         </div>
         <Card.Body>
       {/* <div className={styles.Name}>{menuItem.name}</div> */}
