@@ -93,74 +93,75 @@ const Item = require('../models/item.js/item');
           { name: 'Baking Soda', sortOrder: 70 },//description: descriptions[6]
           { name: 'batt/cable-office exp', sortOrder: 80 },//description: descriptions[7]
           { name: 'bottle pumps', sortOrder: 90 },//description: descriptions[8]
-          { name: 'cable-office exp', sortOrder: 100 },//description: descriptions[7]
-          { name: 'Callagen', sortOrder: 110 },//description: descriptions[10]
-          { name: 'calm', sortOrder: 120 },//description: descriptions[11]
-          { name: 'cashw milk', sortOrder: 130 },//description: descriptions[12]
-          { name: 'CBG RSO', sortOrder: 140 },//description: descriptions[13]
-          { name: 'Cloner', sortOrder: 150 },//description: descriptions[14]
-          { name: 'clonex gel', sortOrder: 160 },//description: descriptions[15]
-          { name: 'cloning machine', sortOrder: 170 },//description: descriptions[16]
-          { name: 'cocnut oil', sortOrder: 180 },//description: descriptions[17]
-          { name: 'Coconut sugar', sortOrder: 190 },//description: descriptions[18]
-          { name: 'cooking', sortOrder: 200 },//description: descriptions[19]
-          { name: 'dry ice', sortOrder: 210 },//description: descriptions[20]
-          { name: 'Electric', sortOrder: 220 },//description: descriptions[21]
-          { name: 'Employee licenseto work with another care giver', sortOrder: 230 },//description: descriptions[22]
-          { name: 'Emu oil', sortOrder: 240 },//description: descriptions[34]
-          { name: 'equipment', sortOrder: 250 },//description: descriptions[24]
-          { name: 'Erythritol', sortOrder: 260 },//description: descriptions[25]
-          { name: 'everclear', sortOrder: 270 },//description: descriptions[26]
-          { name: 'fix new greenhouse', sortOrder: 280 },//description: descriptions[27]
-          { name: 'flavor', sortOrder: 290 },//description: descriptions[28]
-          { name: 'freight-out', sortOrder: 300 },//description: descriptions[29]
-          { name: 'gelitne', sortOrder: 310 },//description: descriptions[30]
-          { name: 'gluclose', sortOrder: 320 },//description: descriptions[31]
-          { name: 'Green Leds-light bulbs', sortOrder: 330 },//description: descriptions[32]
-          { name: 'greenhouse-plastic', sortOrder: 340 },//description: descriptions[33]
-          { name: 'Grow license-annual', sortOrder: 350 },//description: descriptions[34]
-          { name: 'grow rooms', sortOrder: 360 },//description: descriptions[35]
-          { name: 'grow rooms-thermo pex', sortOrder: 370 },//description: descriptions[36]
+          { name: 'cable-office exp', sortOrder: 100 },//description: descriptions[9]
+          { name: 'Callagen', sortOrder: 110 },//description: descriptions[12]
+          { name: 'calm', sortOrder: 120 },//description: descriptions[13]
+          { name: 'cashw milk', sortOrder: 130 },//description: descriptions[14]
+          { name: 'CBG RSO', sortOrder: 140 },//description: descriptions[15]
+          { name: 'Cloner', sortOrder: 150 },//description: descriptions[16]
+          { name: 'clonex gel', sortOrder: 160 }//description: descriptions[17]
+          { name: 'cloning machine', sortOrder: 170 },//description: descriptions[18]
+          { name: 'coconut oil', sortOrder: 180 },//description: descriptions[19]
+          { name: 'Coconut sugar', sortOrder: 190 },//description: descriptions[20]
+          { name: 'cooking', sortOrder: 200 },//description: descriptions[21]
+          { name: 'dry ice', sortOrder: 210 },//description: descriptions[22]
+          { name: 'Electric', sortOrder: 220 },//description: descriptions[23]
+
+          { name: 'Employee licenseto work with another care giver', sortOrder: 230 },//description: descriptions[24]
+          { name: 'Emu oil', sortOrder: 240 },//description: descriptions[25]
+          { name: 'equipment', sortOrder: 250 },//description: descriptions[26]
+          { name: 'Erythritol', sortOrder: 260 },//description: descriptions[27]
+          { name: 'everclear', sortOrder: 270 },//description: descriptions[28]
+          { name: 'fix new greenhouse', sortOrder: 280 },//description: descriptions[29]
+          { name: 'flavor', sortOrder: 290 },//description: descriptions[30]
+          { name: 'freight-out', sortOrder: 300 },//description: descriptions[31]
+          { name: 'gelitne', sortOrder: 310 },//description: descriptions[32]
+          { name: 'gluclose', sortOrder: 320 },//description: descriptions[33]
+          { name: 'Green Leds-light bulbs', sortOrder: 330 },//description: descriptions[34]
+          { name: 'greenhouse-plastic', sortOrder: 340 },//description: descriptions[35]
+          { name: 'Grow license-annual', sortOrder: 350 },//description: descriptions[36]
+          { name: 'grow rooms', sortOrder: 360 },//description: descriptions[37]
+          { name: 'grow rooms-thermo pex', sortOrder: 370 },//description: descriptions[38]
           { name: 'heating system/water line grow room', sortOrder: 380 },//description: descriptions[39]
           { name: 'herbs', sortOrder: 390 },//description: descriptions[40]
-          { name: 'herbs/wax', sortOrder: 400 },//description: descriptions[39]
-          { name: 'humidity packs', sortOrder: 410 },//description: descriptions[40]
-          { name: 'IIC audult use license-annual-dispensery', sortOrder: 420 },//description: descriptions[41]
-          { name: 'LLC license-annual', sortOrder: 430 },//description: descriptions[42]
-          { name: 'MCT', sortOrder: 440 },//description: descriptions[43]
-          { name: 'Misc grow room-paints/lights', sortOrder: 450 },//description: descriptions[44]
-          { name: 'molds', sortOrder: 460 },//description: descriptions[45]
-          { name: 'nutrients', sortOrder: 470 },//description: descriptions[46]
-          { name: 'nutrients-Bloom', sortOrder: 480 },//description: descriptions[47]
-          { name: 'nutrients-Boost', sortOrder: 490 },//description: descriptions[48]
-          { name: 'nutrients-magnesium', sortOrder: 500 },//description: descriptions[49]
-          { name: 'nutrients-Part A', sortOrder: 510 },//description: descriptions[50]
-          { name: 'office', sortOrder: 520 },//description: descriptions[51]
-          { name: 'office shipping', sortOrder: 530 },//description: descriptions[52]
-          { name: 'office supplies', sortOrder: 540 },//description: descriptions[53]
-          { name: 'oil', sortOrder: 550 },//description: descriptions[54]
-          { name: 'package', sortOrder: 560 },//description: descriptions[55]
-          { name: 'Papaya Powder', sortOrder: 570 },//description: descriptions[56]
-          { name: 'Pineapple powder', sortOrder: 580 },//description: descriptions[57]
-          { name: 'plant', sortOrder: 590 },//description: descriptions[58]
-          { name: 'plant lamps', sortOrder: 600 },//description: descriptions[59]
-          { name: 'pump oil', sortOrder: 610 },//description: descriptions[60]
-          { name: 'sales tax', sortOrder: 620 },//description: descriptions[61]
-          { name: 'Shipping', sortOrder: 630 },//description: descriptions[62]
-          { name: 'shrink tube', sortOrder: 640 },//description: descriptions[63]
-          { name: 'shrinkwrap', sortOrder: 650 },//description: descriptions[64]
-          { name: 'SJR labs-RSO', sortOrder: 660 },//description: descriptions[65]
-          { name: 'sleepcomplete', sortOrder: 670 },//description: descriptions[66]
-          { name: 'soil', sortOrder: 680 },//description: descriptions[67]
-          { name: 'Tart Cherry', sortOrder: 690 },//description: descriptions[68]
-          { name: 'Testing', sortOrder: 700 },//description: descriptions[69]
-          { name: 'Topicals-goats milk', sortOrder: 710 },//description: descriptions[70]
-          { name: 'Topicals-orange water', sortOrder: 720 },//description: descriptions[71]
-          { name: 'trimming sissors', sortOrder: 730 },//description: descriptions[72]
-          { name: 'tshirts', sortOrder: 740 },//description: descriptions[73]
-          { name: 'tubes', sortOrder: 750 },//description: descriptions[74]
-          { name: 'wash', sortOrder: 760 },//description: descriptions[75]
-          { name: 'Misc', sortOrder: 770 },//description: descriptions[76]
+          { name: 'herbs/wax', sortOrder: 400 },//description: descriptions[41]
+          { name: 'humidity packs', sortOrder: 410 },//description: descriptions[42]
+          { name: 'IIC audult use license-annual-dispensery', sortOrder: 420 },//description: descriptions[43]
+          { name: 'LLC license-annual', sortOrder: 430 },//description: descriptions[44]
+          { name: 'MCT', sortOrder: 440 },//description: descriptions[45]
+          { name: 'Misc grow room-paints/lights', sortOrder: 450 },//description: descriptions[46]
+          { name: 'molds', sortOrder: 460 },//description: descriptions[47]
+          { name: 'nutrients', sortOrder: 470 },//description: descriptions[48]
+          { name: 'nutrients-Bloom', sortOrder: 480 },//description: descriptions[49]
+          { name: 'nutrients-Boost', sortOrder: 490 },//description: descriptions[50]
+          { name: 'nutrients-magnesium', sortOrder: 500 },//description: descriptions[51]
+          { name: 'nutrients-Part A', sortOrder: 510 },//description: descriptions[52]
+          { name: 'office', sortOrder: 520 },//description: descriptions[53]
+          { name: 'office shipping', sortOrder: 530 },//description: descriptions[54]
+          { name: 'office supplies', sortOrder: 540 },//description: descriptions[55]
+          { name: 'oil', sortOrder: 550 },//description: descriptions[56]
+          { name: 'package', sortOrder: 560 },//description: descriptions[57]
+          { name: 'Papaya Powder', sortOrder: 570 },//description: descriptions[58]
+          { name: 'Pineapple powder', sortOrder: 580 },//description: descriptions[59]
+          { name: 'plant', sortOrder: 590 },//description: descriptions[60]
+          { name: 'plant lamps', sortOrder: 600 },//description: descriptions[61]
+          { name: 'pump oil', sortOrder: 610 },//description: descriptions[62]
+          { name: 'sales tax', sortOrder: 620 },//description: descriptions[63]
+          { name: 'Shipping', sortOrder: 630 },//description: descriptions[64]
+          { name: 'shrink tube', sortOrder: 640 },//description: descriptions[65]
+          { name: 'shrinkwrap', sortOrder: 650 },//description: descriptions[66]
+          { name: 'SJR labs-RSO', sortOrder: 660 },//description: descriptions[67]
+          { name: 'sleepcomplete', sortOrder: 670 },//description: descriptions[68]
+          { name: 'soil', sortOrder: 680 },//description: descriptions[69]
+          { name: 'Tart Cherry', sortOrder: 690 },//description: descriptions[70]
+          { name: 'Testing', sortOrder: 700 },//description: descriptions[71]
+          { name: 'Topicals-goats milk', sortOrder: 710 },//description: descriptions[72]
+          { name: 'Topicals-orange water', sortOrder: 720 },//description: descriptions[73]
+          { name: 'trimming sissors', sortOrder: 730 },//description: descriptions[74]
+          { name: 'tshirts', sortOrder: 740 },//description: descriptions[75]
+          { name: 'tubes', sortOrder: 750 },//description: descriptions[76]
+          { name: 'wash', sortOrder: 760 },//description: descriptions[77]
+          { name: 'Misc', sortOrder: 770 },//description: descriptions[78]
      ]);
 
      await AcctNum.deleteMany({});
@@ -259,6 +260,7 @@ const Item = require('../models/item.js/item');
                "payee": "CMP",
                //payee:payees[0]
                "description": "Electric",
+               //description: descriptions[23]
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -301,7 +303,8 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "01/07/20",
                "payee": "Sams Club",
                //payee:payees[37]
-               "description": "cocnut oil",
+               "description": "coconut oil",
+                //description: descriptions[19]
                "usedFor": "cooking",
                "numUnits": 2,
                "unitMeas": "",
@@ -345,6 +348,7 @@ const Item = require('../models/item.js/item');
                "payee": "Sams Club",
                //payee:payees[37]
                "description": "Baking Soda",
+               //description: descriptions[6]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -388,6 +392,7 @@ const Item = require('../models/item.js/item');
                "payee": "Sams Club",
                //payee:payees[37]
                "description": "Callagen",
+               ,//description: descriptions[12]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -474,6 +479,7 @@ const Item = require('../models/item.js/item');
                "payee": "Urban Garden",
                //payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -517,6 +523,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dollar Store",
                //payee:payees[12]
                "description": "agava",
+               //description: descriptions[3]
                "usedFor": "cooking",
                "numUnits": 9,
                "unitMeas": "",
@@ -559,6 +566,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "01/11/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "plant",
+               //description: descriptions[60]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -602,6 +610,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "sales tax",
+               //description: descriptions[63]
                "usedFor": "",
                "numUnits": "",
                "unitMeas": "",
@@ -688,6 +697,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "LLC license-annual",
+               //description: descriptions[44]
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -731,6 +741,7 @@ const Item = require('../models/item.js/item');
                "payee": "True Value",
                //payee:payees[43]
                "description": "cooking",
+               //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -774,6 +785,7 @@ const Item = require('../models/item.js/item');
                "payee": "Allen Sterling",
                //payee:payees[3]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 5,
                "unitMeas": "",
@@ -817,6 +829,7 @@ const Item = require('../models/item.js/item');
                "payee": "Broadway Gardens",
                //payee:payees[6]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -860,6 +873,7 @@ const Item = require('../models/item.js/item');
                "payee": "Broadway Gardens",
                //payee:payees[6]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -903,6 +917,7 @@ const Item = require('../models/item.js/item');
                "payee": "CMP",
                //payee:payees[0]
                "description": "Electric",
+               //description: descriptions[23]
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -946,6 +961,7 @@ const Item = require('../models/item.js/item');
                "payee": "True Value",
                //payee:payees[43]
                "description": "package",
+               //description: descriptions[57]
                "usedFor": "packaging",
                "numUnits": "",
                "unitMeas": "",
@@ -989,6 +1005,7 @@ const Item = require('../models/item.js/item');
                "payee": "AC Moore",
                //payee:payees[2]
                "description": "gluclose",
+               //description: descriptions[33]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -1032,6 +1049,7 @@ const Item = require('../models/item.js/item');
                "payee": "AC Moore",
                //payee:payees[2]
                "description": "package",
+               //description: descriptions[57]
                "usedFor": "packaging",
                "numUnits": 3,
                "unitMeas": "each",
@@ -1160,6 +1178,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "03/02/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -1202,6 +1221,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "03/02/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -1245,6 +1265,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "Employee licenseto work with another care giver",
+              //description: descriptions[24]
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -1288,6 +1309,7 @@ const Item = require('../models/item.js/item');
                "payee": "CMP",
                //payee:payees[0]
                "description": "Electric",
+               //description: descriptions[23]
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -1331,6 +1353,7 @@ const Item = require('../models/item.js/item');
                "payee": "Mardens",
                //payee:payees[28]
                "description": "gelitne",
+               //description: descriptions[32]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1374,6 +1397,7 @@ const Item = require('../models/item.js/item');
                "payee": "Natural Happiness",
                //payee:payees[30]
                "description": "CBG RSO",
+                //description: descriptions[15]
                "usedFor": "cooking",
                "numUnits": 3,
                "unitMeas": "",
@@ -1417,6 +1441,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "IIC audult use license-annual-dispensery",
+               //description: descriptions[43]
                "usedFor": "licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -1460,6 +1485,7 @@ const Item = require('../models/item.js/item');
                "payee": "A2Z",
                //payee:payees[1]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -1503,6 +1529,7 @@ const Item = require('../models/item.js/item');
                "payee": "CVS",
                //payee:payees[10]
                "description": "cooking",
+               //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1546,6 +1573,7 @@ const Item = require('../models/item.js/item');
                "payee": "CVS",
                //payee:payees[10]
                "description": "cooking",
+              //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1589,6 +1617,7 @@ const Item = require('../models/item.js/item');
                "payee": "Lois",
                //payee:payees[26]
                "description": "cooking",
+               //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1632,6 +1661,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dipietros",
                //payee:payees[10]
                "description": "everclear",
+               //description: descriptions[28]
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -1675,6 +1705,7 @@ const Item = require('../models/item.js/item');
                "payee": "Walmart",
                //payee:payees[48]
                "description": "cooking",
+               //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1717,6 +1748,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "03/31/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "wash",
+               ,//description: descriptions[77]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -1760,6 +1792,7 @@ const Item = require('../models/item.js/item');
                "payee": "Allstar Health.",
                //payee:payees[4]
                "description": "sleepcomplete",
+               //description: descriptions[68]
                "usedFor": "cooking",
                "numUnits": 6,
                "unitMeas": "16 oz",
@@ -1803,6 +1836,7 @@ const Item = require('../models/item.js/item');
                "payee": "Lorann Oils",
                //payee:payees[27]
                "description": "flavor",
+               //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -1846,6 +1880,7 @@ const Item = require('../models/item.js/item');
                "payee": "CMP",
                //payee:payees[0]
                "description": "Electric",
+               //description: descriptions[23]
                "usedFor": "Electric-greenhouse",
                "numUnits": "",
                "unitMeas": "",
@@ -1932,6 +1967,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -1975,6 +2011,7 @@ const Item = require('../models/item.js/item');
                "payee": "Jordan Farm",
                //payee:payees[20]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -2018,6 +2055,7 @@ const Item = require('../models/item.js/item');
                "payee": "Mountain Rose",
                //payee:payees[29]
                "description": "herbs/wax",
+               //description: descriptions[41]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -2104,6 +2142,7 @@ const Item = require('../models/item.js/item');
                "payee": "Nolts Greenhouse",
                //payee:payees[31]
                "description": "greenhouse-plastic",
+               //description: descriptions[35]
                "usedFor": "leasehold improvments",
                "numUnits": "",
                "unitMeas": "",
@@ -2190,6 +2229,7 @@ const Item = require('../models/item.js/item');
                "payee": "Jordan Farm",
                //payee:payees[20]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -2233,6 +2273,7 @@ const Item = require('../models/item.js/item');
                "payee": "Home Depot",
                //payee:payees[18]
                "description": "grow rooms",
+               //description: descriptions[37]
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -2276,6 +2317,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dipietros",
                //payee:payees[10]
                "description": "everclear",
+               //description: descriptions[28]
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -2319,6 +2361,7 @@ const Item = require('../models/item.js/item');
                "payee": "Jordan Farm",
                //payee:payees[20]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -2361,6 +2404,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "05/21/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "clonex gel",
+                //description: descriptions[17]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -2404,6 +2448,7 @@ const Item = require('../models/item.js/item');
                "payee": "Jordan Farm",
                //payee:payees[20]
                "description": "soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -2447,6 +2492,7 @@ const Item = require('../models/item.js/item');
                "payee": "Truffle made",
                //payee:payees[44]
                "description": "molds",
+               //description: descriptions[47]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -2490,6 +2536,7 @@ const Item = require('../models/item.js/item');
                "payee": "Multiple vendors",
                //payee:payees[28]
                "description": "fix new greenhouse",
+               //description: descriptions[29]
                "usedFor": "leasehold improvements",
                "numUnits": "",
                "unitMeas": "",
@@ -2532,6 +2579,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "06/14/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "plant",
+               //description: descriptions[60]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -2575,6 +2623,7 @@ const Item = require('../models/item.js/item');
                "payee": "Home Depot",
                //payee:payees[18]
                "description": "grow rooms",
+               //description: descriptions[37]
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -2618,6 +2667,7 @@ const Item = require('../models/item.js/item');
                "payee": "Oakhill",
                //payee:payees[32]
                "description": "grow rooms",
+               //description: descriptions[37]
                "usedFor": "indirect equipment repair&maint",
                "numUnits": "",
                "unitMeas": "",
@@ -2704,6 +2754,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "Grow license-annual",
+               //description: descriptions[36]
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -2747,6 +2798,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "Back ground check-license-annual",
+               //description: descriptions[5]
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -2790,6 +2842,7 @@ const Item = require('../models/item.js/item');
                "payee": "Allen Sterling",
                //payee:payees[3]
                "description": "Soil",
+               //description: descriptions[69]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -2832,6 +2885,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "6/30/2020",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -2875,6 +2929,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dishwaser-Uncle Andy",
                //payee:payees[11]
                "description": "equipment",
+               //description: descriptions[26]
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
                "unitMeas": "",
@@ -2961,6 +3016,7 @@ const Item = require('../models/item.js/item');
                "payee": "Labor Cost-Rob Fogg",
                //payee:payees[21]
                "description": "heating system/water line grow room",
+               //description: descriptions[39]
                "usedFor": "leasehold improvments",
                "numUnits": "",
                "unitMeas": "",
@@ -3047,6 +3103,7 @@ const Item = require('../models/item.js/item');
                "payee": "Handsink-rest equiment store",
                //payee:payees[15]
                "description": "equipment",
+               //description: descriptions[26]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3089,6 +3146,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "07/10/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "cloning machine",
+                //description: descriptions[18]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3131,6 +3189,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "7/10/2020",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "Cloner",
+               //description: descriptions[16]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3217,6 +3276,7 @@ const Item = require('../models/item.js/item');
                "payee": "Allstar Health.",
                //payee:payees[4]
                "description": "sleepcomplete",
+               //description: descriptions[68]
                "usedFor": "cooking",
                "numUnits": 7,
                "unitMeas": "",
@@ -3260,6 +3320,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "sales tax",
+               //description: descriptions[63]
                "usedFor": "",
                "numUnits": "",
                "unitMeas": "",
@@ -3302,6 +3363,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "07/19/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -3345,6 +3407,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dipietros",
                //payee:payees[10]
                "description": "everclear",
+               //description: descriptions[28]
                "usedFor": "extraction",
                "numUnits": 2,
                "unitMeas": "",
@@ -3388,6 +3451,7 @@ const Item = require('../models/item.js/item');
                "payee": "Staples",
                //payee:payees[40]
                "description": "office",
+               //description: descriptions[53]
                "usedFor": "packaging",
                "numUnits": "",
                "unitMeas": "",
@@ -3431,6 +3495,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "cashw milk",
+               //description: descriptions[14]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3474,6 +3539,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Coconut sugar",
+               //description: descriptions[20]
                "usedFor": "cooking",
                "numUnits": 5,
                "unitMeas": "3#",
@@ -3517,6 +3583,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Erythritol",
+              //description: descriptions[27]
                "usedFor": "cooking",
                "numUnits": 5,
                "unitMeas": "3#",
@@ -3560,6 +3627,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Papaya Powder",
+               //description: descriptions[58]                                                                                                                                                                                          u88jgghfr4e55
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3603,6 +3671,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Pineapple powder",
+               //description: descriptions[59]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3646,6 +3715,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Tart Cherry",
+               //description: descriptions[70]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -3689,6 +3759,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Coconut sugar",
+                //description: descriptions[20]
                "usedFor": "cooking",
                "numUnits": 2,
                "unitMeas": "10#",
@@ -3732,6 +3803,7 @@ const Item = require('../models/item.js/item');
                "payee": "Chemistrystore",
                //payee:payees[8]
                "description": "tubes",
+               //description: descriptions[76]
                "usedFor": "packaging",
                "numUnits": 5,
                "unitMeas": "",
@@ -3775,6 +3847,7 @@ const Item = require('../models/item.js/item');
                "payee": "Home Depot",
                //payee:payees[18]
                "description": "Misc grow room-paints/lights",
+               //description: descriptions[46]
                "usedFor": "equipment-indirect expenses",
                "numUnits": "",
                "unitMeas": "",
@@ -3818,6 +3891,7 @@ const Item = require('../models/item.js/item');
                "payee": "Home Depot",
                //payee:payees[18]
                "description": "5 buckets w/lids",
+               //description: descriptions[0]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3861,6 +3935,7 @@ const Item = require('../models/item.js/item');
                "payee": "Home Depot",
                //payee:payees[18]
                "description": "5 buckets w/lids",
+               //description: descriptions[0]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -3904,6 +3979,7 @@ const Item = require('../models/item.js/item');
                "payee": "Leroux Kitchen",
                //payee:payees[25]
                "description": "flavor",
+               //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -3946,6 +4022,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "08/13/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -3988,6 +4065,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "08/13/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -4030,6 +4108,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "08/13/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "qt",
@@ -4116,6 +4195,7 @@ const Item = require('../models/item.js/item');
                "payee": "Renhui metal",
               //payee:payees[36]
                "description": "plant lamps",
+               //description: descriptions[61]
                "usedFor": "equipment",
                "numUnits": 1,
                "unitMeas": "",
@@ -4159,6 +4239,7 @@ const Item = require('../models/item.js/item');
                "payee": "Lorann Oils",
                //payee:payees[27]
                "description": "flavor",
+               //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -4202,6 +4283,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[54]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -4245,6 +4327,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Mind",
                //payee:payees[42]
                "description": "tshirts",
+               //description: descriptions[75]
                "usedFor": "purchases for resale",
                "numUnits": "",
                "unitMeas": "",
@@ -4288,6 +4371,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dipietros",
                //payee:payees[10]
                "description": "everclear",
+               //description: descriptions[28]
                "usedFor": "extraction",
                "numUnits": 1,
                "unitMeas": "",
@@ -4330,6 +4414,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "08/29/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -4372,6 +4457,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "08/29/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "qt",
@@ -4414,6 +4500,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "08/29/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "qt",
@@ -4457,6 +4544,7 @@ const Item = require('../models/item.js/item');
                "payee": "Independent Power",
                //payee:payees[19]
                "description": "grow rooms-thermo pex",
+               //description: descriptions[38]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": 2,
                "unitMeas": "",
@@ -4500,6 +4588,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -4543,6 +4632,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -4586,6 +4676,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -4629,6 +4720,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": 50,
@@ -4672,6 +4764,7 @@ const Item = require('../models/item.js/item');
                "payee": "Pharmaca",
                //payee:payees[33]
                "description": "calm",
+                //description: descriptions[13]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -4758,6 +4851,7 @@ const Item = require('../models/item.js/item');
                "payee": "SJR Labs",
                //payee:payees[39]
                "description": "SJR labs-RSO",
+               //description: descriptions[67]
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -4801,6 +4895,7 @@ const Item = require('../models/item.js/item');
                "payee": "Home Depot",
                //payee: payees[18]
                "description": "trimming sissors",
+               //description: descriptions[74]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -4887,6 +4982,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "humidity packs",
+              //description: descriptions[42]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": "",
                "unitMeas": "",
@@ -4930,6 +5026,7 @@ const Item = require('../models/item.js/item');
                "payee": "SJR Labs",
                //payee:payees[39]
                "description": "SJR labs-RSO",
+               //description: descriptions[67]
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -4973,6 +5070,7 @@ const Item = require('../models/item.js/item');
                "payee": "Napa",
                //payee:payees[29]
                "description": "pump oil",
+               //description: descriptions[62]
                "usedFor": "indirect equipment repair&maint",
                "numUnits": 5,
                "unitMeas": "",
@@ -5016,6 +5114,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "freight-out",
+               //description: descriptions[31]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -5059,6 +5158,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "cooking",
+               //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "5#",
@@ -5102,6 +5202,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Coconut sugar",
+              //description: descriptions[20]
                "usedFor": "cooking",
                "numUnits": 3,
                "unitMeas": "10#",
@@ -5145,6 +5246,7 @@ const Item = require('../models/item.js/item');
                "payee": "zNatural",
                //payee:payees[49]
                "description": "Erythritol",
+               //description: descriptions[27]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "10#",
@@ -5188,6 +5290,7 @@ const Item = require('../models/item.js/item');
                "payee": "Proverda lab",
                //payee:payees[35]
                "description": "Testing",
+               //description: descriptions[71]
                "usedFor": "QC/Lab",
                "numUnits": "",
                "unitMeas": "",
@@ -5230,6 +5333,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "11/02/20",
                "payee": "Uline",//payee:payees[45],
                "description": "shrink tube",
+               //description: descriptions[65]
                "usedFor": "packaging",
                "numUnits": "",
                "unitMeas": "",
@@ -5273,6 +5377,7 @@ const Item = require('../models/item.js/item');
                "payee": "Griffen Greenhouse",
                //payee:payees[14]
                "description": "nutrients-Part A",
+               //description: descriptions[52]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "25#",
@@ -5316,6 +5421,7 @@ const Item = require('../models/item.js/item');
                "payee": "Griffen Greenhouse",
                //payee:payees[14]
                "description": "nutrients-Boost",
+               //description: descriptions[50]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "25#",
@@ -5359,6 +5465,7 @@ const Item = require('../models/item.js/item');
                "payee": "Griffen Greenhouse",
                //payee:payees[14]
                "description": "nutrients-Bloom",
+               //description: descriptions[49]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "25#",
@@ -5402,6 +5509,7 @@ const Item = require('../models/item.js/item');
                "payee": "Griffen Greenhouse",
                //payee:payees[14]
                "description": "nutrients-magnesium",
+               //description: descriptions[51]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "50#",
@@ -5445,6 +5553,7 @@ const Item = require('../models/item.js/item');
                "payee": "Griffen Greenhouse",
                //payee:payees[14]
                "description": "5 gallon plant pots",
+               //description: descriptions[1]
                "usedFor": "indirect equip-non cap equip",
                "numUnits": 44,
                "unitMeas": "",
@@ -5488,6 +5597,7 @@ const Item = require('../models/item.js/item');
                "payee": "Vessel Services",
                //payee:payees[47]
                "description": "dry ice",
+              //description: descriptions[22]
                "usedFor": "extraction",
                "numUnits": "",
                "unitMeas": "",
@@ -5531,6 +5641,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "flavor",
+               //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -5574,6 +5685,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -5617,6 +5729,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 2,
                "unitMeas": "",
@@ -5660,6 +5773,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -5703,6 +5817,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "Green Leds-light bulbs",
+               //description: descriptions[34]
                "usedFor": "indirect equipment repair&maint",
                "numUnits": 1,
                "unitMeas": "",
@@ -5746,6 +5861,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": 1,
                "unitMeas": "",
@@ -5789,6 +5905,7 @@ const Item = require('../models/item.js/item');
                "payee": "Leapin Lizards",
                //payee:payees[22]
                "description": "herbs",
+               //description: descriptions[40]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -5832,6 +5949,7 @@ const Item = require('../models/item.js/item');
                "payee": "Shaws",
                //payee:payees[38]
                "description": "cooking",
+               //description: descriptions[21]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -5875,6 +5993,7 @@ const Item = require('../models/item.js/item');
                "payee": "CVS",
                //payee:payees[10]
                "description": "batt/cable-office exp",
+               //description: descriptions[7]
                "usedFor": "office supplies",
                "numUnits": "",
                "unitMeas": "",
@@ -5918,6 +6037,7 @@ const Item = require('../models/item.js/item');
                "payee": "CVS",
                //payee:payees[10]
                "description": "cable-office exp",
+               //description: descriptions[11]
                "usedFor": "office supplies",
                "numUnits": "",
                "unitMeas": "",
@@ -5961,6 +6081,7 @@ const Item = require('../models/item.js/item');
                "payee": "Lois",
                //payee:payees[26]
                "description": "Topicals-goats milk",
+               //description: descriptions[72]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -6004,6 +6125,7 @@ const Item = require('../models/item.js/item');
                "payee": "Lois",
                //payee:payees[26]
                "description": "Topicals-orange water",
+               //description: descriptions[73]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -6047,6 +6169,7 @@ const Item = require('../models/item.js/item');
                "payee": "Lois",
                //payee:payees[26]
                "description": "MCT",
+               //description: descriptions[45]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "16 oz",
@@ -6090,6 +6213,7 @@ const Item = require('../models/item.js/item');
                "payee": "State of Maine",
                //payee:payees[41]
                "description": "Annual report",
+               //description: descriptions[4]
                "usedFor": "Licensing",
                "numUnits": "",
                "unitMeas": "",
@@ -6132,6 +6256,7 @@ const Item = require('../models/item.js/item');
                "dateOfExpense": "11/25/20",
                "payee": "Urban Garden",//payee:payees[46]
                "description": "wash",
+               ,//description: descriptions[77]
                "usedFor": "growing",
                "numUnits": 5,
                "unitMeas": "",
@@ -6175,6 +6300,7 @@ const Item = require('../models/item.js/item');
                "payee": "High Tech",
                //payee:payees[17]
                "description": "nutrients",
+               //description: descriptions[48]
                "usedFor": "growing",
                "numUnits": "",
                "unitMeas": "",
@@ -6218,6 +6344,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "flavor",
+               //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6261,6 +6388,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "flavor",
+              //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6304,6 +6432,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "oil",
+               //description: descriptions[56]
                "usedFor": "cooking",
                "numUnits": 7.5,
                "unitMeas": "",
@@ -6347,6 +6476,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "flavor",
+              //description: descriptions[30]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6390,6 +6520,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "Emu oil",
+               //description: descriptions[25]
                "usedFor": "cooking",
                "numUnits": 1,
                "unitMeas": "",
@@ -6433,6 +6564,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "8oz bottles",
+               //description: descriptions[2]
                "usedFor": "packaging",
                "numUnits": 1,
                "unitMeas": 50,
@@ -6476,6 +6608,7 @@ const Item = require('../models/item.js/item');
                "payee": "Bulk Apothecary",
                //payee:payees[7]
                "description": "bottle pumps",
+               //description: descriptions[8]
                "usedFor": "packaging",
                "numUnits": 1,
                "unitMeas": 50,
@@ -6519,6 +6652,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "freight-out",
+               //description: descriptions[31]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -6562,6 +6696,7 @@ const Item = require('../models/item.js/item');
                "payee": "Dollar Store",
                //payee:payees[12]
                "description": "shrinkwrap",
+               //description: descriptions[66]
                "usedFor": "packaging",
                "numUnits": 20,
                "unitMeas": "",
@@ -6605,6 +6740,7 @@ const Item = require('../models/item.js/item');
                "payee": "Staples",
                //payee:payees[40]
                "description": "office supplies",
+               //description: descriptions[55]
                "usedFor": "office supplies",
                "numUnits": "",
                "unitMeas": "",
@@ -6648,6 +6784,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "freight-out",
+               //description: descriptions[31]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -6691,6 +6828,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "Shipping",
+               //description: descriptions[64]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -6734,6 +6872,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "Shipping",
+               //description: descriptions[64]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
