@@ -22,20 +22,20 @@ export default function CreateItem ({
           
           <label>Title
             <input 
-            className={styles.title}
+            className={styles.name}
             type='text' 
-            value={item.title} 
-            name='title' 
+            value={item.name} 
+            name='name' 
             onChange={handleChange} 
-            placeholder='Title' 
+            placeholder='Name' 
             />
           </label>
 
           <label>Url
-            <input className={styles.url}
+            <input className={styles.emoji}
             type='text' 
-            value={item.url} 
-            name='url' 
+            value={item.emoji} 
+            name='emoji' 
             onChange={handleChange} 
             placeholder='URL' />
           </label>
@@ -48,13 +48,68 @@ export default function CreateItem ({
             onChange={handleChange} 
             placeholder='Category'
             name="category">
+              <option value="CMP">CMP</option>
+              <option  value="A2Z">A2Z</option>
+              <option  value="AC Moore">AC Moore</option>
+              <option  value="AllenSterling">AllenSterling</option>
+              <option  value="Balance">Balance</option>
+              <option value="Broadway Gardens">Broadway Gardens</option>
+              <option  value="Bulk Apothecary">Bulk Apothecary</option>
+              <option  value="CVS">CVS</option>
+              <option  value="Diepietros">Diepietros</option>
+              <option  value="Dishwaser-Uncle Andy">Dishwaser-Uncle Andy</option>
+              <option value="Dollar Store">Dollar Store</option>
+              <option  value="Griffen Greenhouse">Griffen Greenhouse</option>
+              <option  value="Handsink-rest equiment store">Handsink-rest equiment store</option>
+              <option  value="Heat system for grow room">Heat system for grow room</option>
+              <option  value="High Tech">High Tech</option>
+              <option value="Home Depot">Home Depot</option>
+              <option  value="Independent Power">Independent Power</option>
+              <option  value="Jordan Farm">Jordan Farm</option>
+              <option  value="Labor Cost-Rob Fogg">Labor Cost-Rob Fogg</option>
+              <option  value="Leapin Lizards">Leapin Lizards</option>
+              <option value="Leroux Kitchen">Leroux Kitchen</option>
+              <option  value="Friends">Friends</option>
+              <option  value="Work">Work</option>
+              <option  value="Code">Code</option>
+              <option  value="Misc">Misc</option>
               <option value="Family">Family</option>
               <option  value="Friends">Friends</option>
               <option  value="Work">Work</option>
               <option  value="Code">Code</option>
               <option  value="Misc">Misc</option>
+              <option value="Family">Family</option>
+              <option  value="Friends">Friends</option>
+              <option  value="Work">Work</option>
+              <option  value="Code">Code</option>
+              <option  value="Misc">Misc</option>
+              <option value="Family">Family</option>
+              <option  value="Friends">Friends</option>
+              <option  value="Work">Work</option>
+              <option  value="Code">Code</option>
+              <option  value="Misc">Misc</option>
+              <option value="Family">Family</option>
+              <option  value="Friends">Friends</option>
+              <option  value="Work">Work</option>
+              <option  value="Code">Code</option>
+              <option  value="Misc">Misc</option>
+              <option value="Family">Family</option>
+              <option  value="Friends">Friends</option>
+              <option  value="Work">Work</option>
+              <option  value="Code">Code</option>
+              <option  value="Misc">Misc</option>
+              
             </select>
             </label>
+
+            <label>Url
+            <input className={styles.price}
+            type='number' 
+            value={item.price} 
+            name='price' 
+            onChange={handleChange} 
+            placeholder='Price' />
+          </label>
 
           <input className={styles.button} 
           type='submit' 
