@@ -19,7 +19,7 @@ const userSchema = new Schema({
     minlength: 3,
     required: true
   },
-  movies: [{type: Schema.Types.ObjectId, ref: "Review"}]
+  items: [{type: Schema.Types.ObjectId, ref: "Item"}]
 }, {
   timestamps: true,
   toJSON: {

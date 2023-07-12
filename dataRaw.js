@@ -99,7 +99,7 @@ const Item = require('../models/item.js/item');
           { name: 'cashw milk', sortOrder: 130 },//description: descriptions[14]
           { name: 'CBG RSO', sortOrder: 140 },//description: descriptions[15]
           { name: 'Cloner', sortOrder: 150 },//description: descriptions[16]
-          { name: 'clonex gel', sortOrder: 160 }//description: descriptions[17]
+          { name: 'clonex gel', sortOrder: 160 },//description: descriptions[17]
           { name: 'cloning machine', sortOrder: 170 },//description: descriptions[18]
           { name: 'coconut oil', sortOrder: 180 },//description: descriptions[19]
           { name: 'Coconut sugar', sortOrder: 190 },//description: descriptions[20]
@@ -121,7 +121,7 @@ const Item = require('../models/item.js/item');
           { name: 'greenhouse-plastic', sortOrder: 340 },//description: descriptions[35]
           { name: 'Grow license-annual', sortOrder: 350 },//description: descriptions[36]
           { name: 'grow rooms', sortOrder: 360 },//description: descriptions[37]
-          { name: 'grow rooms-thermo pex', sortOrder: 370 },//description: descriptions[38]
+          { name: 'grow rooms-thermo pex', sortOrder: 370 },
           { name: 'heating system/water line grow room', sortOrder: 380 },//description: descriptions[39]
           { name: 'herbs', sortOrder: 390 },//description: descriptions[40]
           { name: 'herbs/wax', sortOrder: 400 },//description: descriptions[41]
@@ -392,7 +392,7 @@ const Item = require('../models/item.js/item');
                "payee": "Sams Club",
                //payee:payees[37]
                "description": "Callagen",
-               ,//description: descriptions[12]
+               //description: descriptions[12]
                "usedFor": "cooking",
                "numUnits": "",
                "unitMeas": "",
@@ -436,6 +436,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -654,6 +655,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
                //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -1093,6 +1095,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -1136,6 +1139,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office", 
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -1924,6 +1928,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2099,6 +2104,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2186,6 +2192,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -2711,6 +2718,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -3060,6 +3068,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -3233,6 +3242,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -4152,6 +4162,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",
@@ -4283,7 +4294,7 @@ const Item = require('../models/item.js/item');
                "payee": "Post office",
               //payee:payees[34]
                "description": "office shipping",
-               //description: descriptions[54]
+               //description: descriptions[55]
                "usedFor": "freight out",
                "numUnits": "",
                "unitMeas": "",

@@ -2,7 +2,8 @@ const Item = require('../../models/item');
 
 module.exports = {
   index,
-  show
+  show, 
+  create
 };
 
 async function index(req, res) {
@@ -23,4 +24,21 @@ async function show(req, res) {
   }catch(e){
     res.status(400).json({ msg: e.message });
   }  
+}
+
+async function create(req, res, next){
+  try {
+    const createdItem = await Item.create(req.body)
+    const user = await User.findOne({ email: res.locals.data.email })
+    user.items.addToSet(createdItem)
+    await user.save()
+    res.locals.data.item = createdItem
+    next()
+    
+    
+    
+  } catch (error) {
+    
+  }
+
 }
