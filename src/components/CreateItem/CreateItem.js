@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function Items() {
+export default function CreateItem() {
      const [items, setItems] = useState([])
      const [foundItem, setFoundItem] = useState(null)
      const [newItem, setNewItem] = useState({
@@ -35,37 +35,37 @@ export default function Items() {
                console.error(error)
           }
      }
-     // // delete
-     // const deleteItem = async (id) => {
-     //      try {
-     //           const response = await fetch(`/api/items/${id}`, {
-     //                method: "DELETE",
-     //                headers: {
-     //                     'Content-Type': 'application/json'
-     //                }
-     //           })
-     //           const data = await response.json()
-     //           setFoundItem(data)
-     //      } catch (error) {
-     //           console.error(error)
-     //      }
-     // }
-     // // update
-     // const updateItem = async (id, updatedData) => {
-     //      try {
-     //           const response = await fetch(`/api/items/${id}`, {
-     //                method: "PUT",
-     //                headers: {
-     //                     'Content-Type': 'application/json'
-     //                },
-     //                body: JSON.stringify({ ...updatedData })
-     //           })
-     //           const data = await response.json()
-     //           setFoundItem(data)
-     //      } catch (error) {
-     //           console.error(error)
-     //      }
-     // }
+     // delete
+     const deleteItem = async (id) => {
+          try {
+               const response = await fetch(`/api/items/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                         'Content-Type': 'application/json'
+                    }
+               })
+               const data = await response.json()
+               setFoundItem(data)
+          } catch (error) {
+               console.error(error)
+          }
+     }
+     // update
+     const updateItem = async (id, updatedData) => {
+          try {
+               const response = await fetch(`/api/items/${id}`, {
+                    method: "PUT",
+                    headers: {
+                         'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ ...updatedData })
+               })
+               const data = await response.json()
+               setFoundItem(data)
+          } catch (error) {
+               console.error(error)
+          }
+     }
      // create
      const createItem = async () => {
           try {
