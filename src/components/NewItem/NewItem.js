@@ -1,4 +1,4 @@
-import styles from './CreateItem.module.scss'
+import styles from './NewItem.module.scss'
 
 
 
