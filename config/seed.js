@@ -684,7 +684,7 @@ const Item = require('../models/item');
       name: "Sams Club",
       emoji: "Callagen",
       category:categories[1],
-      price: 18.5, barter: false8
+      price: 18.5, barter: false
     },
     {
       name: "shaws",
@@ -804,7 +804,7 @@ const Item = require('../models/item');
       name: "Staples",
       emoji: "office",
       category:categories[16],
-      price: 82.80, barter: false1
+      price: 82.80, barter: false
     },
     {
       name: "true value",
@@ -840,7 +840,7 @@ const Item = require('../models/item');
       name: "High Tech",
       emoji: "humidity packs",
       category:categories[7],
-      price: 69.5, barter: false8
+      price: 69.5, barter: false
     },
     {
       name: "Home Depot",
@@ -954,7 +954,7 @@ const Item = require('../models/item');
       name: "CVS",
       emoji: "batt/cable-office exp",
       category:categories[15],
-      price: 30.5, barter: false6
+      price: 30.5, barter: false
     },
     {
       name: "CVS",

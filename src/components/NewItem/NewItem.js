@@ -1,6 +1,3 @@
-import styles from './NewItem.module.scss'
-
-
 
 export default function CreateItem ({
   createItem,
@@ -9,11 +6,11 @@ export default function CreateItem ({
 }
 ) {
   return (
-    <div className={styles.CreateItem}>
-      <h2 className={styles.NewItem}>Create A Item</h2>
-      <div className={styles.container}>
+    <div className="CreateItem">
+      <h2 className="NewItem">Create A Item</h2>
+      <div className="container">
         <form 
-          className={styles.form}
+          className="form"
           onSubmit={(e) => {
             e.preventDefault()
             createItem()
@@ -22,7 +19,7 @@ export default function CreateItem ({
           
           <label>Title
             <input 
-            className={styles.name}
+            className="name"
             type='text' 
             value={item.name} 
             name='name' 
@@ -32,12 +29,12 @@ export default function CreateItem ({
           </label>
 
           <label>Url
-            <input className={styles.emoji}
+            <input className="emoji"
             type='text' 
-            value={item.emoji} 
+            value={item.emoji}
             name='emoji' 
             onChange={handleChange} 
-            placeholder='URL' />
+            placeholder='emoji' />
           </label>
 
           <label>Pick a category:
@@ -103,15 +100,15 @@ export default function CreateItem ({
             </label>
 
             <label>Url
-            <input className={styles.price}
+            <input className="price"
             type='number' 
-            value={item.price} 
+            value={item.price}
             name='price' 
             onChange={handleChange} 
             placeholder='Price' />
           </label>
 
-          <input className={styles.button} 
+          <input className="button" 
           type='submit' 
           value='Create Item' />
 
