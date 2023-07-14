@@ -125,13 +125,14 @@ export default function CreateItem() {
                     value={newItem.category}
                     onChange={handleChange}
                     name="category">
-   <option value="CMP">CMP</option>
+   
               <option  value="A2Z">A2Z</option>
               <option  value="AC Moore">AC Moore</option>
               <option  value="AllenSterling">AllenSterling</option>
               <option  value="Balance">Balance</option>
               <option value="Broadway Gardens">Broadway Gardens</option>
               <option  value="Bulk Apothecary">Bulk Apothecary</option>
+              <option value="CMP">CMP</option>
               <option  value="CVS">CVS</option>
               <option  value="Diepietros">Diepietros</option>
               <option  value="Dishwaser-Uncle Andy">Dishwaser-Uncle Andy</option>

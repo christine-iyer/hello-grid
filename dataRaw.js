@@ -6922,8 +6922,7 @@ const Item = require('../models/item.js/item');
                // "code_40195": "$28.83",
                // "": ""
           }
-     ]
-     );
+     ]);
 
      console.log(items)
 
