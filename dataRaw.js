@@ -1,274 +1,276 @@
 require('dotenv').config();
-require('./database');
+require('./config/database');
 
-const Category = require('../models/item.js/category');
-const Item = require('../models/item.js/item');
+const Category = require('./models/category');
+const Item = require('./models/item');
 
 (async function () {
 
+     // await Category.deleteMany({});
+     // const categories = await Category.create([
+     //      { name: 'Accessories', sortOrder: 10 },//category:categoryies[0]
+     //      { name: 'Accounting Fees', sortOrder: 20 },//category:categoryies[1]
+     //      { name: 'Accounts Payable-Trade', sortOrder: 30 },//category:categoryies[2]
+     //      { name: 'Accounts Receivable', sortOrder: 40 },//category:categoryies[3]
+     //      { name: 'Accrued Expenses', sortOrder: 50 },//category:categoryies[4]
+     //      { name: 'Accumulated Amortization', sortOrder: 60 },//category:categoryies[5]
+     //      { name: 'Accumulated Depreciation', sortOrder: 70 },//category:categoryies[6]
+     //      { name: 'Amortization Expense', sortOrder: 80 },//category:categoryies[7]
+     //      { name: 'Ask CPA', sortOrder: 90 },//category:categoryies[8]
+     //      { name: 'Building and Improvements', sortOrder: 100 },//category:categoryies[9]
+     //      { name: 'Candies', sortOrder: 110 },//category:categoryies[10]
+     //      { name: 'Cash-on hand', sortOrder: 120 },//category:categoryies[11]
+     //      { name: 'CGS-Direct Labor', sortOrder: 130 },//category:categoryies[12]
+     //      { name: 'CGS-Direct Materials', sortOrder: 140 },//category:categoryies[13]
+     //      { name: 'CGS-Indirect 1.471-11  c (2) (I)', sortOrder: 150 },//category:categoryies[14]
+     //      { name: 'CGS-Indirect 1.471-11  c (2) (III)', sortOrder: 160 },//category:categoryies[15]
+     //      { name: 'Commission Income', sortOrder: 170 },//category:categoryies[16]
+     //      { name: 'Consulting Expense', sortOrder: 180 },//category:categoryies[17]
+     //      { name: 'Contract Labor', sortOrder: 190 },//category:categoryies[18]
+     //      { name: 'Credit Cards Payable', sortOrder: 200 },//category:categoryies[19]
+     //      { name: 'Current Portion of LTD', sortOrder: 210 },//category:categoryies[20]
+     //      { name: 'Customer Deposits and Advances', sortOrder: 220 },//category:categoryies[21]
+     //      { name: 'Depreciation Expense', sortOrder: 230 },//category:categoryies[22]
+     //      { name: 'Due from Member', sortOrder: 240 },//category:categoryies[23]
+     //      { name: 'Due to Member', sortOrder: 250 },//category:categoryies[24]
+     //      { name: 'Dues and Subscriptions', sortOrder: 260 },//category:categoryies[25]
+     //      { name: 'Freight-out', sortOrder: 270 },//category:categoryies[26]
+     //      { name: 'Furniture and Fixtures', sortOrder: 280 },//category:categoryies[27]
+     //      { name: 'Gummies', sortOrder: 290 },//category:categoryies[28]
+     //      { name: 'Insurance Expense', sortOrder: 300 },//category:categoryies[29]
+     //      { name: 'Intangible Assets', sortOrder: 310 },//category:categoryies[30]
+     //      { name: 'Inventory', sortOrder: 320 },//category:categoryies[31]
+     //      { name: 'Leasehold Improvements', sortOrder: 330 },//category:categoryies[32]
+     //      { name: 'Legal Fees', sortOrder: 340 },//category:categoryies[33]
+     //      { name: 'Licensing', sortOrder: 350 },//category:categoryies[34]
+     //      { name: 'Machinery and Equipment', sortOrder: 360 },//category:categoryies[35]
+     //      { name: 'Marshmallows', sortOrder: 370 },//category:categoryies[36]
+     //      { name: 'Meals and Entertainment', sortOrder: 380 },//category:categoryies[037]
+     //      { name: 'Member Distribution', sortOrder: 390 },//category:categoryies[38]
+     //      { name: 'Miscellaneous Expense', sortOrder: 400 },//category:categoryies[39]
+     //      { name: 'Mix Edibles', sortOrder: 410 },//category:categoryies[40]
+     //      { name: 'Moving Expenses', sortOrder: 420 },//category:categoryies[41]
+     //      { name: 'Office Supplies', sortOrder: 430 },//category:categoryies[42]
+     //      { name: 'Other Current Assets', sortOrder: 440 },//category:categoryies[43]
+     //      { name: 'Other Current Liabilites', sortOrder: 450 },//category:categoryies[44]
+     //      { name: 'Other Income', sortOrder: 460 },//category:categoryies[45]
+     //      { name: 'Other Income Expense', sortOrder: 470 },//category:categoryies[46]
+     //      { name: 'Other Receivables', sortOrder: 480 },//category:categoryies[47]
+     //      { name: 'Payroll Expenses Taxes', sortOrder: 490 },//category:categoryies[48]
+     //      { name: 'Payroll Processing', sortOrder: 500 },//category:categoryies[49]
+     //      { name: 'Postage and Shipping', sortOrder: 510 },//category:categoryies[50]
+     //      { name: 'Prepaid Expense', sortOrder: 520 },//category:categoryies[51]
+     //      { name: 'Property Tax', sortOrder: 530 },//category:categoryies[52]
+     //      { name: 'Raw Flowers', sortOrder: 540 },//category:categoryies[53]
+     //      { name: 'Raw Oil', sortOrder: 550 },//category:categoryies[54]
+     //      { name: 'Rent', sortOrder: 560 },//category:categoryies[55]
+     //      { name: 'Repairs and Maintenance', sortOrder: 570 },//category:categoryies[56]
+     //      { name: 'Retained Earnings', sortOrder: 580 },//category:categoryies[57]
+     //      { name: 'Salaries and Wages', sortOrder: 590 },//category:categoryies[58]
+     //      { name: 'Sales Tax Payable-5.5%', sortOrder: 600 },//category:categoryies[59]
+     //      { name: 'Sales Tax Payable-8%', sortOrder: 610 },//category:categoryies[60]
+     //      { name: 'Selling & Marketing', sortOrder: 620 },//category:categoryies[61]
+     //      { name: 'Tinctures', sortOrder: 630 },//category:categoryies[62]
+     //      { name: 'Topicals', sortOrder: 640 },//category:categoryies[63]
+     //      { name: 'Training and Education', sortOrder: 650 },//category:categoryies[64]
+     //      { name: 'Travel', sortOrder: 660 },//category:categoryies[65]
+     //      { name: 'Utilites - Computer & Internet Exp', sortOrder: 670 },//category:categoryies[66]
+     //      { name: 'Utilities - Electric', sortOrder: 680 },//category:categoryies[67]
+     //      { name: 'Utilities - Heat', sortOrder: 690 },//category:categoryies[68]
+     //      { name: 'Utilities - Telephone Expense', sortOrder: 700 },//category:categoryies[69]
+     //      { name: 'Utilities - Water', sortOrder: 710 },//category:categoryies[70]
+     //      { name: 'Workers Comp', sortOrder: 720 },//category:categoryies[71]
+
+     // ]);
      await Category.deleteMany({});
      const categories = await Category.create([
-          { name: 'Accessories', sortOrder: 10 },//category:categoryies[0]
-          { name: 'Accounting Fees', sortOrder: 20 },//category:categoryies[1]
-          { name: 'Accounts Payable-Trade', sortOrder: 30 },//category:categoryies[2]
-          { name: 'Accounts Receivable', sortOrder: 40 },//category:categoryies[3]
-          { name: 'Accrued Expenses', sortOrder: 50 },//category:categoryies[4]
-          { name: 'Accumulated Amortization', sortOrder: 60 },//category:categoryies[5]
-          { name: 'Accumulated Depreciation', sortOrder: 70 },//category:categoryies[6]
-          { name: 'Amortization Expense', sortOrder: 80 },//category:categoryies[7]
-          { name: 'Ask CPA', sortOrder: 90 },//category:categoryies[8]
-          { name: 'Building and Improvements', sortOrder: 100 },//category:categoryies[9]
-          { name: 'Candies', sortOrder: 110 },//category:categoryies[10]
-          { name: 'Cash-on hand', sortOrder: 120 },//category:categoryies[11]
-          { name: 'CGS-Direct Labor', sortOrder: 130 },//category:categoryies[12]
-          { name: 'CGS-Direct Materials', sortOrder: 140 },//category:categoryies[13]
-          { name: 'CGS-Indirect 1.471-11  c (2) (I)', sortOrder: 150 },//category:categoryies[14]
-          { name: 'CGS-Indirect 1.471-11  c (2) (III)', sortOrder: 160 },//category:categoryies[15]
-          { name: 'Commission Income', sortOrder: 170 },//category:categoryies[16]
-          { name: 'Consulting Expense', sortOrder: 180 },//category:categoryies[17]
-          { name: 'Contract Labor', sortOrder: 190 },//category:categoryies[18]
-          { name: 'Credit Cards Payable', sortOrder: 200 },//category:categoryies[19]
-          { name: 'Current Portion of LTD', sortOrder: 210 },//category:categoryies[20]
-          { name: 'Customer Deposits and Advances', sortOrder: 220 },//category:categoryies[21]
-          { name: 'Depreciation Expense', sortOrder: 230 },//category:categoryies[22]
-          { name: 'Due from Member', sortOrder: 240 },//category:categoryies[23]
-          { name: 'Due to Member', sortOrder: 250 },//category:categoryies[24]
-          { name: 'Dues and Subscriptions', sortOrder: 260 },//category:categoryies[25]
-          { name: 'Freight-out', sortOrder: 270 },//category:categoryies[26]
-          { name: 'Furniture and Fixtures', sortOrder: 280 },//category:categoryies[27]
-          { name: 'Gummies', sortOrder: 290 },//category:categoryies[28]
-          { name: 'Insurance Expense', sortOrder: 300 },//category:categoryies[29]
-          { name: 'Intangible Assets', sortOrder: 310 },//category:categoryies[30]
-          { name: 'Inventory', sortOrder: 320 },//category:categoryies[31]
-          { name: 'Leasehold Improvements', sortOrder: 330 },//category:categoryies[32]
-          { name: 'Legal Fees', sortOrder: 340 },//category:categoryies[33]
-          { name: 'Licensing', sortOrder: 350 },//category:categoryies[34]
-          { name: 'Machinery and Equipment', sortOrder: 360 },//category:categoryies[35]
-          { name: 'Marshmallows', sortOrder: 370 },//category:categoryies[36]
-          { name: 'Meals and Entertainment', sortOrder: 380 },//category:categoryies[037]
-          { name: 'Member Distribution', sortOrder: 390 },//category:categoryies[38]
-          { name: 'Miscellaneous Expense', sortOrder: 400 },//category:categoryies[39]
-          { name: 'Mix Edibles', sortOrder: 410 },//category:categoryies[40]
-          { name: 'Moving Expenses', sortOrder: 420 },//category:categoryies[41]
-          { name: 'Office Supplies', sortOrder: 430 },//category:categoryies[42]
-          { name: 'Other Current Assets', sortOrder: 440 },//category:categoryies[43]
-          { name: 'Other Current Liabilites', sortOrder: 450 },//category:categoryies[44]
-          { name: 'Other Income', sortOrder: 460 },//category:categoryies[45]
-          { name: 'Other Income Expense', sortOrder: 470 },//category:categoryies[46]
-          { name: 'Other Receivables', sortOrder: 480 },//category:categoryies[47]
-          { name: 'Payroll Expenses Taxes', sortOrder: 490 },//category:categoryies[48]
-          { name: 'Payroll Processing', sortOrder: 500 },//category:categoryies[49]
-          { name: 'Postage and Shipping', sortOrder: 510 },//category:categoryies[50]
-          { name: 'Prepaid Expense', sortOrder: 520 },//category:categoryies[51]
-          { name: 'Property Tax', sortOrder: 530 },//category:categoryies[52]
-          { name: 'Raw Flowers', sortOrder: 540 },//category:categoryies[53]
-          { name: 'Raw Oil', sortOrder: 550 },//category:categoryies[54]
-          { name: 'Rent', sortOrder: 560 },//category:categoryies[55]
-          { name: 'Repairs and Maintenance', sortOrder: 570 },//category:categoryies[56]
-          { name: 'Retained Earnings', sortOrder: 580 },//category:categoryies[57]
-          { name: 'Salaries and Wages', sortOrder: 590 },//category:categoryies[58]
-          { name: 'Sales Tax Payable-5.5%', sortOrder: 600 },//category:categoryies[59]
-          { name: 'Sales Tax Payable-8%', sortOrder: 610 },//category:categoryies[60]
-          { name: 'Selling & Marketing', sortOrder: 620 },//category:categoryies[61]
-          { name: 'Tinctures', sortOrder: 630 },//category:categoryies[62]
-          { name: 'Topicals', sortOrder: 640 },//category:categoryies[63]
-          { name: 'Training and Education', sortOrder: 650 },//category:categoryies[64]
-          { name: 'Travel', sortOrder: 660 },//category:categoryies[65]
-          { name: 'Utilites - Computer & Internet Exp', sortOrder: 670 },//category:categoryies[66]
-          { name: 'Utilities - Electric', sortOrder: 680 },//category:categoryies[67]
-          { name: 'Utilities - Heat', sortOrder: 690 },//category:categoryies[68]
-          { name: 'Utilities - Telephone Expense', sortOrder: 700 },//category:categoryies[69]
-          { name: 'Utilities - Water', sortOrder: 710 },//category:categoryies[70]
-          { name: 'Workers Comp', sortOrder: 720 },//category:categoryies[71]
+          { name: '5 buckets w/lids', sortOrder: 10 },//categories[0]
+          { name: '5 gallon plant pots', sortOrder: 20 },//categories[1]
+          { name: '8oz bottles', sortOrder: 30 },//categories[2]
+          { name: 'agava', sortOrder: 40 },//categories[3]
+          { name: 'Annual report', sortOrder: 50 },//categories[4]
+          { name: 'Back ground check-license-annual', sortOrder: 60 },//categories[5]
+          { name: 'Baking Soda', sortOrder: 70 },//categories[6]
+          { name: 'batt/cable-office exp', sortOrder: 80 },//categories[7]
+          { name: 'bottle pumps', sortOrder: 90 },//categories[8]
+          { name: 'cable-office exp', sortOrder: 100 },//categories[9]
+          { name: 'Callagen', sortOrder: 110 },//categories[12]
+          { name: 'calm', sortOrder: 120 },//categories[13]
+          { name: 'cashw milk', sortOrder: 130 },//categories[14]
+          { name: 'CBG RSO', sortOrder: 140 },//categories[15]
+          { name: 'Cloner', sortOrder: 150 },//categories[16]
+          { name: 'clonex gel', sortOrder: 160 },//categories[17]
+          { name: 'cloning machine', sortOrder: 170 },//categories[18]
+          { name: 'coconut oil', sortOrder: 180 },//categories[19]
+          { name: 'Coconut sugar', sortOrder: 190 },//categories[20]
+          { name: 'cooking', sortOrder: 200 },//categories[21]
+          { name: 'dry ice', sortOrder: 210 },//categories[22]
+          { name: 'Electric', sortOrder: 220 },//categories[23]
 
-     ]);
-     await Description.deleteMany({});
-     const descriptions = await Description.create([
-          { name: '5 buckets w/lids', sortOrder: 10 },//description: descriptions[0]
-          { name: '5 gallon plant pots', sortOrder: 20 },//description: descriptions[1]
-          { name: '8oz bottles', sortOrder: 30 },//description: descriptions[2]
-          { name: 'agava', sortOrder: 40 },//description: descriptions[3]
-          { name: 'Annual report', sortOrder: 50 },//description: descriptions[4]
-          { name: 'Back ground check-license-annual', sortOrder: 60 },//description: descriptions[5]
-          { name: 'Baking Soda', sortOrder: 70 },//description: descriptions[6]
-          { name: 'batt/cable-office exp', sortOrder: 80 },//description: descriptions[7]
-          { name: 'bottle pumps', sortOrder: 90 },//description: descriptions[8]
-          { name: 'cable-office exp', sortOrder: 100 },//description: descriptions[9]
-          { name: 'Callagen', sortOrder: 110 },//description: descriptions[12]
-          { name: 'calm', sortOrder: 120 },//description: descriptions[13]
-          { name: 'cashw milk', sortOrder: 130 },//description: descriptions[14]
-          { name: 'CBG RSO', sortOrder: 140 },//description: descriptions[15]
-          { name: 'Cloner', sortOrder: 150 },//description: descriptions[16]
-          { name: 'clonex gel', sortOrder: 160 },//description: descriptions[17]
-          { name: 'cloning machine', sortOrder: 170 },//description: descriptions[18]
-          { name: 'coconut oil', sortOrder: 180 },//description: descriptions[19]
-          { name: 'Coconut sugar', sortOrder: 190 },//description: descriptions[20]
-          { name: 'cooking', sortOrder: 200 },//description: descriptions[21]
-          { name: 'dry ice', sortOrder: 210 },//description: descriptions[22]
-          { name: 'Electric', sortOrder: 220 },//description: descriptions[23]
-
-          { name: 'Employee licenseto work with another care giver', sortOrder: 230 },//description: descriptions[24]
-          { name: 'Emu oil', sortOrder: 240 },//description: descriptions[25]
-          { name: 'equipment', sortOrder: 250 },//description: descriptions[26]
-          { name: 'Erythritol', sortOrder: 260 },//description: descriptions[27]
-          { name: 'everclear', sortOrder: 270 },//description: descriptions[28]
-          { name: 'fix new greenhouse', sortOrder: 280 },//description: descriptions[29]
-          { name: 'flavor', sortOrder: 290 },//description: descriptions[30]
-          { name: 'freight-out', sortOrder: 300 },//description: descriptions[31]
-          { name: 'gelitne', sortOrder: 310 },//description: descriptions[32]
-          { name: 'gluclose', sortOrder: 320 },//description: descriptions[33]
-          { name: 'Green Leds-light bulbs', sortOrder: 330 },//description: descriptions[34]
-          { name: 'greenhouse-plastic', sortOrder: 340 },//description: descriptions[35]
-          { name: 'Grow license-annual', sortOrder: 350 },//description: descriptions[36]
-          { name: 'grow rooms', sortOrder: 360 },//description: descriptions[37]
+          { name: 'Employee licenseto work with another care giver', sortOrder: 230 },//categories[24]
+          { name: 'Emu oil', sortOrder: 240 },//categories[25]
+          { name: 'equipment', sortOrder: 250 },//categories[26]
+          { name: 'Erythritol', sortOrder: 260 },//categories[27]
+          { name: 'everclear', sortOrder: 270 },//categories[28]
+          { name: 'fix new greenhouse', sortOrder: 280 },//categories[29]
+          { name: 'flavor', sortOrder: 290 },//categories[30]
+          { name: 'freight-out', sortOrder: 300 },//categories[31]
+          { name: 'gelitne', sortOrder: 310 },//categories[32]
+          { name: 'gluclose', sortOrder: 320 },//categories[33]
+          { name: 'Green Leds-light bulbs', sortOrder: 330 },//categories[34]
+          { name: 'greenhouse-plastic', sortOrder: 340 },//categories[35]
+          { name: 'Grow license-annual', sortOrder: 350 },//categories[36]
+          { name: 'grow rooms', sortOrder: 360 },//categories[37]
           { name: 'grow rooms-thermo pex', sortOrder: 370 },
-          { name: 'heating system/water line grow room', sortOrder: 380 },//description: descriptions[39]
-          { name: 'herbs', sortOrder: 390 },//description: descriptions[40]
-          { name: 'herbs/wax', sortOrder: 400 },//description: descriptions[41]
-          { name: 'humidity packs', sortOrder: 410 },//description: descriptions[42]
-          { name: 'IIC audult use license-annual-dispensery', sortOrder: 420 },//description: descriptions[43]
-          { name: 'LLC license-annual', sortOrder: 430 },//description: descriptions[44]
-          { name: 'MCT', sortOrder: 440 },//description: descriptions[45]
-          { name: 'Misc grow room-paints/lights', sortOrder: 450 },//description: descriptions[46]
-          { name: 'molds', sortOrder: 460 },//description: descriptions[47]
-          { name: 'nutrients', sortOrder: 470 },//description: descriptions[48]
-          { name: 'nutrients-Bloom', sortOrder: 480 },//description: descriptions[49]
-          { name: 'nutrients-Boost', sortOrder: 490 },//description: descriptions[50]
-          { name: 'nutrients-magnesium', sortOrder: 500 },//description: descriptions[51]
-          { name: 'nutrients-Part A', sortOrder: 510 },//description: descriptions[52]
-          { name: 'office', sortOrder: 520 },//description: descriptions[53]
-          { name: 'office shipping', sortOrder: 530 },//description: descriptions[54]
-          { name: 'office supplies', sortOrder: 540 },//description: descriptions[55]
-          { name: 'oil', sortOrder: 550 },//description: descriptions[56]
-          { name: 'package', sortOrder: 560 },//description: descriptions[57]
-          { name: 'Papaya Powder', sortOrder: 570 },//description: descriptions[58]
-          { name: 'Pineapple powder', sortOrder: 580 },//description: descriptions[59]
-          { name: 'plant', sortOrder: 590 },//description: descriptions[60]
-          { name: 'plant lamps', sortOrder: 600 },//description: descriptions[61]
-          { name: 'pump oil', sortOrder: 610 },//description: descriptions[62]
-          { name: 'sales tax', sortOrder: 620 },//description: descriptions[63]
-          { name: 'Shipping', sortOrder: 630 },//description: descriptions[64]
-          { name: 'shrink tube', sortOrder: 640 },//description: descriptions[65]
-          { name: 'shrinkwrap', sortOrder: 650 },//description: descriptions[66]
-          { name: 'SJR labs-RSO', sortOrder: 660 },//description: descriptions[67]
-          { name: 'sleepcomplete', sortOrder: 670 },//description: descriptions[68]
-          { name: 'soil', sortOrder: 680 },//description: descriptions[69]
-          { name: 'Tart Cherry', sortOrder: 690 },//description: descriptions[70]
-          { name: 'Testing', sortOrder: 700 },//description: descriptions[71]
-          { name: 'Topicals-goats milk', sortOrder: 710 },//description: descriptions[72]
-          { name: 'Topicals-orange water', sortOrder: 720 },//description: descriptions[73]
-          { name: 'trimming sissors', sortOrder: 730 },//description: descriptions[74]
-          { name: 'tshirts', sortOrder: 740 },//description: descriptions[75]
-          { name: 'tubes', sortOrder: 750 },//description: descriptions[76]
-          { name: 'wash', sortOrder: 760 },//description: descriptions[77]
-          { name: 'Misc', sortOrder: 770 },//description: descriptions[78]
+          { name: 'heating system/water line grow room', sortOrder: 380 },//categories[39]
+          { name: 'herbs', sortOrder: 390 },//categories[40]
+          { name: 'herbs/wax', sortOrder: 400 },//categories[41]
+          { name: 'humidity packs', sortOrder: 410 },//categories[42]
+          { name: 'IIC audult use license-annual-dispensery', sortOrder: 420 },//categories[43]
+          { name: 'LLC license-annual', sortOrder: 430 },//categories[44]
+          { name: 'MCT', sortOrder: 440 },//categories[45]
+          { name: 'Misc grow room-paints/lights', sortOrder: 450 },//categories[46]
+          { name: 'molds', sortOrder: 460 },//categories[47]
+          { name: 'nutrients', sortOrder: 470 },//categories[48]
+          { name: 'nutrients-Bloom', sortOrder: 480 },//categories[49]
+          { name: 'nutrients-Boost', sortOrder: 490 },//categories[50]
+          { name: 'nutrients-magnesium', sortOrder: 500 },//categories[51]
+          { name: 'nutrients-Part A', sortOrder: 510 },//categories[52]
+          { name: 'office', sortOrder: 520 },//categories[53]
+          { name: 'office shipping', sortOrder: 530 },//categories[54]
+          { name: 'office supplies', sortOrder: 540 },//categories[55]
+          { name: 'oil', sortOrder: 550 },//categories[56]
+          { name: 'package', sortOrder: 560 },//categories[57]
+          { name: 'Papaya Powder', sortOrder: 570 },//categories[58]
+          { name: 'Pineapple powder', sortOrder: 580 },//categories[59]
+          { name: 'plant', sortOrder: 590 },//categories[60]
+          { name: 'plant lamps', sortOrder: 600 },//categories[61]
+          { name: 'pump oil', sortOrder: 610 },//categories[62]
+          { name: 'sales tax', sortOrder: 620 },//categories[63]
+          { name: 'Shipping', sortOrder: 630 },//categories[64]
+          { name: 'shrink tube', sortOrder: 640 },//categories[65]
+          { name: 'shrinkwrap', sortOrder: 650 },//categories[66]
+          { name: 'SJR labs-RSO', sortOrder: 660 },//categories[67]
+          { name: 'sleepcomplete', sortOrder: 670 },//categories[68]
+          { name: 'soil', sortOrder: 680 },//categories[69]
+          { name: 'Tart Cherry', sortOrder: 690 },//categories[70]
+          { name: 'Testing', sortOrder: 700 },//categories[71]
+          { name: 'Topicals-goats milk', sortOrder: 710 },//categories[72]
+          { name: 'Topicals-orange water', sortOrder: 720 },//categories[73]
+          { name: 'trimming sissors', sortOrder: 730 },//categories[74]
+          { name: 'tshirts', sortOrder: 740 },//categories[75]
+          { name: 'tubes', sortOrder: 750 },//categories[76]
+          { name: 'wash', sortOrder: 760 },//categories[77]
+          { name: 'Misc', sortOrder: 770 },//categories[78]
      ]);
 
-     await AcctNum.deleteMany({});
-     const acctnums = await AcctNum.create([
-          { name: '16000', sortOrder: 10 },///acctNum:acctNums[0]
-          { name: '16030', sortOrder: 20 },///acctNum:acctNums[1]
-          { name: '20012', sortOrder: 30 },///acctNum:acctNums[2]
-          { name: '40195', sortOrder: 40 },///acctNum:acctNums[3]
-          { name: '50010', sortOrder: 50 },///acctNum:acctNums[4]
-          { name: '50022', sortOrder: 60 },///acctNum:acctNums[5]
-          { name: '50040', sortOrder: 70 },///acctNum:acctNums[6]
-          { name: '50090', sortOrder: 80 },///acctNum:acctNums[7]
-          { name: '50100', sortOrder: 90 },///acctNum:acctNums[8]
-          { name: '50550', sortOrder: 100 },///acctNum:acctNums[9]
-          { name: '50552', sortOrder: 110 },///acctNum:acctNums[10]
-          { name: '50560', sortOrder: 120 },///acctNum:acctNums[11]
-          { name: '50565', sortOrder: 130 },///acctNum:acctNums[12]
-          { name: '50590', sortOrder: 140 },///acctNum:acctNums[13]
-          { name: '50610', sortOrder: 150 },///acctNum:acctNums[14]
-          { name: '60140', sortOrder: 160 },///acctNum:acctNums[15]
-          { name: '60185', sortOrder: 170 },///acctNum:acctNums[16]
-     ]);
+     // await AcctNum.deleteMany({});
+     // const acctnums = await AcctNum.create([
+     //      { name: '16000', sortOrder: 10 },///acctNum:acctNums[0]
+     //      { name: '16030', sortOrder: 20 },///acctNum:acctNums[1]
+     //      { name: '20012', sortOrder: 30 },///acctNum:acctNums[2]
+     //      { name: '40195', sortOrder: 40 },///acctNum:acctNums[3]
+     //      { name: '50010', sortOrder: 50 },///acctNum:acctNums[4]
+     //      { name: '50022', sortOrder: 60 },///acctNum:acctNums[5]
+     //      { name: '50040', sortOrder: 70 },///acctNum:acctNums[6]
+     //      { name: '50090', sortOrder: 80 },///acctNum:acctNums[7]
+     //      { name: '50100', sortOrder: 90 },///acctNum:acctNums[8]
+     //      { name: '50550', sortOrder: 100 },///acctNum:acctNums[9]
+     //      { name: '50552', sortOrder: 110 },///acctNum:acctNums[10]
+     //      { name: '50560', sortOrder: 120 },///acctNum:acctNums[11]
+     //      { name: '50565', sortOrder: 130 },///acctNum:acctNums[12]
+     //      { name: '50590', sortOrder: 140 },///acctNum:acctNums[13]
+     //      { name: '50610', sortOrder: 150 },///acctNum:acctNums[14]
+     //      { name: '60140', sortOrder: 160 },///acctNum:acctNums[15]
+     //      { name: '60185', sortOrder: 170 },///acctNum:acctNums[16]
+     // ]);
 
-     await Code.deleteMany({});
-     const codes = await Code.create([
-          { name: 'Raw Flower', sortOrder: 10 },//code:codes[0]
-          { name: 'Gummies', sortOrder: 20 },//code:codes[1]
-          { name: 'Candies', sortOrder: 30 },//code:codes[2]
-          { name: 'Tinctures-Base Oil', sortOrder: 40 },//code:codes[3]
-          { name: 'Topicals', sortOrder: 50 },//code:codes[4]
-          { name: 'Marshmallows', sortOrder: 60 },//code:codes[5]
-     ]);
+     // await Code.deleteMany({});
+     // const codes = await Code.create([
+     //      { name: 'Raw Flower', sortOrder: 10 },//code:codes[0]
+     //      { name: 'Gummies', sortOrder: 20 },//code:codes[1]
+     //      { name: 'Candies', sortOrder: 30 },//code:codes[2]
+     //      { name: 'Tinctures-Base Oil', sortOrder: 40 },//code:codes[3]
+     //      { name: 'Topicals', sortOrder: 50 },//code:codes[4]
+     //      { name: 'Marshmallows', sortOrder: 60 },//code:codes[5]
+     // ]);
 
 
 
-     await Payee.deleteMany({});
-     const payees = await Payee.create([
-          { name: 'CMP', sortOrder: 10 },//payee:payees[0]
-          { name: 'A2Z', sortOrder: 20 },//payee:payees[1]
-          { name: 'AC Moore', sortOrder: 30 },//payee:payees[2] 
-          { name: 'Allen Sterling', sortOrder: 40 },//payee:payees[3]
-          { name: 'Allstar Health.', sortOrder: 50 },//payee:payees[4]
-          { name: 'Balance', sortOrder: 60 },//payee:payees[5]
-          { name: 'Broadway Gardens', sortOrder: 70 },//payee:payees[6]
-          { name: 'Bulk Apothecary', sortOrder: 80 },//payee:payees[7]
-          { name: 'Chemistrystore', sortOrder: 90 },//payee:payees[8]
-          { name: 'CVS', sortOrder: 100},//payee:payees[9]
-          { name: 'Dipietros', sortOrder: 110 },//payee:payees[10]
-          { name: 'Dishwaser-Uncle Andy', sortOrder: 120 },//payee:payees[11]
-          { name: 'Dollar Store', sortOrder: 130 },//payee:payees[12]
-          { name: 'Freeze Dryer', sortOrder: 140 },//payee:payees[13]
-          { name: 'Griffen Greenhouse', sortOrder: 150 },//payee:payees[14]
-          { name: 'Handsink-rest equiment store', sortOrder: 160 },//payee:payees[15]
-          { name: 'Heat system for grow room', sortOrder: 170 },//payee:payees[16]
-          { name: 'High Tech', sortOrder: 180 },//payee:payees[17]
-          //start here tomorrow
-          { name: 'Home Depot', sortOrder: 190 },//payee:payees[18]
-          { name: 'Independent Power', sortOrder: 200 },//payee:payees[19]
-          { name: 'Jordan Farm', sortOrder: 210 },//payee:payees[20]
-          { name: 'Labor Cost-Rob Fogg', sortOrder: 220 },//payee:payees[21]
-          { name: 'Leapin Lizards', sortOrder: 230 },//payee:payees[22]
-          { name: 'Leroux Kitchen', sortOrder: 240 },//payee:payees[23]
-          { name: 'Lois', sortOrder: 250 },//payee:payees[24]
-          { name: 'Lorann Oils', sortOrder: 260 },//payee:payees[25]
-          { name: 'Mardens', sortOrder: 270 },//payee:payees[26]
-          { name: 'Mountain Rose', sortOrder: 280 },//payee:payees[27]
-          { name: 'Multiple vendors', sortOrder: 290 },//payee:payees[28]
-          { name: 'Napa', sortOrder: 300 },//payee:payees[29]
-          { name: 'Natural Happiness', sortOrder: 310 },//payee:payees[30]
-          { name: 'Nolts Greenhouse', sortOrder: 320 },//payee:payees[31]
-          { name: 'Oakhill', sortOrder: 330 },//payee:payees[32]
-          { name: 'Pharmaca', sortOrder: 340 },//payee:payees[33]
-          { name: 'Post office', sortOrder: 350 },//payee:payees[34]
-          { name: 'Proverda lab', sortOrder: 360 },//payee:payees[35]
-          { name: 'Renhui metal', sortOrder: 370 },//payee:payees[36]
-          { name: 'Sams Club', sortOrder: 380 },//payee:payees[37]
-          { name: 'Shaws', sortOrder: 390 },//payee:payees[38]
-          { name: 'SJR Labs', sortOrder: 400 },//payee:payees[39]
-          { name: 'Staples', sortOrder: 410 },//payee:payees[40]
-          { name: 'State of Maine', sortOrder: 420 },//payee:payees[41]
-          { name: 'State of Mind', sortOrder: 430 },//payee:payees[42]
-          { name: 'True Value', sortOrder: 440 },//payee:payees[43]
-          { name: 'Truffle made', sortOrder: 450 },//payee:payees[44]
-          { name: 'Uline', sortOrder: 460 },//payee:payees[45]
-          { name: 'Urban Garden', sortOrder: 470 },//payee:payees[46]
-          { name: 'Vessel Services', sortOrder: 480 },//payee:payees[47]
-          { name: 'Walmart', sortOrder: 490 },//payee:payees[48]
-          { name: 'zNatural', sortOrder: 500 },//payee:payees[49]
-     ]);
+     // await Payee.deleteMany({});
+     // const payees = await Payee.create([
+     //      { name: 'CMP', sortOrder: 10 },//payee:payees[0]
+     //      { name: 'A2Z', sortOrder: 20 },//payee:payees[1]
+     //      { name: 'AC Moore', sortOrder: 30 },//payee:payees[2] 
+     //      { name: 'Allen Sterling', sortOrder: 40 },//payee:payees[3]
+     //      { name: 'Allstar Health.', sortOrder: 50 },//payee:payees[4]
+     //      { name: 'Balance', sortOrder: 60 },//payee:payees[5]
+     //      { name: 'Broadway Gardens', sortOrder: 70 },//payee:payees[6]
+     //      { name: 'Bulk Apothecary', sortOrder: 80 },//payee:payees[7]
+     //      { name: 'Chemistrystore', sortOrder: 90 },//payee:payees[8]
+     //      { name: 'CVS', sortOrder: 100 },//payee:payees[9]
+     //      { name: 'Dipietros', sortOrder: 110 },//payee:payees[10]
+     //      { name: 'Dishwaser-Uncle Andy', sortOrder: 120 },//payee:payees[11]
+     //      { name: 'Dollar Store', sortOrder: 130 },//payee:payees[12]
+     //      { name: 'Freeze Dryer', sortOrder: 140 },//payee:payees[13]
+     //      { name: 'Griffen Greenhouse', sortOrder: 150 },//payee:payees[14]
+     //      { name: 'Handsink-rest equiment store', sortOrder: 160 },//payee:payees[15]
+     //      { name: 'Heat system for grow room', sortOrder: 170 },//payee:payees[16]
+     //      { name: 'High Tech', sortOrder: 180 },//payee:payees[17]
+     //      //start here tomorrow
+     //      { name: 'Home Depot', sortOrder: 190 },//payee:payees[18]
+     //      { name: 'Independent Power', sortOrder: 200 },//payee:payees[19]
+     //      { name: 'Jordan Farm', sortOrder: 210 },//payee:payees[20]
+     //      { name: 'Labor Cost-Rob Fogg', sortOrder: 220 },//payee:payees[21]
+     //      { name: 'Leapin Lizards', sortOrder: 230 },//payee:payees[22]
+     //      { name: 'Leroux Kitchen', sortOrder: 240 },//payee:payees[23]
+     //      { name: 'Lois', sortOrder: 250 },//payee:payees[24]
+     //      { name: 'Lorann Oils', sortOrder: 260 },//payee:payees[25]
+     //      { name: 'Mardens', sortOrder: 270 },//payee:payees[26]
+     //      { name: 'Mountain Rose', sortOrder: 280 },//payee:payees[27]
+     //      { name: 'Multiple vendors', sortOrder: 290 },//payee:payees[28]
+     //      { name: 'Napa', sortOrder: 300 },//payee:payees[29]
+     //      { name: 'Natural Happiness', sortOrder: 310 },//payee:payees[30]
+     //      { name: 'Nolts Greenhouse', sortOrder: 320 },//payee:payees[31]
+     //      { name: 'Oakhill', sortOrder: 330 },//payee:payees[32]
+     //      { name: 'Pharmaca', sortOrder: 340 },//payee:payees[33]
+     //      { name: 'Post office', sortOrder: 350 },//payee:payees[34]
+     //      { name: 'Proverda lab', sortOrder: 360 },//payee:payees[35]
+     //      { name: 'Renhui metal', sortOrder: 370 },//payee:payees[36]
+     //      { name: 'Sams Club', sortOrder: 380 },//payee:payees[37]
+     //      { name: 'Shaws', sortOrder: 390 },//payee:payees[38]
+     //      { name: 'SJR Labs', sortOrder: 400 },//payee:payees[39]
+     //      { name: 'Staples', sortOrder: 410 },//payee:payees[40]
+     //      { name: 'State of Maine', sortOrder: 420 },//payee:payees[41]
+     //      { name: 'State of Mind', sortOrder: 430 },//payee:payees[42]
+     //      { name: 'True Value', sortOrder: 440 },//payee:payees[43]
+     //      { name: 'Truffle made', sortOrder: 450 },//payee:payees[44]
+     //      { name: 'Uline', sortOrder: 460 },//payee:payees[45]
+     //      { name: 'Urban Garden', sortOrder: 470 },//payee:payees[46]
+     //      { name: 'Vessel Services', sortOrder: 480 },//payee:payees[47]
+     //      { name: 'Walmart', sortOrder: 490 },//payee:payees[48]
+     //      { name: 'zNatural', sortOrder: 500 },//payee:payees[49]
+     // ]);
 
 
      await Item.deleteMany({});
      const items = await Item.create([
           {
-               "dateOfExpense": "01/02/20",
-               "payee": "CMP",
+               //"dateOfExpense":  "01/02/20",
+               "name": "CMP",
                //payee:payees[0]
-               "description": "Electric",
-               //description: descriptions[23]
-               "usedFor": "Electric-greenhouse",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$400.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$400.00",
-               "accountNum": 50610,
+               //"category": "Electric",
+               "category": categories[23],
+               "emoji": "Electric-greenhouse",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$400.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$400.00",
+
+               "price": 50610
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -300,19 +302,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/07/20",
-               "payee": "Sams Club",
+               //"dateOfExpense":  "01/07/20",
+               "name": "Sams Club",
                //payee:payees[37]
-               "description": "coconut oil",
-                //description: descriptions[19]
-               "usedFor": "cooking",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$9.88",
-               "tax": "",
-               "shipping": "",
-               "total": "$9.88",
-               "accountNum": 50040,
+               //"category": "coconut oil",
+               "category": categories[19],
+               "emoji": "cooking",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$9.88",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$9.88",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -344,19 +347,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/07/20",
-               "payee": "Sams Club",
+               //"dateOfExpense":  "01/07/20",
+               "name": "Sams Club",
                //payee:payees[37]
-               "description": "Baking Soda",
-               //description: descriptions[6]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$7.74",
-               "tax": "",
-               "shipping": "",
-               "total": "$7.74",
-               "accountNum": 50040,
+               //"category": "Baking Soda",
+               "category": categories[6],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$7.74",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$7.74",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -388,19 +392,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/07/20",
-               "payee": "Sams Club",
+               //"dateOfExpense":  "01/07/20",
+               "name": "Sams Club",
                //payee:payees[37]
-               "description": "Callagen",
-               //description: descriptions[12]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$18.58",
-               "tax": "",
-               "shipping": "",
-               "total": "$18.58",
-               "accountNum": 50040,
+               //"category": "Callagen",
+               "category": categories[12],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$18.58",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$18.58",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -432,19 +437,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "1/9/2020",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$8.07",
-               "tax": "",
-               "shipping": "",
-               "total": "$8.07",
-               "accountNum": 40195,
+               //"dateOfExpense":  "1/9/2020",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$8.07",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$8.07",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -476,19 +482,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/09/20",
-               "payee": "Urban Garden",
+               //"dateOfExpense":  "01/09/20",
+               "name": "Urban Garden",
                //payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$61.05",
-               "tax": "",
-               "shipping": "",
-               "total": "$61.05",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$61.05",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$61.05",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$30.53",
                // "code_50012": "$30.53",
                // "code_50020": "",
@@ -520,19 +527,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/10/20",
-               "payee": "Dollar Store",
+               //"dateOfExpense":  "01/10/20",
+               "name": "Dollar Store",
                //payee:payees[12]
-               "description": "agava",
-               //description: descriptions[3]
-               "usedFor": "cooking",
-               "numUnits": 9,
-               "unitMeas": "",
-               "beforeTnSAmount": "$1.00",
-               "tax": "$0.06",
-               "shipping": "",
-               "total": "$1.06",
-               "accountNum": 50040,
+               //"category": "agava",
+               "category": categories[3],
+               "emoji": "cooking",
+               //"numUnits":  9,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1.00",
+               //"tax":  "$0.06",
+               //"shipping":  "",
+               //"total":  "$1.06",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -564,18 +572,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/11/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "plant",
-               //description: descriptions[60]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$298.68",
-               "tax": "",
-               "shipping": "",
-               "total": "$298.68",
-               "accountNum": 50010,
+               //"dateOfExpense":  "01/11/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "plant",
+               "category": categories[60],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$298.68",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$298.68",
+
+               "price": 50010
                // "code_50010": "$149.34",
                // "code_50012": "$149.34",
                // "code_50020": "",
@@ -607,19 +617,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/13/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "01/13/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "sales tax",
-               //description: descriptions[63]
-               "usedFor": "",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$473.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$473.00",
-               "accountNum": 20012,
+               //"category": "sales tax",
+               "category": categories[63],
+               "emoji": "",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$473.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$473.00",
+
+               "price": 20012
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -651,19 +663,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "1/13/2020",
-               "payee": "Post office",
+               //"dateOfExpense":  "1/13/2020",
+               "name": "Post office",
                //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$11.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$11.00",
-               "accountNum": 40195,
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$11.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$11.00",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -695,19 +708,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/17/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "01/17/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "LLC license-annual",
-               //description: descriptions[44]
-               "usedFor": "Licensing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$275.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$275.00",
-               "accountNum": 60185,
+               //"category": "LLC license-annual",
+               "category": categories[44],
+               "emoji": "Licensing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$275.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$275.00",
+
+               "price": 60185
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -739,19 +754,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/23/20",
-               "payee": "True Value",
+               //"dateOfExpense":  "01/23/20",
+               "name": "True Value",
                //payee:payees[43]
-               "description": "cooking",
-               //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$10.62",
-               "tax": "",
-               "shipping": "",
-               "total": "$10.62",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$10.62",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$10.62",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -783,19 +799,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/30/20",
-               "payee": "Allen Sterling",
+               //"dateOfExpense":  "01/30/20",
+               "name": "Allen Sterling",
                //payee:payees[3]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 5,
-               "unitMeas": "",
-               "beforeTnSAmount": "$11.19",
-               "tax": "$3.08",
-               "shipping": "",
-               "total": "$14.27",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  5,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$11.19",
+               //"tax":  "$3.08",
+               //"shipping":  "",
+               //"total":  "$14.27",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$14.27",
                // "code_50012": "",
                // "code_50020": "",
@@ -827,19 +844,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/30/20",
-               "payee": "Broadway Gardens",
+               //"dateOfExpense":  "01/30/20",
+               "name": "Broadway Gardens",
                //payee:payees[6]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$67.96",
-               "tax": "",
-               "shipping": "",
-               "total": "$67.96",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$67.96",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$67.96",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$13.31",
                // "code_50012": "$54.65",
                // "code_50020": "",
@@ -871,19 +889,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "01/30/20",
-               "payee": "Broadway Gardens",
+               //"dateOfExpense":  "01/30/20",
+               "name": "Broadway Gardens",
                //payee:payees[6]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$39.98",
-               "tax": "$5.94",
-               "shipping": "",
-               "total": "$45.92",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$39.98",
+               //"tax":  "$5.94",
+               //"shipping":  "",
+               //"total":  "$45.92",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$45.92",
                // "code_50012": "",
                // "code_50020": "",
@@ -915,19 +934,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "02/04/20",
-               "payee": "CMP",
+               //"dateOfExpense":  "02/04/20",
+               "name": "CMP",
                //payee:payees[0]
-               "description": "Electric",
-               //description: descriptions[23]
-               "usedFor": "Electric-greenhouse",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$400.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$400.00",
-               "accountNum": 50610,
+               //"category": "Electric",
+               "category": categories[23],
+               "emoji": "Electric-greenhouse",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$400.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$400.00",
+
+               "price": 50610
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -959,19 +980,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "02/08/20",
-               "payee": "True Value",
+               //"dateOfExpense":  "02/08/20",
+               "name": "True Value",
                //payee:payees[43]
-               "description": "package",
-               //description: descriptions[57]
-               "usedFor": "packaging",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$12.65",
-               "tax": "",
-               "shipping": "",
-               "total": "$12.65",
-               "accountNum": 50090,
+               //"category": "package",
+               "category": categories[57],
+               "emoji": "packaging",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$12.65",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$12.65",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1003,19 +1025,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "2/13/2020",
-               "payee": "AC Moore",
+               //"dateOfExpense":  "2/13/2020",
+               "name": "AC Moore",
                //payee:payees[2]
-               "description": "gluclose",
-               //description: descriptions[33]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$5.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$5.99",
-               "accountNum": 50040,
+               //"category": "gluclose",
+               "category": categories[33],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$5.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$5.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1047,19 +1070,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "2/13/2020",
-               "payee": "AC Moore",
+               //"dateOfExpense":  "2/13/2020",
+               "name": "AC Moore",
                //payee:payees[2]
-               "description": "package",
-               //description: descriptions[57]
-               "usedFor": "packaging",
-               "numUnits": 3,
-               "unitMeas": "each",
-               "beforeTnSAmount": "$2.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$2.99",
-               "accountNum": 50090,
+               //"category": "package",
+               "category": categories[57],
+               "emoji": "packaging",
+               //"numUnits":  3,
+               //"unitMeas":  "each",
+               //"beforeTnSAmount":  "$2.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$2.99",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1091,19 +1115,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "02/19/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$13.79",
-               "tax": "",
-               "shipping": "",
-               "total": "$13.79",
-               "accountNum": 40195,
+               //"dateOfExpense":  "02/19/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$13.79",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$13.79",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1135,19 +1160,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "02/19/20",
-               "payee": "Post office", 
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$11.19",
-               "tax": "",
-               "shipping": "",
-               "total": "$11.19",
-               "accountNum": 40195,
+               //"dateOfExpense":  "02/19/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$11.19",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$11.19",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1179,18 +1205,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/02/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$65.99",
-               "tax": "$2.90",
-               "shipping": "",
-               "total": "$68.89",
-               "accountNum": 50010,
+               //"dateOfExpense":  "03/02/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$65.99",
+               //"tax":  "$2.90",
+               //"shipping":  "",
+               //"total":  "$68.89",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$68.89",
                // "code_50020": "",
@@ -1222,18 +1249,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/02/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$32.99",
-               "tax": "$1.81",
-               "shipping": "",
-               "total": "$34.80",
-               "accountNum": 50010,
+               //"dateOfExpense":  "03/02/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$32.99",
+               //"tax":  "$1.81",
+               //"shipping":  "",
+               //"total":  "$34.80",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$34.80",
                // "code_50020": "",
@@ -1265,19 +1293,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/02/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "03/02/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "Employee licenseto work with another care giver",
-              //description: descriptions[24]
-               "usedFor": "Licensing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$51.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$51.00",
-               "accountNum": 60185,
+               //"category": "Employee licenseto work with another care giver",
+               "category": categories[24],
+               "emoji": "Licensing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$51.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$51.00",
+               "barter": false,
+               "price": 60185
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1309,19 +1338,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "3/3/2020",
-               "payee": "CMP",
+               //"dateOfExpense":  "3/3/2020",
+               "name": "CMP",
                //payee:payees[0]
-               "description": "Electric",
-               //description: descriptions[23]
-               "usedFor": "Electric-greenhouse",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$350.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$350.00",
-               "accountNum": 50610,
+               //"category": "Electric",
+               "category": categories[23],
+               "emoji": "Electric-greenhouse",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$350.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$350.00",
+
+               "price": 50610
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1353,19 +1384,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/04/20",
-               "payee": "Mardens",
+               //"dateOfExpense":  "03/04/20",
+               "name": "Mardens",
                //payee:payees[28]
-               "description": "gelitne",
-               //description: descriptions[32]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$18.54",
-               "tax": "",
-               "shipping": "",
-               "total": "$18.54",
-               "accountNum": 50040,
+               //"category": "gelitne",
+               "category": categories[32],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$18.54",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$18.54",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1397,19 +1429,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/09/20",
-               "payee": "Natural Happiness",
+               //"dateOfExpense":  "03/09/20",
+               "name": "Natural Happiness",
                //payee:payees[30]
-               "description": "CBG RSO",
-                //description: descriptions[15]
-               "usedFor": "cooking",
-               "numUnits": 3,
-               "unitMeas": "",
-               "beforeTnSAmount": "$60.00",
-               "tax": "",
-               "shipping": "$8.00",
-               "total": "$68.00",
-               "accountNum": 50040,
+               //"category": "CBG RSO",
+               "category": categories[15],
+               "emoji": "cooking",
+               //"numUnits":  3,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$60.00",
+               //"tax":  "",
+               //"shipping":  "$8.00",
+               //"total":  "$68.00",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1441,19 +1474,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/09/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "03/09/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "IIC audult use license-annual-dispensery",
-               //description: descriptions[43]
-               "usedFor": "licensing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$50.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$50.00",
-               "accountNum": 60185,
+               //"category": "IIC audult use license-annual-dispensery",
+               "category": categories[43],
+               "emoji": "licensing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$50.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$50.00",
+               "barter": false,
+               "price": 60185
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1485,19 +1519,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/11/20",
-               "payee": "A2Z",
+               //"dateOfExpense":  "03/11/20",
+               "name": "A2Z",
                //payee:payees[1]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$14.18",
-               "tax": "",
-               "shipping": "",
-               "total": "$14.18",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$14.18",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$14.18",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$14.18",
                // "code_50020": "",
@@ -1529,19 +1564,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/11/20",
-               "payee": "CVS",
+               //"dateOfExpense":  "03/11/20",
+               "name": "CVS",
                //payee:payees[10]
-               "description": "cooking",
-               //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$18.97",
-               "tax": "",
-               "shipping": "",
-               "total": "$18.97",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$18.97",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$18.97",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1573,19 +1609,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/11/20",
-               "payee": "CVS",
+               //"dateOfExpense":  "03/11/20",
+               "name": "CVS",
                //payee:payees[10]
-               "description": "cooking",
-              //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$25.82",
-               "tax": "",
-               "shipping": "",
-               "total": "$25.82",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$25.82",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$25.82",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1617,19 +1654,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/11/20",
-               "payee": "Lois",
+               //"dateOfExpense":  "03/11/20",
+               "name": "Lois",
                //payee:payees[26]
-               "description": "cooking",
-               //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$59.98",
-               "tax": "",
-               "shipping": "",
-               "total": "$59.98",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$59.98",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$59.98",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1661,19 +1699,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/16/20",
-               "payee": "Dipietros",
+               //"dateOfExpense":  "03/16/20",
+               "name": "Dipietros",
                //payee:payees[10]
-               "description": "everclear",
-               //description: descriptions[28]
-               "usedFor": "extraction",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$65.93",
-               "tax": "",
-               "shipping": "",
-               "total": "$65.93",
-               "accountNum": 50022,
+               //"category": "everclear",
+               "category": categories[28],
+               "emoji": "extraction",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$65.93",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$65.93",
+               "barter": false,
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1705,19 +1744,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/19/20",
-               "payee": "Walmart",
+               //"dateOfExpense":  "03/19/20",
+               "name": "Walmart",
                //payee:payees[48]
-               "description": "cooking",
-               //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$10.47",
-               "tax": "",
-               "shipping": "",
-               "total": "$10.47",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$10.47",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$10.47",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1749,18 +1789,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "03/31/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "wash",
-               ,//description: descriptions[77]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$132.92",
-               "tax": "$5.85",
-               "shipping": "",
-               "total": "$138.77",
-               "accountNum": 50010,
+               //"dateOfExpense":  "03/31/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "wash",
+               "category": categories[77],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$132.92",
+               //"tax":  "$5.85",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$138.77",
+
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$138.77",
                // "code_50020": "",
@@ -1792,19 +1834,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "4/1/2020",
-               "payee": "Allstar Health.",
+               //"dateOfExpense":  "4/1/2020",
+               "name": "Allstar Health.",
                //payee:payees[4]
-               "description": "sleepcomplete",
-               //description: descriptions[68]
-               "usedFor": "cooking",
-               "numUnits": 6,
-               "unitMeas": "16 oz",
-               "beforeTnSAmount": "$18.49",
-               "tax": "$5.55",
-               "shipping": "",
-               "total": "$24.04",
-               "accountNum": 50040,
+               //"category": "sleepcomplete",
+               "category": categories[68],
+               "emoji": "cooking",
+               //"numUnits":  6,
+               //"unitMeas":  "16 oz",
+               //"beforeTnSAmount":  "$18.49",
+               //"tax":  "$5.55",
+               //"shipping":  "",
+               //"total":  "$24.04",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1836,19 +1879,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/02/20",
-               "payee": "Lorann Oils",
+               //"dateOfExpense":  "04/02/20",
+               "name": "Lorann Oils",
                //payee:payees[27]
-               "description": "flavor",
-               //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$22.80",
-               "tax": "",
-               "shipping": "",
-               "total": "$22.80",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$22.80",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$22.80",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1880,19 +1924,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/02/20",
-               "payee": "CMP",
+               //"dateOfExpense":  "04/02/20",
+               "name": "CMP",
                //payee:payees[0]
-               "description": "Electric",
-               //description: descriptions[23]
-               "usedFor": "Electric-greenhouse",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$450.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$450.00",
-               "accountNum": 50610,
+               //"category": "Electric",
+               "category": categories[23],
+               "emoji": "Electric-greenhouse",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$450.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$450.00",
+
+               "price": 50610
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1924,19 +1970,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/03/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$14.50",
-               "tax": "",
-               "shipping": "",
-               "total": "$14.50",
-               "accountNum": 40195,
+               //"dateOfExpense":  "04/03/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$14.50",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$14.50",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -1968,19 +2015,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/07/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "04/07/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$441.98",
-               "tax": "",
-               "shipping": "",
-               "total": "$441.98",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$441.98",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$441.98",
+
+               "price": 50010
                // "code_50010": "$328.72",
                // "code_50012": "$113.26",
                // "code_50020": "",
@@ -2012,19 +2061,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/15/20",
-               "payee": "Jordan Farm",
+               //"dateOfExpense":  "04/15/20",
+               "name": "Jordan Farm",
                //payee:payees[20]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$45.00",
-               "tax": "$4.95",
-               "shipping": "",
-               "total": "$49.95",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$45.00",
+               //"tax":  "$4.95",
+               //"shipping":  "",
+               //"total":  "$49.95",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$49.95",
                // "code_50020": "",
@@ -2056,19 +2106,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/23/20",
-               "payee": "Mountain Rose",
+               //"dateOfExpense":  "04/23/20",
+               "name": "Mountain Rose",
                //payee:payees[29]
-               "description": "herbs/wax",
-               //description: descriptions[41]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$126.25",
-               "tax": "$15.92",
-               "shipping": "",
-               "total": "$142.17",
-               "accountNum": 50040,
+               //"category": "herbs/wax",
+               "category": categories[41],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$126.25",
+               //"tax":  "$15.92",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$142.17",
+
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2100,19 +2152,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/24/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$6.09",
-               "tax": "",
-               "shipping": "",
-               "total": "$6.09",
-               "accountNum": 40195,
+               //"dateOfExpense":  "04/24/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$6.09",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$6.09",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2144,19 +2197,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "04/28/20",
-               "payee": "Nolts Greenhouse",
+               //"dateOfExpense":  "04/28/20",
+               "name": "Nolts Greenhouse",
                //payee:payees[31]
-               "description": "greenhouse-plastic",
-               //description: descriptions[35]
-               "usedFor": "leasehold improvments",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$1,073.58",
-               "tax": "",
-               "shipping": "$225.00",
-               "total": "$1,298.58",
-               "accountNum": 16030,
+               //"category": "greenhouse-plastic",
+               "category": categories[35],
+               "emoji": "leasehold improvments",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1,073.58",
+               //"tax":  "",
+               //"shipping":  "$225.00",
+               "barter": false,
+               //"total":  "$1,298.58",
+               "price": 16030
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2188,19 +2242,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/07/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$11.91",
-               "tax": "",
-               "shipping": "",
-               "total": "$11.91",
-               "accountNum": 40195,
+               //"dateOfExpense":  "05/07/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$11.91",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$11.91",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2232,19 +2287,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/10/20",
-               "payee": "Jordan Farm",
+               //"dateOfExpense":  "05/10/20",
+               "name": "Jordan Farm",
                //payee:payees[20]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$38.00",
-               "tax": "$4.18",
-               "shipping": "",
-               "total": "$42.18",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$38.00",
+               //"tax":  "$4.18",
+               //"shipping":  "",
+               //"total":  "$42.18",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$42.18",
                // "code_50012": "",
                // "code_50020": "",
@@ -2276,19 +2332,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/10/20",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "05/10/20",
+               "name": "Home Depot",
                //payee:payees[18]
-               "description": "grow rooms",
-               //description: descriptions[37]
-               "usedFor": "indirect equipment repair&maint",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$182.81",
-               "tax": "",
-               "shipping": "",
-               "total": "$182.81",
-               "accountNum": 50040,
+               //"category": "grow rooms",
+               "category": categories[37],
+               "emoji": "indirect equipment repair&maint",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$182.81",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$182.81",
+
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2320,19 +2378,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/11/20",
-               "payee": "Dipietros",
+               //"dateOfExpense":  "05/11/20",
+               "name": "Dipietros",
                //payee:payees[10]
-               "description": "everclear",
-               //description: descriptions[28]
-               "usedFor": "extraction",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$65.93",
-               "tax": "",
-               "shipping": "",
-               "total": "$65.93",
-               "accountNum": 50022,
+               //"category": "everclear",
+               "category": categories[28],
+               "emoji": "extraction",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$65.93",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$65.93",
+               "barter": false,
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2364,19 +2423,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/16/20",
-               "payee": "Jordan Farm",
+               //"dateOfExpense":  "05/16/20",
+               "name": "Jordan Farm",
                //payee:payees[20]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$45.00",
-               "tax": "$2.45",
-               "shipping": "",
-               "total": "$47.45",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$45.00",
+               //"tax":  "$2.45",
+               //"shipping":  "",
+               //"total":  "$47.45",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$47.45",
                // "code_50012": "",
                // "code_50020": "",
@@ -2408,18 +2468,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/21/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "clonex gel",
-                //description: descriptions[17]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$39.82",
-               "tax": "$2.19",
-               "shipping": "",
-               "total": "$42.01",
-               "accountNum": 50010,
+               //"dateOfExpense":  "05/21/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "clonex gel",
+               "category": categories[17],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$39.82",
+               //"tax":  "$2.19",
+               //"shipping":  "",
+               //"total":  "$42.01",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$42.01",
                // "code_50012": "",
                // "code_50020": "",
@@ -2451,19 +2512,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "05/27/20",
-               "payee": "Jordan Farm",
+               //"dateOfExpense":  "05/27/20",
+               "name": "Jordan Farm",
                //payee:payees[20]
-               "description": "soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$38.00",
-               "tax": "$2.09",
-               "shipping": "",
-               "total": "$40.09",
-               "accountNum": 50010,
+               //"category": "soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$38.00",
+               //"tax":  "$2.09",
+               //"shipping":  "",
+               //"total":  "$40.09",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$40.09",
                // "code_50020": "",
@@ -2495,19 +2557,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/10/20",
-               "payee": "Truffle made",
+               //"dateOfExpense":  "06/10/20",
+               "name": "Truffle made",
                //payee:payees[44]
-               "description": "molds",
-               //description: descriptions[47]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$69.99",
-               "tax": "",
-               "shipping": "$11.56",
-               "total": "$81.55",
-               "accountNum": 50550,
+               //"category": "molds",
+               "category": categories[47],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$69.99",
+               //"tax":  "",
+               //"shipping":  "$11.56",
+               //"total":  "$81.55",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2539,19 +2602,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "6/11/2020",
-               "payee": "Multiple vendors",
+               //"dateOfExpense":  "6/11/2020",
+               "name": "Multiple vendors",
                //payee:payees[28]
-               "description": "fix new greenhouse",
-               //description: descriptions[29]
-               "usedFor": "leasehold improvements",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$1,720.70",
-               "tax": "",
-               "shipping": "",
-               "total": "$1,720.70",
-               "accountNum": 16030,
+               //"category": "fix new greenhouse",
+               "category": categories[29],
+               "emoji": "leasehold improvements",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1,720.70",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$1,720.70",
+               "price": 16030
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2583,18 +2647,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/14/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "plant",
-               //description: descriptions[60]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$171.40",
-               "tax": "",
-               "shipping": "",
-               "total": "$171.40",
-               "accountNum": 50010,
+               //"dateOfExpense":  "06/14/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "plant",
+               "category": categories[60],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$171.40",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$171.40",
+
+               "price": 50010
                // "code_50010": "$135.41",
                // "code_50012": "$35.99",
                // "code_50020": "",
@@ -2626,19 +2692,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/15/20",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "06/15/20",
+               "name": "Home Depot",
                //payee:payees[18]
-               "description": "grow rooms",
-               //description: descriptions[37]
-               "usedFor": "indirect equipment repair&maint",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$291.53",
-               "tax": "",
-               "shipping": "",
-               "total": "$291.53",
-               "accountNum": 50590,
+               //"category": "grow rooms",
+               "category": categories[37],
+               "emoji": "indirect equipment repair&maint",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$291.53",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$291.53",
+
+               "price": 50590
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2670,19 +2738,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/15/20",
-               "payee": "Oakhill",
+               //"dateOfExpense":  "06/15/20",
+               "name": "Oakhill",
                //payee:payees[32]
-               "description": "grow rooms",
-               //description: descriptions[37]
-               "usedFor": "indirect equipment repair&maint",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$61.91",
-               "tax": "",
-               "shipping": "",
-               "total": "$61.91",
-               "accountNum": 50590,
+               //"category": "grow rooms",
+               "category": categories[37],
+               "emoji": "indirect equipment repair&maint",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$61.91",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$61.91",
+               "barter": false,
+               "price": 50590
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2714,19 +2783,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/16/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$12.32",
-               "tax": "",
-               "shipping": "",
-               "total": "$12.32",
-               "accountNum": 40195,
+               //"dateOfExpense":  "06/16/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$12.32",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$12.32",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2758,19 +2828,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/20/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "06/20/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "Grow license-annual",
-               //description: descriptions[36]
-               "usedFor": "Licensing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$1,200.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$1,200.00",
-               "accountNum": 50565,
+               //"category": "Grow license-annual",
+               "category": categories[36],
+               "emoji": "Licensing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1,200.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$1,200.00",
+               "price": 50565
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2802,19 +2873,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "06/20/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "06/20/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "Back ground check-license-annual",
-               //description: descriptions[5]
-               "usedFor": "Licensing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$31.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$31.00",
-               "accountNum": 60185,
+               //"category": "Back ground check-license-annual",
+               "category": categories[5],
+               "emoji": "Licensing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$31.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$31.00",
+               "barter": false,
+               "price": 60185
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2846,19 +2918,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "6/25/2020",
-               "payee": "Allen Sterling",
+               //"dateOfExpense":  "6/25/2020",
+               "name": "Allen Sterling",
                //payee:payees[3]
-               "description": "Soil",
-               //description: descriptions[69]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$179.52",
-               "tax": "$9.87",
-               "shipping": "",
-               "total": "$189.39",
-               "accountNum": 50010,
+               //"category": "Soil",
+               "category": categories[69],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$179.52",
+               //"tax":  "$9.87",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$189.39",
+
+               "price": 50010
                // "code_50010": "$189.39",
                // "code_50012": "",
                // "code_50020": "",
@@ -2890,18 +2964,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "6/30/2020",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$80.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$80.00",
-               "accountNum": 50040,
+               //"dateOfExpense":  "6/30/2020",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$80.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$80.00",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2933,19 +3008,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "7/1/2020",
-               "payee": "Dishwaser-Uncle Andy",
+               //"dateOfExpense":  "7/1/2020",
+               "name": "Dishwaser-Uncle Andy",
                //payee:payees[11]
-               "description": "equipment",
-               //description: descriptions[26]
-               "usedFor": "equipment-indirect expenses",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$600.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$600.00",
-               "accountNum": 16000,
+               //"category": "equipment",
+               "category": categories[26],
+               "emoji": "equipment-indirect expenses",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$600.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$600.00",
+
+               "price": 16000
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -2977,18 +3054,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "7/1/2020",
-               "payee": "Freeze Dryer",
+               //"dateOfExpense":  "7/1/2020",
+               "name": "Freeze Dryer",
                //payee:payees[13]
-               "description": "",
-               "usedFor": "equipment-indirect expenses",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$3,200.00",
-               "tax": "",
-               "shipping": "$250.00",
-               "total": "$3,450.00",
-               "accountNum": 16000,
+               //"category": "",
+               "emoji": "equipment-indirect expenses",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$3,200.00",
+               //"tax":  "",
+               //"shipping":  "$250.00",
+               "barter": false,
+               //"total":  "$3,450.00",
+               "price": 16000
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3020,19 +3098,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "7/1/2020",
-               "payee": "Labor Cost-Rob Fogg",
+               //"dateOfExpense":  "7/1/2020",
+               "name": "Labor Cost-Rob Fogg",
                //payee:payees[21]
-               "description": "heating system/water line grow room",
-               //description: descriptions[39]
-               "usedFor": "leasehold improvments",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$600.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$600.00",
-               "accountNum": 16030,
+               //"category": "heating system/water line grow room",
+               "category": categories[39],
+               "emoji": "leasehold improvments",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$600.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$600.00",
+
+               "price": 16030
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3064,19 +3144,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/01/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$15.28",
-               "tax": "",
-               "shipping": "",
-               "total": "$15.28",
-               "accountNum": 40195,
+               //"dateOfExpense":  "07/01/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$15.28",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$15.28",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3108,19 +3189,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "7/1/2020",
-               "payee": "Handsink-rest equiment store",
+               //"dateOfExpense":  "7/1/2020",
+               "name": "Handsink-rest equiment store",
                //payee:payees[15]
-               "description": "equipment",
-               //description: descriptions[26]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$245.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$245.00",
-               "accountNum": 50550,
+               //"category": "equipment",
+               "category": categories[26],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$245.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$245.00",
+
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3152,18 +3235,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/10/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "cloning machine",
-                //description: descriptions[18]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$21.99",
-               "tax": "$0.97",
-               "shipping": "",
-               "total": "$22.96",
-               "accountNum": 50550,
+               //"dateOfExpense":  "07/10/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "cloning machine",
+               "category": categories[18],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$21.99",
+               //"tax":  "$0.97",
+               //"shipping":  "",
+               //"total":  "$22.96",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3195,18 +3279,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "7/10/2020",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "Cloner",
-               //description: descriptions[16]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$242.31",
-               "tax": "",
-               "shipping": "",
-               "total": "$242.31",
-               "accountNum": 50550,
+               //"dateOfExpense":  "7/10/2020",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "Cloner",
+               "category": categories[16],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$242.31",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$242.31",
+
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3238,19 +3324,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/13/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$10.73",
-               "tax": "",
-               "shipping": "",
-               "total": "$10.73",
-               "accountNum": 40195,
+               //"dateOfExpense":  "07/13/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$10.73",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$10.73",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3282,19 +3369,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/14/20",
-               "payee": "Allstar Health.",
+               //"dateOfExpense":  "07/14/20",
+               "name": "Allstar Health.",
                //payee:payees[4]
-               "description": "sleepcomplete",
-               //description: descriptions[68]
-               "usedFor": "cooking",
-               "numUnits": 7,
-               "unitMeas": "",
-               "beforeTnSAmount": "$18.49",
-               "tax": "$6.47",
-               "shipping": "",
-               "total": "$24.96",
-               "accountNum": 50040,
+               //"category": "sleepcomplete",
+               "category": categories[68],
+               "emoji": "cooking",
+               //"numUnits":  7,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$18.49",
+               //"tax":  "$6.47",
+               //"shipping":  "",
+               //"total":  "$24.96",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3326,19 +3414,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/15/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "07/15/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "sales tax",
-               //description: descriptions[63]
-               "usedFor": "",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$769.95",
-               "tax": "",
-               "shipping": "",
-               "total": "$769.95",
-               "accountNum": 20012,
+               //"category": "sales tax",
+               "category": categories[63],
+               "emoji": "",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$769.95",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$769.95",
+
+               "price": 20012
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3370,18 +3460,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/19/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$37.99",
-               "tax": "$3.34",
-               "shipping": "",
-               "total": "$41.33",
-               "accountNum": 50010,
+               //"dateOfExpense":  "07/19/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$37.99",
+               //"tax":  "$3.34",
+               //"shipping":  "",
+               //"total":  "$41.33",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$41.33",
                // "code_50012": "",
                // "code_50020": "",
@@ -3413,19 +3504,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/23/20",
-               "payee": "Dipietros",
+               //"dateOfExpense":  "07/23/20",
+               "name": "Dipietros",
                //payee:payees[10]
-               "description": "everclear",
-               //description: descriptions[28]
-               "usedFor": "extraction",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$39.99",
-               "tax": "$5.28",
-               "shipping": "",
-               "total": "$45.27",
-               "accountNum": 50022,
+               //"category": "everclear",
+               "category": categories[28],
+               "emoji": "extraction",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$39.99",
+               //"tax":  "$5.28",
+               //"shipping":  "",
+               //"total":  "$45.27",
+               "barter": false,
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3457,19 +3549,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/27/20",
-               "payee": "Staples",
+               //"dateOfExpense":  "07/27/20",
+               "name": "Staples",
                //payee:payees[40]
-               "description": "office",
-               //description: descriptions[53]
-               "usedFor": "packaging",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$82.81",
-               "tax": "$4.55",
-               "shipping": "",
-               "total": "$87.36",
-               "accountNum": 50090,
+               //"category": "office",
+               "category": categories[53],
+               "emoji": "packaging",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$82.81",
+               //"tax":  "$4.55",
+               //"shipping":  "",
+               //"total":  "$87.36",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3501,19 +3594,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "07/28/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "cashw milk",
-               //description: descriptions[14]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$18.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$18.00",
-               "accountNum": 50040,
+               //"category": "cashw milk",
+               "category": categories[14],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$18.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$18.00",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3545,19 +3639,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "07/28/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Coconut sugar",
-               //description: descriptions[20]
-               "usedFor": "cooking",
-               "numUnits": 5,
-               "unitMeas": "3#",
-               "beforeTnSAmount": "$13.50",
-               "tax": "",
-               "shipping": "",
-               "total": "$13.50",
-               "accountNum": 50040,
+               //"category": "Coconut sugar",
+               "category": categories[20],
+               "emoji": "cooking",
+               //"numUnits":  5,
+               //"unitMeas":  "3#",
+               //"beforeTnSAmount":  "$13.50",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$13.50",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3589,19 +3684,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "07/28/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Erythritol",
-              //description: descriptions[27]
-               "usedFor": "cooking",
-               "numUnits": 5,
-               "unitMeas": "3#",
-               "beforeTnSAmount": "$14.08",
-               "tax": "",
-               "shipping": "",
-               "total": "$14.08",
-               "accountNum": 50040,
+               //"category": "Erythritol",
+               "category": categories[27],
+               "emoji": "cooking",
+               //"numUnits":  5,
+               //"unitMeas":  "3#",
+               //"beforeTnSAmount":  "$14.08",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$14.08",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3633,19 +3729,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "07/28/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Papaya Powder",
-               //description: descriptions[58]                                                                                                                                                                                          u88jgghfr4e55
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$19.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$19.99",
-               "accountNum": 50040,
+               //"category": "Papaya Powder",
+               "category": categories[58],        
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$19.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$19.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3677,19 +3774,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "07/28/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Pineapple powder",
-               //description: descriptions[59]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$19.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$19.99",
-               "accountNum": 50040,
+               //"category": "Pineapple powder",
+               "category": categories[59],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$19.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$19.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3721,19 +3819,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "07/28/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "07/28/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Tart Cherry",
-               //description: descriptions[70]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$24.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$24.99",
-               "accountNum": 50040,
+               //"category": "Tart Cherry",
+               "category": categories[70],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$24.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$24.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3765,19 +3864,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/01/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "08/01/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Coconut sugar",
-                //description: descriptions[20]
-               "usedFor": "cooking",
-               "numUnits": 2,
-               "unitMeas": "10#",
-               "beforeTnSAmount": "$39.90",
-               "tax": "",
-               "shipping": "",
-               "total": "$39.90",
-               "accountNum": 50040,
+               //"category": "Coconut sugar",
+               "category": categories[20],
+               "emoji": "cooking",
+               //"numUnits":  2,
+               //"unitMeas":  "10#",
+               //"beforeTnSAmount":  "$39.90",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$39.90",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3809,19 +3909,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/01/20",
-               "payee": "Chemistrystore",
+               //"dateOfExpense":  "08/01/20",
+               "name": "Chemistrystore",
                //payee:payees[8]
-               "description": "tubes",
-               //description: descriptions[76]
-               "usedFor": "packaging",
-               "numUnits": 5,
-               "unitMeas": "",
-               "beforeTnSAmount": "$11.40",
-               "tax": "",
-               "shipping": "$20.90",
-               "total": "$32.30",
-               "accountNum": 50090,
+               //"category": "tubes",
+               "category": categories[76],
+               "emoji": "packaging",
+               //"numUnits":  5,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$11.40",
+               //"tax":  "",
+               //"shipping":  "$20.90",
+               //"total":  "$32.30",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3853,19 +3954,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "8/5/2020",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "8/5/2020",
+               "name": "Home Depot",
                //payee:payees[18]
-               "description": "Misc grow room-paints/lights",
-               //description: descriptions[46]
-               "usedFor": "equipment-indirect expenses",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$667.05",
-               "tax": "",
-               "shipping": "",
-               "total": "$667.05",
-               "accountNum": 16000,
+               //"category": "Misc grow room-paints/lights",
+               "category": categories[46],
+               "emoji": "equipment-indirect expenses",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$667.05",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$667.05",
+
+               "price": 16000
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3897,19 +4000,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "8/5/2020",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "8/5/2020",
+               "name": "Home Depot",
                //payee:payees[18]
-               "description": "5 buckets w/lids",
-               //description: descriptions[0]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$6.95",
-               "tax": "",
-               "shipping": "",
-               "total": "$6.95",
-               "accountNum": 50550,
+               //"category": "5 buckets w/lids",
+               "category": categories[0],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$6.95",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$6.95",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3941,19 +4045,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "8/5/2020",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "8/5/2020",
+               "name": "Home Depot",
                //payee:payees[18]
-               "description": "5 buckets w/lids",
-               //description: descriptions[0]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$6.95",
-               "tax": "",
-               "shipping": "",
-               "total": "$6.95",
-               "accountNum": 50550,
+               //"category": "5 buckets w/lids",
+               "category": categories[0],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$6.95",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$6.95",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -3985,19 +4090,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/11/20",
-               "payee": "Leroux Kitchen",
+               //"dateOfExpense":  "08/11/20",
+               "name": "Leroux Kitchen",
                //payee:payees[25]
-               "description": "flavor",
-               //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$15.97",
-               "tax": "",
-               "shipping": "",
-               "total": "$15.97",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$15.97",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$15.97",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4029,18 +4135,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/13/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$32.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$32.99",
-               "accountNum": 50010,
+               //"dateOfExpense":  "08/13/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$32.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$32.99",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$32.99",
                // "code_50020": "",
@@ -4072,18 +4179,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/13/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$87.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$87.00",
-               "accountNum": 50010,
+               //"dateOfExpense":  "08/13/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$87.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$87.00",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$87.00",
                // "code_50020": "",
@@ -4115,18 +4223,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/13/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "qt",
-               "beforeTnSAmount": "$16.99",
-               "tax": "$8.23",
-               "shipping": "",
-               "total": "$25.22",
-               "accountNum": 50010,
+               //"dateOfExpense":  "08/13/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "qt",
+               //"beforeTnSAmount":  "$16.99",
+               //"tax":  "$8.23",
+               //"shipping":  "",
+               //"total":  "$25.22",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$25.22",
                // "code_50012": "",
                // "code_50020": "",
@@ -4158,19 +4267,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/14/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$8.62",
-               "tax": "",
-               "shipping": "",
-               "total": "$8.62",
-               "accountNum": 40195,
+               //"dateOfExpense":  "08/14/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$8.62",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$8.62",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4202,19 +4312,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/15/20",
-               "payee": "Renhui metal",
-              //payee:payees[36]
-               "description": "plant lamps",
-               //description: descriptions[61]
-               "usedFor": "equipment",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$1,600.00",
-               "tax": "",
-               "shipping": "$150.00",
-               "total": "$1,750.00",
-               "accountNum": 16000,
+               //"dateOfExpense":  "08/15/20",
+               "name": "Renhui metal",
+               //payee:payees[36]
+               //"category": "plant lamps",
+               "category": categories[61],
+               "emoji": "equipment",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1,600.00",
+               //"tax":  "",
+               //"shipping":  "$150.00",
+               "barter": false,
+               //"total":  "$1,750.00",
+               "price": 16000
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4246,19 +4357,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/19/20",
-               "payee": "Lorann Oils",
+               //"dateOfExpense":  "08/19/20",
+               "name": "Lorann Oils",
                //payee:payees[27]
-               "description": "flavor",
-               //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$189.70",
-               "tax": "",
-               "shipping": "",
-               "total": "$189.70",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$189.70",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$189.70",
+
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4290,19 +4403,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/25/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "office shipping",
-               //description: descriptions[55]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$4.65",
-               "tax": "",
-               "shipping": "",
-               "total": "$4.65",
-               "accountNum": 40195,
+               //"dateOfExpense":  "08/25/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "office shipping",
+               "category": categories[55],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$4.65",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$4.65",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4334,19 +4448,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/26/20",
-               "payee": "State of Mind",
+               //"dateOfExpense":  "08/26/20",
+               "name": "State of Mind",
                //payee:payees[42]
-               "description": "tshirts",
-               //description: descriptions[75]
-               "usedFor": "purchases for resale",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$160.00",
-               "tax": "$8.80",
-               "shipping": "",
-               "total": "$168.80",
-               "accountNum": 50100,
+               //"category": "tshirts",
+               "category": categories[75],
+               "emoji": "purchases for resale",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$160.00",
+               //"tax":  "$8.80",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$168.80",
+
+               "price": 50100
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4378,19 +4494,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/27/20",
-               "payee": "Dipietros",
+               //"dateOfExpense":  "08/27/20",
+               "name": "Dipietros",
                //payee:payees[10]
-               "description": "everclear",
-               //description: descriptions[28]
-               "usedFor": "extraction",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$39.99",
-               "tax": "$2.35",
-               "shipping": "",
-               "total": "$42.34",
-               "accountNum": 50022,
+               //"category": "everclear",
+               "category": categories[28],
+               "emoji": "extraction",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$39.99",
+               //"tax":  "$2.35",
+               //"shipping":  "",
+               //"total":  "$42.34",
+               "barter": false,
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4422,18 +4539,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/29/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$14.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$14.99",
-               "accountNum": 50010,
+               //"dateOfExpense":  "08/29/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$14.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$14.99",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$14.99",
                // "code_50012": "",
                // "code_50020": "",
@@ -4465,18 +4583,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/29/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "qt",
-               "beforeTnSAmount": "$14.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$14.99",
-               "accountNum": 50010,
+               //"dateOfExpense":  "08/29/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "qt",
+               //"beforeTnSAmount":  "$14.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$14.99",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$14.99",
                // "code_50020": "",
@@ -4508,18 +4627,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "08/29/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "qt",
-               "beforeTnSAmount": "$16.99",
-               "tax": "$3.47",
-               "shipping": "",
-               "total": "$20.46",
-               "accountNum": 50010,
+               //"dateOfExpense":  "08/29/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "qt",
+               //"beforeTnSAmount":  "$16.99",
+               //"tax":  "$3.47",
+               //"shipping":  "",
+               //"total":  "$20.46",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$20.46",
                // "code_50012": "",
                // "code_50020": "",
@@ -4551,19 +4671,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/01/20",
-               "payee": "Independent Power",
+               //"dateOfExpense":  "09/01/20",
+               "name": "Independent Power",
                //payee:payees[19]
-               "description": "grow rooms-thermo pex",
-               //description: descriptions[38]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$348.18",
-               "tax": "$19.18",
-               "shipping": "",
-               "total": "$367.36",
-               "accountNum": 50550,
+               //"category": "grow rooms-thermo pex",
+               "category": categories[38],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$348.18",
+               //"tax":  "$19.18",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$367.36",
+
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4595,19 +4717,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "09/04/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$103.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$103.99",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$103.99",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$103.99",
+
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$103.99",
                // "code_50020": "",
@@ -4639,19 +4763,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "09/04/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$37.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$37.99",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$37.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$37.99",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$37.99",
                // "code_50012": "",
                // "code_50020": "",
@@ -4683,19 +4808,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "09/04/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$32.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$32.99",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$32.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$32.99",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$32.99",
                // "code_50020": "",
@@ -4727,19 +4853,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/04/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "09/04/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": 50,
-               "beforeTnSAmount": "$4.18",
-               "tax": "$5.80",
-               "shipping": "",
-               "total": "$9.98",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  50,
+               //"beforeTnSAmount":  "$4.18",
+               //"tax":  "$5.80",
+               //"shipping":  "",
+               //"total":  "$9.98",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$9.98",
                // "code_50012": "",
                // "code_50020": "",
@@ -4771,19 +4898,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/14/20",
-               "payee": "Pharmaca",
+               //"dateOfExpense":  "09/14/20",
+               "name": "Pharmaca",
                //payee:payees[33]
-               "description": "calm",
-                //description: descriptions[13]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$46.72",
-               "tax": "$7.36",
-               "shipping": "",
-               "total": "$54.08",
-               "accountNum": 50040,
+               //"category": "calm",
+               "category": categories[13],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$46.72",
+               //"tax":  "$7.36",
+               //"shipping":  "",
+               //"total":  "$54.08",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4815,18 +4943,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "9/15/2020",
-               "payee": "Heat system for grow room",
+               //"dateOfExpense":  "9/15/2020",
+               "name": "Heat system for grow room",
                //payee:payees[16]
-               "description": "",
-               "usedFor": "leasehold improvements",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$584.43",
-               "tax": "",
-               "shipping": "",
-               "total": "$584.43",
-               "accountNum": 16030,
+               //"category": "",
+               "emoji": "leasehold improvements",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$584.43",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$584.43",
+
+               "price": 16030
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4858,19 +4988,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "9/15/2020",
-               "payee": "SJR Labs",
+               //"dateOfExpense":  "9/15/2020",
+               "name": "SJR Labs",
                //payee:payees[39]
-               "description": "SJR labs-RSO",
-               //description: descriptions[67]
-               "usedFor": "extraction",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$1,663.25",
-               "tax": "",
-               "shipping": "",
-               "total": "$1,663.25",
-               "accountNum": 50022,
+               //"category": "SJR labs-RSO",
+               "category": categories[67],
+               "emoji": "extraction",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1,663.25",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$1,663.25 ",
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4902,19 +5033,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "9/15/2020",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "9/15/2020",
+               "name": "Home Depot",
                //payee: payees[18]
-               "description": "trimming sissors",
-               //description: descriptions[74]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$75.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$75.00",
-               "accountNum": 50550,
+               //"category": "trimming sissors",
+               "category": categories[74],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$75.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$75.00",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4946,18 +5078,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "9/15/2020",
-               "payee": "Home Depot",
+               //"dateOfExpense":  "9/15/2020",
+               "name": "Home Depot",
                //payee: payees[18]
-               "description": "",
-               "usedFor": "indirect equipment repair&maint",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$376.27",
-               "tax": "$20.55",
-               "shipping": "",
-               "total": "$396.82",
-               "accountNum": 50552,
+               //"category": "",
+               "emoji": "indirect equipment repair&maint",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$376.27",
+               //"tax":  "$20.55",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$396.82",
+
+               "price": 50552
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -4989,19 +5123,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "09/30/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "09/30/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "humidity packs",
-              //description: descriptions[42]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$69.58",
-               "tax": "$3.83",
-               "shipping": "",
-               "total": "$73.41",
-               "accountNum": 50550,
+               //"category": "humidity packs",
+               "category": categories[42],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$69.58",
+               //"tax":  "$3.83",
+               //"shipping":  "",
+               //"total":  "$73.41",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5033,19 +5168,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/10/2020",
-               "payee": "SJR Labs",
+               //"dateOfExpense":  "10/10/2020",
+               "name": "SJR Labs",
                //payee:payees[39]
-               "description": "SJR labs-RSO",
-               //description: descriptions[67]
-               "usedFor": "extraction",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$2,301.25",
-               "tax": "",
-               "shipping": "",
-               "total": "$2,301.25",
-               "accountNum": 50022,
+               //"category": "SJR labs-RSO",
+               "category": categories[67],
+               "emoji": "extraction",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$2,301.25",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$2,301.25",
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5077,19 +5213,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/10/20",
-               "payee": "Napa",
+               //"dateOfExpense":  "10/10/20",
+               "name": "Napa",
                //payee:payees[29]
-               "description": "pump oil",
-               //description: descriptions[62]
-               "usedFor": "indirect equipment repair&maint",
-               "numUnits": 5,
-               "unitMeas": "",
-               "beforeTnSAmount": "$9.22",
-               "tax": "$2.54",
-               "shipping": "",
-               "total": "$11.76",
-               "accountNum": 50552,
+               //"category": "pump oil",
+               "category": categories[62],
+               "emoji": "indirect equipment repair&maint",
+               //"numUnits":  5,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$9.22",
+               //"tax":  "$2.54",
+               //"shipping":  "",
+               //"total":  "$11.76",
+               "barter": false,
+               "price": 50552
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5121,19 +5258,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/13/2020",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "freight-out",
-               //description: descriptions[31]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$10.94",
-               "tax": "",
-               "shipping": "",
-               "total": "$10.94",
-               "accountNum": 40195,
+               //"dateOfExpense":  "10/13/2020",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "freight-out",
+               "category": categories[31],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$10.94",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$10.94",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5165,19 +5303,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/16/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "10/16/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "cooking",
-               //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "5#",
-               "beforeTnSAmount": "$41.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$41.99",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "5#",
+               //"beforeTnSAmount":  "$41.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$41.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5209,19 +5348,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/16/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "10/16/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Coconut sugar",
-              //description: descriptions[20]
-               "usedFor": "cooking",
-               "numUnits": 3,
-               "unitMeas": "10#",
-               "beforeTnSAmount": "$40.85",
-               "tax": "",
-               "shipping": "",
-               "total": "$40.85",
-               "accountNum": 50040,
+               //"category": "Coconut sugar",
+               "category": categories[20],
+               "emoji": "cooking",
+               //"numUnits":  3,
+               //"unitMeas":  "10#",
+               //"beforeTnSAmount":  "$40.85",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$40.85",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5253,19 +5393,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/16/20",
-               "payee": "zNatural",
+               //"dateOfExpense":  "10/16/20",
+               "name": "zNatural",
                //payee:payees[49]
-               "description": "Erythritol",
-               //description: descriptions[27]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "10#",
-               "beforeTnSAmount": "$54.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$54.99",
-               "accountNum": 50040,
+               //"category": "Erythritol",
+               "category": categories[27],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "10#",
+               //"beforeTnSAmount":  "$54.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$54.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5297,19 +5438,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "10/20/2020",
-               "payee": "Proverda lab",
+               //"dateOfExpense":  "10/20/2020",
+               "name": "Proverda lab",
                //payee:payees[35]
-               "description": "Testing",
-               //description: descriptions[71]
-               "usedFor": "QC/Lab",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$270.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$270.00",
-               "accountNum": 50560,
+               //"category": "Testing",
+               "category": categories[71],
+               "emoji": "QC/Lab",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$270.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$270.00",
+
+               "price": 50560
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5341,18 +5484,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/02/20",
-               "payee": "Uline",//payee:payees[45],
-               "description": "shrink tube",
-               //description: descriptions[65]
-               "usedFor": "packaging",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$38.00",
-               "tax": "$3.15",
-               "shipping": "$19.31",
-               "total": "$60.46",
-               "accountNum": 50090,
+               //"dateOfExpense":  "11/02/20",
+               "name": "Uline",//payee:payees[45],
+               //"category": "shrink tube",
+               "category": categories[65],
+               "emoji": "packaging",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$38.00",
+               //"tax":  "$3.15",
+               //"shipping":  "$19.31",
+               //"total":  "$60.46",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5384,19 +5528,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               //"dateOfExpense":  "11/3/2020",
+               "name": "Griffen Greenhouse",
                //payee:payees[14]
-               "description": "nutrients-Part A",
-               //description: descriptions[52]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "25#",
-               "beforeTnSAmount": "$57.23",
-               "tax": "",
-               "shipping": "",
-               "total": "$57.23",
-               "accountNum": 50010,
+               //"category": "nutrients-Part A",
+               "category": categories[52],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "25#",
+               //"beforeTnSAmount":  "$57.23",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$57.23",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$57.23",
                // "code_50012": "",
                // "code_50020": "",
@@ -5428,19 +5573,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               //"dateOfExpense":  "11/3/2020",
+               "name": "Griffen Greenhouse",
                //payee:payees[14]
-               "description": "nutrients-Boost",
-               //description: descriptions[50]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "25#",
-               "beforeTnSAmount": "$35.30",
-               "tax": "",
-               "shipping": "",
-               "total": "$35.30",
-               "accountNum": 50010,
+               //"category": "nutrients-Boost",
+               "category": categories[50],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "25#",
+               //"beforeTnSAmount":  "$35.30",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$35.30",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$35.30",
                // "code_50012": "",
                // "code_50020": "",
@@ -5472,19 +5618,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               //"dateOfExpense":  "11/3/2020",
+               "name": "Griffen Greenhouse",
                //payee:payees[14]
-               "description": "nutrients-Bloom",
-               //description: descriptions[49]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "25#",
-               "beforeTnSAmount": "$60.91",
-               "tax": "",
-               "shipping": "",
-               "total": "$60.91",
-               "accountNum": 50010,
+               //"category": "nutrients-Bloom",
+               "category": categories[49],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "25#",
+               //"beforeTnSAmount":  "$60.91",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$60.91",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$60.91",
                // "code_50020": "",
@@ -5516,19 +5663,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               //"dateOfExpense":  "11/3/2020",
+               "name": "Griffen Greenhouse",
                //payee:payees[14]
-               "description": "nutrients-magnesium",
-               //description: descriptions[51]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "50#",
-               "beforeTnSAmount": "$22.70",
-               "tax": "",
-               "shipping": "",
-               "total": "$22.70",
-               "accountNum": 50010,
+               //"category": "nutrients-magnesium",
+               "category": categories[51],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "50#",
+               //"beforeTnSAmount":  "$22.70",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$22.70",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$22.70",
                // "code_50020": "",
@@ -5560,19 +5708,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/3/2020",
-               "payee": "Griffen Greenhouse",
+               //"dateOfExpense":  "11/3/2020",
+               "name": "Griffen Greenhouse",
                //payee:payees[14]
-               "description": "5 gallon plant pots",
-               //description: descriptions[1]
-               "usedFor": "indirect equip-non cap equip",
-               "numUnits": 44,
-               "unitMeas": "",
-               "beforeTnSAmount": "$78.22",
-               "tax": "",
-               "shipping": "",
-               "total": "$78.22",
-               "accountNum": 50550,
+               //"category": "5 gallon plant pots",
+               "category": categories[1],
+               "emoji": "indirect equip-non cap equip",
+               //"numUnits":  44,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$78.22",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$78.22",
+               "barter": false,
+               "price": 50550
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5604,19 +5753,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/07/20",
-               "payee": "Vessel Services",
+               //"dateOfExpense":  "11/07/20",
+               "name": "Vessel Services",
                //payee:payees[47]
-               "description": "dry ice",
-              //description: descriptions[22]
-               "usedFor": "extraction",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$16.50",
-               "tax": "$0.91",
-               "shipping": "",
-               "total": "$17.41",
-               "accountNum": 50022,
+               //"category": "dry ice",
+               "category": categories[22],
+               "emoji": "extraction",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$16.50",
+               //"tax":  "$0.91",
+               //"shipping":  "",
+               //"total":  "$17.41",
+               "barter": false,
+               "price": 50022
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5648,19 +5798,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/08/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/08/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "flavor",
-               //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$20.80",
-               "tax": "$1.14",
-               "shipping": "$9.42",
-               "total": "$31.36",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$20.80",
+               //"tax":  "$1.14",
+               //"shipping":  "$9.42",
+               //"total":  "$31.36",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5692,19 +5843,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "11/10/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$17.25",
-               "tax": "",
-               "shipping": "",
-               "total": "$17.25",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$17.25",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$17.25",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$17.25",
                // "code_50012": "",
                // "code_50020": "",
@@ -5736,19 +5888,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "11/10/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 2,
-               "unitMeas": "",
-               "beforeTnSAmount": "$65.25",
-               "tax": "$10.31",
-               "shipping": "",
-               "total": "$75.56",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  2,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$65.25",
+               //"tax":  "$10.31",
+               //"shipping":  "",
+               //"total":  "$75.56",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$75.56",
                // "code_50020": "",
@@ -5780,19 +5933,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "11/10/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$42.95",
-               "tax": "",
-               "shipping": "",
-               "total": "$42.95",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$42.95",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$42.95",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$42.95",
                // "code_50020": "",
@@ -5824,19 +5978,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/10/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "11/10/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "Green Leds-light bulbs",
-               //description: descriptions[34]
-               "usedFor": "indirect equipment repair&maint",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$22.90",
-               "tax": "$3.44",
-               "shipping": "",
-               "total": "$26.34",
-               "accountNum": 50552,
+               //"category": "Green Leds-light bulbs",
+               "category": categories[34],
+               "emoji": "indirect equipment repair&maint",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$22.90",
+               //"tax":  "$3.44",
+               //"shipping":  "",
+               //"total":  "$26.34",
+               "barter": false,
+               "price": 50552
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5868,19 +6023,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/11/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "11/11/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$30.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$30.00",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$30.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$30.00",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$30.00",
                // "code_50012": "",
                // "code_50020": "",
@@ -5912,19 +6068,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/12/20",
-               "payee": "Leapin Lizards",
+               //"dateOfExpense":  "11/12/20",
+               "name": "Leapin Lizards",
                //payee:payees[22]
-               "description": "herbs",
-               //description: descriptions[40]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$14.15",
-               "tax": "$0.78",
-               "shipping": "",
-               "total": "$14.93",
-               "accountNum": 50040,
+               //"category": "herbs",
+               "category": categories[40],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$14.15",
+               //"tax":  "$0.78",
+               //"shipping":  "",
+               //"total":  "$14.93",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -5956,19 +6113,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/15/20",
-               "payee": "Shaws",
+               //"dateOfExpense":  "11/15/20",
+               "name": "Shaws",
                //payee:payees[38]
-               "description": "cooking",
-               //description: descriptions[21]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$41.93",
-               "tax": "",
-               "shipping": "",
-               "total": "$41.93",
-               "accountNum": 50040,
+               //"category": "cooking",
+               "category": categories[21],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$41.93",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$41.93",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6000,19 +6158,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/15/20",
-               "payee": "CVS",
+               //"dateOfExpense":  "11/15/20",
+               "name": "CVS",
                //payee:payees[10]
-               "description": "batt/cable-office exp",
-               //description: descriptions[7]
-               "usedFor": "office supplies",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$30.56",
-               "tax": "$1.69",
-               "shipping": "",
-               "total": "$32.25",
-               "accountNum": 60140,
+               //"category": "batt/cable-office exp",
+               "category": categories[7],
+               "emoji": "office supplies",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$30.56",
+               //"tax":  "$1.69",
+               //"shipping":  "",
+               //"total":  "$32.25",
+               "barter": false,
+               "price": 60140
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6044,19 +6203,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/15/20",
-               "payee": "CVS",
+               //"dateOfExpense":  "11/15/20",
+               "name": "CVS",
                //payee:payees[10]
-               "description": "cable-office exp",
-               //description: descriptions[11]
-               "usedFor": "office supplies",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$12.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$12.99",
-               "accountNum": 60140,
+               //"category": "cable-office exp",
+               "category": categories[11],
+               "emoji": "office supplies",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$12.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$12.99",
+               "barter": false,
+               "price": 60140
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6088,19 +6248,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/17/2020",
-               "payee": "Lois",
+               //"dateOfExpense":  "11/17/2020",
+               "name": "Lois",
                //payee:payees[26]
-               "description": "Topicals-goats milk",
-               //description: descriptions[72]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$5.49",
-               "tax": "",
-               "shipping": "",
-               "total": "$5.49",
-               "accountNum": 50040,
+               //"category": "Topicals-goats milk",
+               "category": categories[72],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$5.49",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$5.49",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6132,19 +6293,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/17/2020",
-               "payee": "Lois",
+               //"dateOfExpense":  "11/17/2020",
+               "name": "Lois",
                //payee:payees[26]
-               "description": "Topicals-orange water",
-               //description: descriptions[73]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$3.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$3.99",
-               "accountNum": 50040,
+               //"category": "Topicals-orange water",
+               "category": categories[73],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$3.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$3.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6176,19 +6338,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/17/2020",
-               "payee": "Lois",
+               //"dateOfExpense":  "11/17/2020",
+               "name": "Lois",
                //payee:payees[26]
-               "description": "MCT",
-               //description: descriptions[45]
-               "usedFor": "cooking",
-               "numUnits": "",
-               "unitMeas": "16 oz",
-               "beforeTnSAmount": "$32.99",
-               "tax": "",
-               "shipping": "",
-               "total": "$32.99",
-               "accountNum": 50040,
+               //"category": "MCT",
+               "category": categories[45],
+               "emoji": "cooking",
+               //"numUnits":  "",
+               //"unitMeas":  "16 oz",
+               //"beforeTnSAmount":  "$32.99",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$32.99",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6220,19 +6383,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/20/20",
-               "payee": "State of Maine",
+               //"dateOfExpense":  "11/20/20",
+               "name": "State of Maine",
                //payee:payees[41]
-               "description": "Annual report",
-               //description: descriptions[4]
-               "usedFor": "Licensing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$185.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$185.00",
-               "accountNum": 60185,
+               //"category": "Annual report",
+               "category": categories[4],
+               "emoji": "Licensing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$185.00",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$185.00",
+
+               "price": 60185
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6264,18 +6429,19 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/25/20",
-               "payee": "Urban Garden",//payee:payees[46]
-               "description": "wash",
-               ,//description: descriptions[77]
-               "usedFor": "growing",
-               "numUnits": 5,
-               "unitMeas": "",
-               "beforeTnSAmount": "$4.99",
-               "tax": "$1.10",
-               "shipping": "",
-               "total": "$6.09",
-               "accountNum": 50010,
+               //"dateOfExpense":  "11/25/20",
+               "name": "Urban Garden",//payee:payees[46]
+               //"category": "wash",
+               "category": categories[77],
+               "emoji": "growing",
+               //"numUnits":  5,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$4.99",
+               //"tax":  "$1.10",
+               //"shipping":  "",
+               //"total":  "$6.09",
+               "barter": false,
+               "price": 50010
                // "code_50010": "",
                // "code_50012": "$6.09",
                // "code_50020": "",
@@ -6307,19 +6473,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/27/20",
-               "payee": "High Tech",
+               //"dateOfExpense":  "11/27/20",
+               "name": "High Tech",
                //payee:payees[17]
-               "description": "nutrients",
-               //description: descriptions[48]
-               "usedFor": "growing",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$93.85",
-               "tax": "$5.16",
-               "shipping": "",
-               "total": "$99.01",
-               "accountNum": 50010,
+               //"category": "nutrients",
+               "category": categories[48],
+               "emoji": "growing",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$93.85",
+               //"tax":  "$5.16",
+               //"shipping":  "",
+               //"total":  "$99.01",
+               "barter": false,
+               "price": 50010
                // "code_50010": "$42.25",
                // "code_50012": "$56.76",
                // "code_50020": "",
@@ -6351,19 +6518,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "flavor",
-               //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$30.04",
-               "tax": "",
-               "shipping": "",
-               "total": "$30.04",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$30.04",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$30.04",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6395,19 +6563,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "flavor",
-              //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$33.08",
-               "tax": "",
-               "shipping": "",
-               "total": "$33.08",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$33.08",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$33.08",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6439,19 +6608,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "oil",
-               //description: descriptions[56]
-               "usedFor": "cooking",
-               "numUnits": 7.5,
-               "unitMeas": "",
-               "beforeTnSAmount": "$22.98",
-               "tax": "",
-               "shipping": "",
-               "total": "$22.98",
-               "accountNum": 50040,
+               //"category": "oil",
+               "category": categories[56],
+               "emoji": "cooking",
+               //"numUnits":  7.5,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$22.98",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$22.98",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6483,19 +6653,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "flavor",
-              //description: descriptions[30]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$16.47",
-               "tax": "",
-               "shipping": "$11.00",
-               "total": "$27.47",
-               "accountNum": 50040,
+               //"category": "flavor",
+               "category": categories[30],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$16.47",
+               //"tax":  "",
+               //"shipping":  "$11.00",
+               //"total":  "$27.47",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6527,19 +6698,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "Emu oil",
-               //description: descriptions[25]
-               "usedFor": "cooking",
-               "numUnits": 1,
-               "unitMeas": "",
-               "beforeTnSAmount": "$65.98",
-               "tax": "",
-               "shipping": "",
-               "total": "$65.98",
-               "accountNum": 50040,
+               //"category": "Emu oil",
+               "category": categories[25],
+               "emoji": "cooking",
+               //"numUnits":  1,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$65.98",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$65.98",
+               "barter": false,
+               "price": 50040
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6571,19 +6743,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "8oz bottles",
-               //description: descriptions[2]
-               "usedFor": "packaging",
-               "numUnits": 1,
-               "unitMeas": 50,
-               "beforeTnSAmount": "$19.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$19.00",
-               "accountNum": 50090,
+               //"category": "8oz bottles",
+               "category": categories[2],
+               "emoji": "packaging",
+               //"numUnits":  1,
+               //"unitMeas":  50,
+               //"beforeTnSAmount":  "$19.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$19.00",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6615,19 +6788,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/29/20",
-               "payee": "Bulk Apothecary",
+               //"dateOfExpense":  "11/29/20",
+               "name": "Bulk Apothecary",
                //payee:payees[7]
-               "description": "bottle pumps",
-               //description: descriptions[8]
-               "usedFor": "packaging",
-               "numUnits": 1,
-               "unitMeas": 50,
-               "beforeTnSAmount": "$14.00",
-               "tax": "",
-               "shipping": "$15.19",
-               "total": "$29.19",
-               "accountNum": 50090,
+               //"category": "bottle pumps",
+               "category": categories[8],
+               "emoji": "packaging",
+               //"numUnits":  1,
+               //"unitMeas":  50,
+               //"beforeTnSAmount":  "$14.00",
+               //"tax":  "",
+               //"shipping":  "$15.19",
+               //"total":  "$29.19",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6659,19 +6833,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/30/2020",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "freight-out",
-               //description: descriptions[31]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$25.02",
-               "tax": "",
-               "shipping": "",
-               "total": "$25.02",
-               "accountNum": 40195,
+               //"dateOfExpense":  "11/30/2020",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "freight-out",
+               "category": categories[31],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$25.02",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$25.02",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6703,19 +6878,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "11/30/20",
-               "payee": "Dollar Store",
+               //"dateOfExpense":  "11/30/20",
+               "name": "Dollar Store",
                //payee:payees[12]
-               "description": "shrinkwrap",
-               //description: descriptions[66]
-               "usedFor": "packaging",
-               "numUnits": 20,
-               "unitMeas": "",
-               "beforeTnSAmount": "$1.00",
-               "tax": "$1.27",
-               "shipping": "",
-               "total": "$2.27",
-               "accountNum": 50090,
+               //"category": "shrinkwrap",
+               "category": categories[66],
+               "emoji": "packaging",
+               //"numUnits":  20,
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$1.00",
+               //"tax":  "$1.27",
+               //"shipping":  "",
+               //"total":  "$2.27",
+               "barter": false,
+               "price": 50090
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6747,19 +6923,21 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "12/05/20",
-               "payee": "Staples",
+               //"dateOfExpense":  "12/05/20",
+               "name": "Staples",
                //payee:payees[40]
-               "description": "office supplies",
-               //description: descriptions[55]
-               "usedFor": "office supplies",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$113.11",
-               "tax": "",
-               "shipping": "",
-               "total": "$113.11",
-               "accountNum": 60140,
+               //"category": "office supplies",
+               "category": categories[55],
+               "emoji": "office supplies",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$113.11",
+               //"tax":  "",
+               //"shipping":  "",
+               "barter": false,
+               //"total":  "$113.11",
+
+               "price": 60140
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6791,19 +6969,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "12/8/2020",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "freight-out",
-               //description: descriptions[31]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$55.00",
-               "tax": "",
-               "shipping": "",
-               "total": "$55.00",
-               "accountNum": 40195,
+               //"dateOfExpense":  "12/8/2020",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "freight-out",
+               "category": categories[31],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$55.00",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$55.00",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6835,19 +7014,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "12/21/2020",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "Shipping",
-               //description: descriptions[64]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$28.83",
-               "tax": "",
-               "shipping": "",
-               "total": "$28.83",
-               "accountNum": 40195,
+               //"dateOfExpense":  "12/21/2020",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "Shipping",
+               "category": categories[64],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$28.83",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$28.83",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",
@@ -6879,19 +7059,20 @@ const Item = require('../models/item.js/item');
                // "": ""
           },
           {
-               "dateOfExpense": "12/21/20",
-               "payee": "Post office",
-              //payee:payees[34]
-               "description": "Shipping",
-               //description: descriptions[64]
-               "usedFor": "freight out",
-               "numUnits": "",
-               "unitMeas": "",
-               "beforeTnSAmount": "$28.83",
-               "tax": "",
-               "shipping": "",
-               "total": "$28.83",
-               "accountNum": 40195,
+               //"dateOfExpense":  "12/21/20",
+               "name": "Post office",
+               //payee:payees[34]
+               //"category": "Shipping",
+               "category": categories[64],
+               "emoji": "freight out",
+               //"numUnits":  "",
+               //"unitMeas":  "",
+               //"beforeTnSAmount":  "$28.83",
+               //"tax":  "",
+               //"shipping":  "",
+               //"total":  "$28.83",
+               "barter": false,
+               "price": 40195
                // "code_50010": "",
                // "code_50012": "",
                // "code_50020": "",

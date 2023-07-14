@@ -1,77 +1,187 @@
-import { useState, useEffect, useRef } from 'react';
-import * as itemsAPI from '../../utilities/items-api';
-import * as ordersAPI from '../../utilities/order-api';
-import styles from './NewOrderPage.module.scss';
-import { Link, useNavigate } from 'react-router-dom';
-import MenuList from '../../components/MenuList/MenuList';
-import CategoryList from '../../components/CategoryList/CategoryList';
-import OrderDetail from '../../components/OrderDetail/OrderDetail';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import NewItem from "../../components/NewItem/NewItem";
 
-export default function NewOrderPage({ user, setUser }) {
-  const [menuItems, setMenuItems] = useState([]);
-  const [activeCat, setActiveCat] = useState('');
-  const [cart, setCart] = useState(null);
-  const categoriesRef = useRef([]);
-  const navigate = useNavigate();
 
-  useEffect(function() {
-    async function getItems() {
-      const items = await itemsAPI.getAll();
-      categoriesRef.current = items.reduce((cats, item) => {
-        const cat = item.category.name;
-        return cats.includes(cat) ? cats : [...cats, cat];
-      }, []);
-      setMenuItems(items);
-      setActiveCat(categoriesRef.current[0]);
-    }
-    getItems();
-    async function getCart() {
-      const cart = await ordersAPI.getCart();
-      setCart(cart);
-    }
-    getCart();
-  }, []);
-  // Providing an empty 'dependency array'
-  // results in the effect running after
-  // the FIRST render only
 
-  /*-- Event Handlers --*/
-  async function handleAddToOrder(itemId) {
-    const updatedCart = await ordersAPI.addItemToCart(itemId);
-    setCart(updatedCart);
+
+
+
+const handleChange = (event) => {
+  setItem({ ...item, [event.target.name]: event.target.value })
+}
+const [items, setItems] = useState([])
+const createItem = async () => {
+  try {
+    const response = await fetch('/api/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ ...item })
+    })
+    const data = await response.json()
+    setItems([data, ...items])
+  } catch (error) {
+    console.error(error)
+  } finally {
+    setItem({
+      name: '',
+      emoji: '',
+      category: '',
+      price: '', 
+      barter: false
+    })
+  }
+}
+
+
+import { useState, useEffect } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './App.module.scss'
+
+import Auth from './components/Auth/Auth'
+import UserLogOut from './components/UserLogOut/UserLogOut'
+import CreateBookmark from './components/CreateBookmark/CreateBookmark'
+import BookmarkList from './components/BookmarkList/BookmarkList'
+import { Card,Button, Form, Row, Col } from 'react-bootstrap'
+import { Cloudinary } from "@cloudinary/url-gen";
+import UploadWidget from './components/UploadWidget/UploadWidget'
+
+
+export default function App() {
+ 
+
+  const handleChange = (event) => {
+    setBookmark({ ...bookmark, [event.target.name]: event.target.value })
   }
 
-  async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
-    setCart(updatedCart);
-  }
+  const [error, updateError] = useState();
 
-  async function handleCheckout() {
-    await ordersAPI.checkout();
-    navigate('/orders');
+  const [bookmark, setBookmark] = useState({
+    title: '',
+    category: '',
+    image: '',
+    body: ''
+  })
+  const [bookmarks, setBookmarks] = useState([])
+
+
+
+  const createBookmark = async () => {
+    try {
+      const response = await fetch('/api/bookmarks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ ...bookmark })
+      })
+      const data = await response.json()
+      setBookmarks([data, ...bookmarks])
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setBookmark({
+        title: '',
+        category: '',
+        image: '',
+        body: ''
+      })
+    }
+  }
+  const listBookmarksByUser = async () => {
+    try {
+      const response = await fetch('/api/users/bookmarks', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+        }
+      })
+      const data = await response.json()
+      setBookmarks(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const deleteBookmark = async (id) => {
+    try {
+      const response = await fetch(`/api/bookmarks/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const data = await response.json()
+      const bookmarksCopy = [...bookmarks]
+      const index = bookmarksCopy.findIndex(bookmark => id === bookmarks._id)
+      bookmarksCopy.splice(index, 1)
+      setBookmarks(bookmarksCopy)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const updateBookmark = async (id, updatedData) => {
+    try {
+      const response = await fetch(`/api/bookmarks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(updatedData)
+      })
+      const data = await response.json()
+      const bookmarksCopy = [...bookmarks]
+      const index = bookmarksCopy.findIndex(bookmark => id === bookmarks._id)
+      bookmarksCopy[index] = { ...bookmarksCopy[index], ...updatedData }
+      setBookmarks(bookmarksCopy)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
-    <main className={styles.NewOrderPage}>
-      <aside>
-        <CategoryList
-          categories={categoriesRef.current}
-          cart={setCart}
-          setActiveCat={setActiveCat}
-        />
-        <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-        <UserLogOut user={user} setUser={setUser} />
-      </aside>
-      <MenuList
-        menuItems={menuItems.filter(item => item.category.name === activeCat)}
-        handleAddToOrder={handleAddToOrder}
+    <>
+ 
+
+
+{/* 
+            <div className="container">
+                <h2>Unsigned with Upload Preset</h2>
+                <UploadWidget onUpload={handleOnUpload}>
+                    {({ open }) => {
+                        function handleOnClick(e) {
+                            e.preventDefault();
+                            open();
+                        }
+                        return (
+                            <button onClick={handleOnClick}>
+                                Upload an Image
+                            </button>
+                        )
+                    }}
+                </UploadWidget>
+
+                {error && <p>{error}</p>}
+
+                {/* {url && (
+                    <Card key={url._id} className="card" style={{ width: '118rem' }}
+                    >
+                        <Card.Img placeholder="holder.js/100px180" variant="top" id="uploadedimage" ></Card.Img>
+                        <Card.Body className="url">{url}</Card.Body>
+                    </Card>
+                )} </div>*/}
+             
+      
+      <CreateBookmark
+        createBookmark={createBookmark}
+        bookmark={bookmark}
+        handleChange={handleChange}
       />
-      <OrderDetail
-        order={cart}
-        handleChangeQty={handleChangeQty}
-        handleCheckout={handleCheckout}
-      />
-    </main>
-  );
+      
+    </>
+  )
 }
