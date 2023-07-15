@@ -25,7 +25,7 @@ export default function CreateItem() {
           //     barter: false
 
      })
-     index
+    // index
      const getItems = async () => {
           try {
                console.log("hi")

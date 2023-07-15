@@ -3,12 +3,13 @@ const Item = require('../../models/item');
 module.exports = {
   index,
   show, 
-  create
-};
+//   create
+ };
 
 async function index(req, res) {
   try{
     const items = await Item.find({}).sort('name').populate('category').exec();
+    console.log(items)
     // re-sort based upon the sortOrder of the categories
     items.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
     res.status(200).json(items);
@@ -26,19 +27,19 @@ async function show(req, res) {
   }  
 }
 
-async function create(req, res, next){
-  try {
-    const createdItem = await Item.create(req.body)
-    const user = await User.findOne({ email: res.locals.data.email })
-    user.items.addToSet(createdItem)
-    await user.save()
-    res.locals.data.item = createdItem
-    next()
+// async function create(req, res, next){
+//   try {
+//     const createdItem = await Item.create(req.body)
+//     const user = await User.findOne({ email: res.locals.data.email })
+//     user.items.addToSet(createdItem)
+//     await user.save()
+//     res.locals.data.item = createdItem
+//     next()
     
     
     
-  } catch (error) {
+//   } catch (error) {
     
-  }
+//   }
 
-}
+// }

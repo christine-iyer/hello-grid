@@ -4,7 +4,7 @@ import * as ordersAPI from '../../utilities/order-api';
 import styles from './NewOrderPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import MenuList from '../../components/MenuList/MenuList';
-// import CreateItem from '../../components/CreateItem/CreateItem'
+import CreateItem from '../../components/CreateItem/CreateItem'
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';

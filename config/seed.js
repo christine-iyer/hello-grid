@@ -859,7 +859,8 @@ const Item = require('../models/item');
       name: "zNatural",
       emoji: "Coconut sugar",
       category:categories[1],
-      price: 39.9
+      price: 39.9, 
+      barter: false
     },
     {
       name: "zNatural",
@@ -948,7 +949,8 @@ const Item = require('../models/item');
       name: "Griffen Greenhouse",
       emoji: "5 gallon plant pots",
       category:categories[7],
-      price: 78.22
+      price: 78.22, 
+      barter: false
     },
     {
       name: "Handsink-rest equiment store",
@@ -1010,25 +1012,29 @@ const Item = require('../models/item');
       name: "Urban Garden",
       emoji: "Cloner",
       category:categories[7],
-      price: 242.31
+      price: 242.31, 
+      barter: false
     },
     {
       name: "High Tech",
       emoji: "Green Leds-light bulbs",
       category:categories[9],
-      price: 22.9
+      price: 22.9, 
+      barter: false
     },
     {
       name: "Home depot",
       emoji: "no description",
       category:categories[9],
-      price: 376.27
+      price: 376.27, 
+      barter: false
     },
     {
       name: "Napa",
       emoji: "pump oil",
       category:categories[9],
-      price: 9.22
+      price: 9.22, 
+      barter: false
     },
     {
       name: "Proverda Lab",
@@ -1104,13 +1110,15 @@ const Item = require('../models/item');
       name: "Staples",
       emoji: "office supplies",
       category:categories[15],
-      price: 113.11
+      price: 113.11, 
+      barter: false
     },
     {
       name: "State of Maine",
       emoji: "LLC license-annual",
       category:categories[14],
-      price: 275
+      price: 275, 
+      barter: false
     },
     {
       name: "State of Maine",
