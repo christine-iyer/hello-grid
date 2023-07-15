@@ -8,6 +8,6 @@ router.get('/', itemsCtrl.index);
 // GET /api/items/:id
 router.get('/:id', itemsCtrl.show);
 
-router.post('/', checkToken, ensureLoggedIn, itemsCtrl.create, itemsCtrl.show)
+router.post('/',  itemsCtrl.create, itemsCtrl.show)
 
 module.exports = router;

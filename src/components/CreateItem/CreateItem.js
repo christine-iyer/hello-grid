@@ -25,9 +25,10 @@ export default function CreateItem() {
           //     barter: false
 
      })
-     // index
+     index
      const getItems = async () => {
           try {
+               console.log("hi")
                const response = await fetch('/api/items')
                const data = await response.json()
                setItems(data)
@@ -69,6 +70,7 @@ export default function CreateItem() {
      // create
      const createItem = async () => {
           try {
+               console.log('hi')
                const response = await fetch(`/api/items`, {
                     method: "POST",
                     headers: {
@@ -76,8 +78,10 @@ export default function CreateItem() {
                     },
                     body: JSON.stringify({ ...newItem })
                })
+               
                const data = await response.json()
                setFoundItem(data)
+               console.dir(data)
                setNewItem({
                     name: '',
                     emoji: '',
