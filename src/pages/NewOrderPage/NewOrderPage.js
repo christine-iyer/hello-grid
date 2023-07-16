@@ -4,11 +4,10 @@ import * as ordersAPI from '../../utilities/order-api';
 import styles from './NewOrderPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import MenuList from '../../components/MenuList/MenuList';
-import CreateItem from '../../components/CreateItem/CreateItem'
 import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
-
+import NewItemPage from '../NewItemPage/NewItemPage'
 export default function NewOrderPage({ user, setUser, items }) {
   const [menuItems, setMenuItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
@@ -64,7 +63,7 @@ export default function NewOrderPage({ user, setUser, items }) {
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
-      {/* <CreateItem /> */}
+       <NewItem /> 
 
       <MenuList
         menuItems={menuItems.filter(item => item.category.name === activeCat)}
