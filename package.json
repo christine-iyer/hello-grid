@@ -37,7 +37,7 @@
     "seed": "node dataRaw.js" 
 
   },
-  "proxy": "http://localhost:3007",
+  "proxy": "http://localhost:3006",
   "eslintConfig": {
     "extends": [
       "react-app",
