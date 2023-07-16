@@ -1,47 +1,46 @@
 import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 
+export default function NewItemPage ({ user, setUser }){
 
-
-export default function NewItemPage ({  }){
-    const [items, setItems] = useState([])
-    const [foundItem, setFoundItem] = useState(null)
-    const [newItem, setNewItem] = useState({
+    const [fruits, setFruits] = useState([])
+    const [foundFruit, setFoundFruit] = useState(null)
+    const [newFruit, setNewFruit] = useState({
         name: '',
-        emoji:'',
-        category:'',
-        price:1.99,
-        barter: false
+        readyToEat: false,
+        color: ''
     })
+    const navigate = useNavigate();
     // index
-    const getItems = async () => {
+    const getFruits = async () => {
         try {
-            const response = await fetch('/api/items')
+            const response = await fetch('/api/fruits')
             const data = await response.json()
-            setItems(data)
+            setFruits(data)
         } catch (error) {
             console.error(error)
         }
     }
     // delete
-    const deleteItem = async (id) => {
+    const deleteFruit = async (id) => {
         try {
-            const response = await fetch(`/api/items/${id}`, {
+            const response = await fetch(`/api/fruits/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
             const data = await response.json()
-            setFoundItem(data)
+            setFoundFruit(data)
         } catch (error) {
             console.error(error)
         }
     }
     // update
-    const updateItem = async (id, updatedData) => {
+    const updateFruit = async (id, updatedData) => {
         try {
-            const response = await fetch(`/api/items/${id}`, {
+            const response = await fetch(`/api/fruits/${id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,29 +48,27 @@ export default function NewItemPage ({  }){
                 body: JSON.stringify({...updatedData})
             })
             const data = await response.json()
-            setFoundItem(data)
+            setFoundFruit(data)
         } catch (error) {
             console.error(error)
         }
     }
     // create
-        const createItem = async () => {
+        const createFruit = async () => {
             try {
-                const response = await fetch(`/api/items`, {
+                const response = await fetch(`/api/fruits`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({...newItem})
+                    body: JSON.stringify({...newFruit})
                 })
                 const data = await response.json()
-                setFoundItem(data)
-                setNewItem({
+                setFoundFruit(data)
+                setNewFruit({
                     name: '',
-        emoji:'',
-        category:'',
-        price:1.99,
-        barter: false
+                    readyToEat: false,
+                    color: ''
                 })
             } catch (error) {
                 console.error(error)
@@ -79,41 +76,41 @@ export default function NewItemPage ({  }){
         }
 
     const handleChange = (evt) => {
-        setNewItem({...newItem, [evt.target.name]: evt.target.value})
+        setNewFruit({...newFruit, [evt.target.name]: evt.target.value})
     }
 
     useEffect(()=> {
-        getItems()
-    }, [foundItem])
+        getFruits()
+    }, [foundFruit])
 
     return (
         <>
             {
-                items && items.length ? (<ul>
+                fruits && fruits.length ? (<ul>
                     {
-                        items.map((item) => {
+                        fruits.map((fruit) => {
                             return (
-                                <li key={item._id}>
-                                    {item.name} is {item.emoji} {item.barter? "and it's barter" : "it's not ready to eat"}
-                                    <br/><button onClick={() => deleteItem(item._id)}>X</button>
+                                <li key={fruit._id}>
+                                    {fruit.name} is {fruit.color} {fruit.readyToEat? 'and its ready to eat' : 'its not ready to eat'}
+                                    <br/><button onClick={() => deleteFruit(fruit._id)}>X</button>
                                 </li>
                             )
                         })
                     }
-                </ul>): <h1>No Items Yet Add One Below</h1>
+                </ul>): <h1>No Fruits Yet Add One Below</h1>
             }
-            {'Name '}<input value={newItem.name} onChange={handleChange} name="name"></input><br/>
-            {'Price '}<input value={newItem.price} onChange={handleChange} name="price"></input><br/>
-            {'Barter'}<input type="checkbox" checked={newItem.barter} onChange={(evt) => setNewItem({...newItem, readyToEat: evt.target.checked })}></input><br/>
-            <button onClick={() => createItem() }>Create A New Item</button>
+            {'Name '}<input value={newFruit.name} onChange={handleChange} name="name"></input><br/>
+            {'Color '}<input value={newFruit.color} onChange={handleChange} name="color"></input><br/>
+            {'Ready To Eat '}<input type="checkbox" checked={newFruit.readyToEat} onChange={(evt) => setNewFruit({...newFruit, readyToEat: evt.target.checked })}></input><br/>
+            <button onClick={() => createFruit() }>Create A New Fruit</button>
             {
-                foundItem? <div>
-                    <h1>{foundItem.name}</h1>
-                    <h2>{foundItem.price}</h2>
-                    <h3>{foundItem.barter? 'I barter': 'I am cash'}</h3>
-                </div>: <>No Item in Found Item State</>
+                foundFruit? <div>
+                    <h1>{foundFruit.name}</h1>
+                    <h2>{foundFruit.color}</h2>
+                    <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
+                </div>: <>No Fruit in Found Fruit State</>
             }
-    
+
             
         </>
     )
