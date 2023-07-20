@@ -4,43 +4,45 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function NewItemPage ({ user, setUser }){
 
-    const [fruits, setFruits] = useState([])
-    const [foundFruit, setFoundFruit] = useState(null)
-    const [newFruit, setNewFruit] = useState({
+    const [items, setItems] = useState([])
+    const [foundItem, setFoundItem] = useState(null)
+    const [newItem, setNewItem] = useState({
         name: '',
-        readyToEat: false,
-        color: ''
+        emoji: '',
+        category:'',
+        price: 1.99,
+        barter: false
     })
     const navigate = useNavigate();
     // index
-    const getFruits = async () => {
+    const getItems = async () => {
         try {
-            const response = await fetch('/api/fruits')
+            const response = await fetch('/api/items')
             const data = await response.json()
-            setFruits(data)
+            setItems(data)
         } catch (error) {
             console.error(error)
         }
     }
     // delete
-    const deleteFruit = async (id) => {
+    const deleteItem = async (id) => {
         try {
-            const response = await fetch(`/api/fruits/${id}`, {
+            const response = await fetch(`/api/items/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
             const data = await response.json()
-            setFoundFruit(data)
+            setFoundItem(data)
         } catch (error) {
             console.error(error)
         }
     }
     // update
-    const updateFruit = async (id, updatedData) => {
+    const updateItem = async (id, updatedData) => {
         try {
-            const response = await fetch(`/api/fruits/${id}`, {
+            const response = await fetch(`/api/items/${id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'
@@ -48,27 +50,29 @@ export default function NewItemPage ({ user, setUser }){
                 body: JSON.stringify({...updatedData})
             })
             const data = await response.json()
-            setFoundFruit(data)
+            setFoundItem(data)
         } catch (error) {
             console.error(error)
         }
     }
     // create
-        const createFruit = async () => {
+        const createItem = async () => {
             try {
-                const response = await fetch(`/api/fruits`, {
+                const response = await fetch(`/api/items`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({...newFruit})
+                    body: JSON.stringify({...newItem})
                 })
                 const data = await response.json()
-                setFoundFruit(data)
-                setNewFruit({
+                setFoundItem(data)
+                setNewItem({
                     name: '',
-                    readyToEat: false,
-                    color: ''
+                    emoji: '',
+                    category:'',
+                    price: 1.99,
+                    barter: false
                 })
             } catch (error) {
                 console.error(error)
@@ -76,39 +80,39 @@ export default function NewItemPage ({ user, setUser }){
         }
 
     const handleChange = (evt) => {
-        setNewFruit({...newFruit, [evt.target.name]: evt.target.value})
+        setNewItem({...newItem, [evt.target.name]: evt.target.value})
     }
 
     useEffect(()=> {
-        getFruits()
-    }, [foundFruit])
+        getItems()
+    }, [foundItem])
 
     return (
         <>
             {
-                fruits && fruits.length ? (<ul>
+                items && items.length ? (<ul>
                     {
-                        fruits.map((fruit) => {
+                        items.map((item) => {
                             return (
-                                <li key={fruit._id}>
-                                    {fruit.name} is {fruit.color} {fruit.readyToEat? 'and its ready to eat' : 'its not ready to eat'}
-                                    <br/><button onClick={() => deleteFruit(fruit._id)}>X</button>
+                                <li key={item._id}>
+                                    {item.name} is {item.emoji} {item.barter? 'and its ready to eat' : 'its not ready to eat'}
+                                    <br/><button onClick={() => deleteItem(item._id)}>X</button>
                                 </li>
                             )
                         })
                     }
-                </ul>): <h1>No Fruits Yet Add One Below</h1>
+                </ul>): <h1>No Items Yet Add One Below</h1>
             }
-            {'Name '}<input value={newFruit.name} onChange={handleChange} name="name"></input><br/>
-            {'Color '}<input value={newFruit.color} onChange={handleChange} name="color"></input><br/>
-            {'Ready To Eat '}<input type="checkbox" checked={newFruit.readyToEat} onChange={(evt) => setNewFruit({...newFruit, readyToEat: evt.target.checked })}></input><br/>
-            <button onClick={() => createFruit() }>Create A New Fruit</button>
+            {'Name '}<input value={newItem.name} onChange={handleChange} name="name"></input><br/>
+            {'Color '}<input value={newItem.barter} onChange={handleChange} name="barter"></input><br/>
+            {'Ready To Eat '}<input type="checkbox" checked={newItem.barter} onChange={(evt) => setNewItem({...newItem, barter: evt.target.checked })}></input><br/>
+            <button onClick={() => createItem() }>Create A New Item</button>
             {
-                foundFruit? <div>
-                    <h1>{foundFruit.name}</h1>
-                    <h2>{foundFruit.color}</h2>
-                    <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
-                </div>: <>No Fruit in Found Fruit State</>
+                foundItem? <div>
+                    <h1>{foundItem.name}</h1>
+                    <h2>{foundItem.barter}</h2>
+                    <h3>{foundItem.barter? 'I am ready': 'I am not ready'}</h3>
+                </div>: <>No Item in Found Item State</>
             }
 
             

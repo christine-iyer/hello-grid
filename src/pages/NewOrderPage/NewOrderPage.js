@@ -16,7 +16,7 @@ export default function NewOrderPage({ user, setUser, items }) {
   const navigate = useNavigate();
 
   useEffect(function() {
-    async function getItems() {
+    async function getMenuItems() {
       const items = await itemsAPI.getAll();
       categoriesRef.current = items.reduce((cats, item) => {
         const cat = item.category.name;
@@ -25,7 +25,7 @@ export default function NewOrderPage({ user, setUser, items }) {
       setMenuItems(items);
       setActiveCat(categoriesRef.current[0]);
     }
-    getItems();
+    getMenuItems();
     async function getCart() {
       const cart = await ordersAPI.getCart();
       setCart(cart);
